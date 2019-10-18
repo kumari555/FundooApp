@@ -63,12 +63,10 @@
 
 /*------------------ registerComponent-------- */
 
-.button {
-    margin-right: 553%;
-}
-
-.appBar {
-    margin-left: 48%;
+.service-main-div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .registerCard {
@@ -92,61 +90,18 @@
     justify-content: space-evenly;
 }
 
-.Rbutton {
-    margin-left: 44%;
-}
-
-.cartButton {
-    margin-right: 20%
-}
-
-.signinCard {
-    /* display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row; */
-    width: 100%;
-    /* height: 414px;
-  margin-top: 5%; */
-}
-
-/* .signinForgot {
-  margin-right: 220%;
-}
-
-.signinCreate {
-  margin-right: 220%;
-} */
-
-.service-main-div {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
 .register-carts {
     height: auto;
 }
 
-.loginCard {
-    display: flex;
-    -ms-flex-align: center;
-    align-items: center;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    width: 62%;
-    height: 100%;
-    /* overflow: hidden; */
-    overflow: hidden;
+.Rbutton {
+    margin-left: 44%;
 }
 
-.signin-cards {
-    background: lightgrey;
-    height: 100%;
-    width: 50%;
-    margin-top: 4%;
+/*-------------------signin Component-----------------*/
+
+.signinCard {
+    width: 100%;
 }
 
 .signin-div {
@@ -161,17 +116,18 @@
     flex-direction: column;
 }
 
-.forgot-Card {
-    display: flex;
-    -ms-flex-align: center;
-    align-items: center;
-    -ms-flex-pack: justify;
-    justify-content: center;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    width: 42%;
-    margin-top: 7%
+.signin-cards {
+    background: lightgrey;
+    height: 100%;
+    width: 50%;
+    margin-top: 4%;
 }
+
+.email-in-signin {
+    width: 100%;
+}
+
+/*--------------------dashboardComponent---------------------*/
 
 .dashboard-appbar {
     display: flex;
@@ -179,24 +135,78 @@
     width: 100%;
 }
 
-.dashboardnote {
-    /* margin-top: 10%; */
-    width: 100%;
-    -ms-flex-pack: center;
-    justify-content: center;
-    padding-top: 9%;
+.dashboard-div1 {
+    display: flex;
+    width: 30%;
+    justify-content: space-evenly;
+}
+
+.fundo-image {
+    width: 65%;
+}
+
+.fundo-text {
+    padding: 16px 150px 1px 1px;
+    font-size: 20px;
+    width: 14%;
+}
+
+.menuicon {
+    width: 12%;
+    padding: 1px 0px 0px 0px
+}
+
+.fundo-image-div {
+    width: 19%;
 }
 
 .searchbar {
     display: flex;
-    -ms-flex-pack: center;
-    justify-content: end;
-    width: 100%;
+    width: 40%;
     background-color: #f1f2f3;
+}
+
+.appbar-div2 {
+    display: flex;
+    width: 30%;
+    justify-content: flex-end;
 }
 
 .icon-button {
     width: 100%;
+}
+
+.refreshIcon {
+    animation: spin 4s linear infinite;
+    color: #5f6368;
+}
+
+.listview-css {
+    width: 19%;
+}
+
+/* @-moz - keyframes spin {
+    50 % {
+        -transform: rotateY(90deg);
+    }
+} */
+
+.profileContent {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5%;
+    width: 100%;
+}
+
+.profilePaper {
+    width: 20rem;
+}
+
+/*--------------------------------noteCardComponent-------------*/
+
+.noteComponent {
+    display: flex;
+    justify-content: center;
 }
 
 .note-card {
@@ -205,10 +215,10 @@
     justify-content: space-between;
 }
 
-.noteComponent {
-    display: flex;
-    justify-content: center;
-}
+/* .createText-align{
+  display: flex;
+  justify-content: space-between;
+} */
 
 .icons {
     display: flex;
@@ -244,26 +254,61 @@
     justify-content: space-between;
 }
 
-.menuicon {
-    width: 4%;
+.dashboardnote {
+    /* margin-top: 10%; */
+    width: 100%;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding-top: 9%;
 }
 
-.fundo-text {
-    width: 23%;
+/*--------------------getNoteComponent-----------*/
+
+#noteList {
+    width: 80%;
+    height: auto;
+    margin-left: 11%;
 }
 
-.fundo-image {
-    width: 70%;
+.card-note {
+    width: 29%;
+    padding-bottom: 22px;
+    height: fit-content;
 }
 
-.fundo-image-div {
-    width: 8%;
+.card-note:hover .align-icons {
+    visibility: visible
 }
 
-/* .account-btn {
+.Cardscss {
+    margin-top: 5%;
+    height: 100%;
+    box-shadow: 1px 1px 1px 1px;
+}
+
+.getNotes-align {
     display: flex;
-    justify-content: space-between
-} */
+    justify-content: right;
+    padding: 1px 1px 1px 9px;
+}
+
+.email-css {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.align-icons {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 9%;
+    visibility: hidden;
+}
+
+.update-icons {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
 
 .getnote-Card {
     width: 65%;
@@ -281,169 +326,75 @@
     margin-top: 3%;
 }
 
-.card-note {
-    width: 29%;
-    padding-bottom: 22px;
-}
-
-.Cardscss {
-    margin-top: 5%;
-    height: 100%;
-    box-shadow: 1px 1px 1px 1px;
-}
-
-.menuIcons {
-    display: flex;
-    padding: 0px 24px 1px 11px;
-}
-
-/* .drarwer{
- width: 15%;
-} */
-
-.icon-text {
-    padding: 1px 1px 1px 3px;
-}
-
-.color-css {
-    /* padding: 3px 0px 51px 1px; */
-    flex-wrap: nowrap;
-}
-
-.color-poper {
-    width: 40%;
-}
-
-.card-note:hover .align-icons {
-    visibility: visible
-}
-
-.align-icons {
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: 9%;
-    visibility: hidden;
-}
-
-.update-icons {
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.dia-div {
-    width: 36%;
-}
-
-.titleDescInput {
-    width: 100%
-}
-
-.getNotes-align {
-    display: flex;
-    justify-content: right;
-    padding: 1px 1px 1px 9px;
-}
-
-.label-css {
-    display: flex;
-    justify-content: space-around;
-    /* background-color: #e0e0e0;
-  width: 100px;
-  height: 100px;
-  overflow: scroll; */
-}
-
-.addLabel {
-    background-color: #f1f2f3;
-    /* width: 201px; */
-    height: 205px;
-    overflow: scroll;
-    width: 100%;
-}
-
-.addLabel-css {
-    display: flex;
-    justify-content: center;
-}
-
-.email-in-signin {
-    width: 100%;
-}
-
-.archivenotes {
-    margin-top: 9%;
-    display: flex;
-    justify-content: space-between;
-    width: 54%;
-    flex-wrap: wrap;
-}
-
-.getArchiveAlign {
-    display: flex;
-    justify-content: center
-}
-
-.trashNotes {
-    margin-top: 9%;
-    display: flex;
-    justify-content: space-between;
-    width: 54%;
-    flex-wrap: wrap;
-}
-
-.trashNotesAlign {
-    display: flex;
-    justify-content: center
-}
-
-.profileContent {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 5%;
-    width: 100%;
-}
-
-.profilePaper {
-    width: 20rem;
-}
-
-/* .createText-align{
-  display: flex;
-  justify-content: space-between;
-} */
-
-#noteList {
-    width: 80%;
-    height: auto;
-    margin-left: 11%;
+.button {
+    margin-right: 553%;
 }
 
 #transitionLeft {
     margin-left: 8%;
 }
 
-/* #transitionRight {
-    margin-left: 7%;
+/* .dialog-css {
+    width: 60%;
 } */
 
-.saveDate {
-    padding: 1px 1px 1px 160px;
+/* .reminder-chip {
+    max-width: max-content;
+} */
+
+/* .appBar {
+    margin-left: 48%;
 }
 
-.labelnotes {
+.cartButton {
+    margin-right: 20%
+} */
+
+/* .loginCard {
     display: flex;
-    width: 59%;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
     justify-content: space-between;
-    flex-wrap: wrap;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 62%;
+    height: 100%;
+    /* overflow: hidden; */
+
+/* overflow: hidden; */
+
+/* } */
+
+*/
+/*--------------forgotComponent----------------*/
+
+.forgot-Card {
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: center;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 42%;
+    margin-top: 7%
 }
 
-.refreshIcon {
-    /* -webkit - animation: spin 4s linear infinite;    
-      -moz - animation: spin 4s linear infinite;
-         animation: spin 4s linear infinite;
-        color: #5f6368;
-     @-moz - keyframes spin { 50 % { - moz - transform: rotateY(90deg); } */
+/* .get-notes {
+   
+    display: flex;
+    width: 100%;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    margin-top: 3%;
+} */
+
+/*------------drawerComponent-------------------------*/
+
+.menuIcons {
+    display: flex;
+    padding: 0px 24px 1px 11px;
 }
 
 .editLabels {
@@ -468,22 +419,108 @@
     box-shadow: 1px 4px 17px 1px;
 }
 
+.icon-text {
+    padding: 1px 1px 1px 3px;
+}
+
 .label-align {
     display: flex;
     justify-content: space-between;
     width: 100%;
 }
 
-.email-css {
+.labelnotes {
     display: flex;
-    justify-content: end;
+    width: 59%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/*--------------------color Component---------*/
+
+.color-css {
+    flex-wrap: nowrap;
+}
+
+.color-poper {
+    width: 40%;
+}
+
+/*---------------------label Component----------------*/
+
+/* .card-note:hover .align-icons {
+    visibility: visible
+} */
+
+/* .dia-div {
+    width: 36%;
+} */
+
+/* .titleDescInput {
+    width: 100%
+} */
+
+.label-css {
+    display: flex;
+    justify-content: space-around;
+}
+
+.addLabel {
+    background-color: #f1f2f3;
+    /* width: 201px; */
+    height: 205px;
+    overflow: scroll;
+    width: 100%;
+}
+
+.addLabel-css {
+    display: flex;
+    justify-content: center;
+}
+
+/*-------------------------archive component--------*/
+
+.archivenotes {
+    margin-top: 9%;
+    display: flex;
+    justify-content: space-between;
+    width: 54%;
+    flex-wrap: wrap;
+}
+
+.getArchiveAlign {
+    display: flex;
+    justify-content: center
+}
+
+/*-------------------------Trash component--------*/
+
+.trashNotes {
+    margin-top: 9%;
+    display: flex;
+    justify-content: space-between;
+    width: 54%;
+    flex-wrap: wrap;
+}
+
+.trashNotesAlign {
+    display: flex;
+    justify-content: center
+}
+
+/*-------------------------reminder component--------*/
+
+.saveDate {
+    padding: 1px 1px 1px 160px;
 }
 
 .checklist {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     width: 100%;
 }
+
+/*-----------------------draft Component------------*/
 
 .editor-css {
     width: 83%;
@@ -507,7 +544,64 @@
     border: double darkslategray;
 }
 
-@media all and (max-width: 500px) {
+/*--------------------------draft dashboardComponent--------------*/
+
+.draftDashboard-div1 {
+    display: flex;
+    width: 16%;
+    justify-content: space-between;
+}
+
+/*--------------------------- @media Query---------------------*/
+
+@media screen and (max-width: 1000px) {
+    .getnote-Card {
+        width: 76%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .card-note {
+        width: 29%;
+        padding-bottom: 22px;
+        height: fit-content;
+    }
+    .card-note:hover .align-icons {
+        visibility: visible
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .getnote-Card {
+        width: 93%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+}
+
+.get-notes {
+    /* justify-content: center; */
+    display: flex;
+    width: 100%;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+@media screen and (max-width: 750px) {
+    /* .getnote-Card {
+        width: 98%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    } */
+    .menuicon {
+        width: 24%;
+        padding: 1px 0px 0px 0px
+    }
+}
+
+@media all and (max-width: 700px) {
     .getnote-Card {
         display: flex;
         justify-content: center;
@@ -525,7 +619,7 @@
         display: flex;
         width: 78%;
         padding: 1px 1px 7px 1px;
-        margin-top: 5%;
+        margin-top: 15%;
     }
     .get-notes {
         /* justify-content: center; */
@@ -543,145 +637,69 @@
         height: 100%;
         box-shadow: 1px 1px 1px 1px;
     }
-    .menuIcons {
-        display: flex;
-        padding: 0px 24px 1px 11px;
+    .fundo-image {
+        width: 76%;
     }
     .menuicon {
-        width: 10%;
+        width: 26%;
+        padding: 1px 0px 1px 21px;
     }
-    .fundo-text {
-        width: 50%;
-    }
-    .fundo-image {
-        width: 80%;
-    }
-    .fundo-image-div {
-        width: 51%;
-    }
-    /* .drarwer{
- width: 15%;
-} */
-    .icon-text {
-        padding: 1px 1px 1px 3px;
-    }
-    .color-css {
-        /* padding: 3px 0px 51px 1px; */
-        flex-wrap: nowrap;
-    }
-    .color-poper {
-        width: 40%;
-    }
-    .card-note:hover .align-icons {
-        visibility: visible
-    }
-    .align-icons {
-        display: flex;
-        justify-content: space-evenly;
-        margin-top: 9%;
-        visibility: hidden;
-    }
-    .update-icons {
-        width: 100%;
-        display: flex;
-        justify-content: space-evenly;
-    }
-    .dia-div {
-        width: 36%;
-    }
-    .titleDescInput {
-        width: 100%
-    }
-    .getNotes-align {
-        display: flex;
-        justify-content: center;
-    }
-    .label-css {
-        display: flex;
-        justify-content: space-around;
-    }
-    .addLabel {
-        background-color: #f1f2f3;
-        /* width: 201px; */
-        height: 205px;
-        overflow: scroll;
-        width: 100%;
-    }
-    .addLabel-css {
-        display: flex;
-        justify-content: center;
-    }
-    .email-in-signin {
-        width: 100%;
-    }
-    .archivenotes {
-        margin-top: 9%;
+    .inner-icons {
         display: flex;
         justify-content: space-between;
-        width: 54%;
-        flex-wrap: wrap;
-    }
-    /* .editLabelnotes {
-
-    } */
-    /* .get-labelnotes {
-        display: flex;
-        width: 100%;
-        flex-flow: row wrap;
-        justify-content: space-around;
         margin-top: 3%;
+        width: 18rem;
+        color: rgba(0, 0, 0, 0.54);
+        font-size: 20px;
+    }
+    /* .MuiDialog:{
+       paperWidthSm :{
+        width: 74%;
+        max-width: 604px;
+        box-shadow: 3px 1px 4px 2px rgb(206, 206, 206);
+    }
+} */
+}
+
+@media screen and (max-width: 450px) {
+    .fundo-text {
+        padding: 16px 150px 1px 11px;
+        font-size: 16px;
+        width: 13%;
+    }
+    .menuicon {
+        width: 26%;
+        padding: 1px 1px 1px 42px;
+    }
+    /* .listview-css {
+        width: 50%
     } */
-    .label-Data {}
-    .getArchiveAlign {
+    .inner-icons {
         display: flex;
-        justify-content: center
+        justify-content: space-between;
+        margin-top: 3%;
+        width: 14rem;
+        color: rgba(0, 0, 0, 0.54);
+        font-size: 20px;
+    }
+    .note-card {
+        display: flex;
+        width: 78%;
+        padding: 1px 1px 7px 1px;
+        margin-top: 15%;
     }
     .trashNotes {
-        margin-top: 9%;
+        margin-top: 22%;
         display: flex;
         justify-content: space-between;
-        width: 54%;
+        width: 69%;
         flex-wrap: wrap;
     }
-    .trashNotesAlign {
-        display: flex;
-        justify-content: center
-    }
-    .profileContent {
+    .archivenotes {
+        margin-top: 22%;
         display: flex;
         justify-content: space-between;
-        margin-top: 5%;
-        width: 100%;
-    }
-    .profilePaper {
-        width: 20rem;
-    }
-    /* .createText-align{
-  display: flex;
-  justify-content: space-between;
-} */
-    #noteList {
-        width: 80%;
-        height: auto;
-    }
-    .saveDate {
-        padding: 1px 1px 1px 160px;
-    }
-    .editLabels {
-        background-color: white;
-        margin-top: 12%;
-        display: flex;
-        width: 24%;
-    }
-    .labeldata {
-        display: flex;
-        justify-content: space-between;
-    }
-    .addeditLabel {
-        background-color: #f1f2f3;
-        /* width: 201px; */
-        height: 350px;
-        overflow: scroll;
-        width: 94%;
+        width: 69%;
+        flex-wrap: wrap;
     }
 }

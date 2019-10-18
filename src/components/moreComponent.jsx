@@ -80,7 +80,7 @@ class MoreComponent extends React.Component {
             // Description: this.props.noteDescription
         })
         console.log("props in morecomponent", this.state.arr);
-        this.props.history.push('/questionPage', this.state.arr)
+        this.props.history.push('/draftEditorPage', this.state.arr)
     }
     render() {
         // console.log("props in morecomponent", this.props.noteTitle, this.props.noteDescription);

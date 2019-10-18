@@ -5,11 +5,10 @@ import CheckBoxOutlinedIcon from '@material-ui/icons/CheckBoxOutlined';
 import BrushIcon from '@material-ui/icons/Brush';
 import Button from '@material-ui/core/Button';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core';
-import PaletteOutlinedIcon from '@material-ui/icons/PaletteOutlined';
-import AddAlertOutlinedIcon from '@material-ui/icons/AddAlertOutlined';
+
 import ArchiveOutlinedIcon from '@material-ui/icons/ArchiveOutlined';
 import ImageOutlinedIcon from '@material-ui/icons/ImageOutlined';
-import PersonAddOutlinedIcon from '@material-ui/icons/PersonAddOutlined';
+
 import ReminderNoteComponent from '../components/reminderNotesComponent';
 import UndoOutlinedIcon from '@material-ui/icons/UndoOutlined';
 import RedoOutlinedIcon from '@material-ui/icons/RedoOutlined';
@@ -18,10 +17,10 @@ import Tooltip from '@material-ui/core/Tooltip';
 import MoreComponentOfNote from '../components/moreComponentOfNote';
 import CollaboratorComponent from '../components/collaboratorComponent';
 import ColorComponent from '../components/colorComponent';
-import { changeColorNotes } from '../services/noteServices';
+
 import Divider from '@material-ui/core/Divider';
 import Chip from '@material-ui/core/Chip';
-import DoneOutlinedIcon from '@material-ui/icons/DoneOutlined';
+
 const theme = createMuiTheme({
     overrides: {
 
@@ -172,40 +171,27 @@ export default class NotecardComponent extends React.Component {
                                 value={this.state.Tittle}
                             />
                             <div>
+                                {this.state.checkItem ?
+                                    this.state.arr1.map((key) => {
+                                        return (<div>
 
-                                {!this.state.checkItem ?
-                                    <InputBase
-                                        placeholder="takea note.."
-                                        onChange={this.handleDescription}
-                                        value={this.state.Description}
-                                    /> :
-                                    <div>
-                                        {
-                                            !this.state.checkLabel ?
-                                                this.state.arr1.map((key) => {
-                                                    return (<div>
-
-                                                        <InputBase
-                                                            placeholder=" ListItem..."
-                                                            onChange={this.handleUpadateList}
-                                                            onKeyPress={(event) => this.handlekey(event)}
-                                                        //value={this.state.checkLabel}
-                                                        />
-                                                        <Divider />
-                                                    </div>)
-                                                })
-                                                :
-                                               ( <div style={{ padding: "40px 1px 1px 16px" }}>
-                                                    <InputBase
-                                                        placeholder=" ListItem..."
-                                                        value={this.state.checkLabel}
-                                                        onChange={this.handleUpadateList}
-                                                        onKeyPress={(event) => this.handlekey(event)}
-                                                    />
-                                                    <Divider />
-                                                </div>)
-                                        }
-                                    </div>
+                                            <InputBase
+                                                placeholder=" ListItem..."
+                                                onChange={this.handleUpadateList}
+                                                onKeyPress={(event) => this.handlekey(event)}
+                                            //value={this.state.checkLabel}
+                                            />
+                                            <Divider />
+                                        </div>)
+                                    })
+                                    :
+                                    (<div style={{ padding: "13px 1px 1px 8px" }}>
+                                        <InputBase
+                                            placeholder="takea note.."
+                                            onChange={this.handleDescription}
+                                            value={this.state.Description}
+                                        />
+                                    </div>)
                                 }
                                 <div>
                                     <Chip

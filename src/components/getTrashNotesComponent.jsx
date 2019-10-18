@@ -6,11 +6,9 @@ import { MuiThemeProvider, createMuiTheme, InputBase } from '@material-ui/core';
 import AddAlertOutlinedIcon from '@material-ui/icons/AddAlertOutlined';
 import ImageOutlinedIcon from '@material-ui/icons/ImageOutlined';
 import PersonAddOutlinedIcon from '@material-ui/icons/PersonAddOutlined';
-import { getNotes } from '../services/noteServices';
-import { changeColorNotes } from '../services/noteServices';
+
 import ColorComponent from '../components/colorComponent';
-import DashboardComponent from '../components/dashboardComponent';
-import Tooltip from '@material-ui/core/Tooltip';
+
 import ArchiveComponent from '../components/archiveComponent';
 import Chip from '@material-ui/core/Chip';
 import { removeLabelToNotes } from '../services/noteServices';

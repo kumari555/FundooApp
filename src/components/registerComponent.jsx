@@ -114,14 +114,14 @@ class RegisterComponent extends React.Component {
     render() {
 
         console.log("service state in register", this.props.location.state)
-        {
-            var productId = "", status = "", color = "";
-            if (this.props.location.state !== 'undefined') {
-                status = "selected"
-                productId = this.props.location.state.productId
-                color = "orange"
-            }
+
+        var productId = "", status = "", color = "";
+        if (this.props.location.state !== 'undefined') {
+            status = "selected"
+            productId = this.props.location.state.productId
+            color = "orange"
         }
+
         return (
             <div className="service-main-div">
                 <Card className="registerCard">

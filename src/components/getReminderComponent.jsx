@@ -1,6 +1,6 @@
 import React from 'react'
 import { getReminderNotesList } from '../services/noteServices';
-import { getNotes } from '../services/noteServices';
+
 import Card from '@material-ui/core/Card';
 import { MuiThemeProvider, createMuiTheme, InputBase } from '@material-ui/core';
 import AddAlertOutlinedIcon from '@material-ui/icons/AddAlertOutlined';
@@ -239,9 +239,9 @@ class GetReminderComponent extends React.Component {
                                     console.log("key in remainder", reminderKey);
                                     return (
                                         <Chip
-                                            label={reminderKey}
-                                            onDelete={() => this.handeChipReminder(key.id)}
                                             label={reminderKey.split(" ").splice(0, 5)}
+                                            onDelete={() => this.handeChipReminder(key.id)}
+                                           // label={reminderKey.split(" ").splice(0, 5)}
                                         />
                                     )
                                 })}

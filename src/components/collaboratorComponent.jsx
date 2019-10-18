@@ -1,20 +1,17 @@
 import React from 'react';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import MoreVertOutlinedIcon from '@material-ui/icons/MoreVertOutlined';
-import Popper from '@material-ui/core/Popper';
-import { Paper, Divider } from '@material-ui/core';
+import Divider from '@material-ui/core/Divider';
 import InputBase from '@material-ui/core/InputBase';
 import { userEmail } from '../services/userServices';
 import { searchUserList } from '../services/userServices';
-import { getNotes } from '../services/noteServices';
-import Tooltip from '@material-ui/core/Tooltip';
+
 import PersonAddOutlinedIcon from '@material-ui/icons/PersonAddOutlined';
-import LabelComponent from './labelComponent';
+
 import MenuItem from '@material-ui/core/MenuItem';
 import Dialog from '@material-ui/core/Dialog';
-import DialogContent from '@material-ui/core/DialogContent';
+
 import Button from '@material-ui/core/Button';
-import DialogContentText from '@material-ui/core/DialogContentText';
+
 import Avatar from '@material-ui/core/Avatar';
 import { AddcollaboratorsNotes } from '../services/noteServices';
 import { removeCollaboratorsNotes } from '../services/noteServices';
@@ -128,6 +125,7 @@ export default class CollaboratorComponent extends React.Component {
                 <div><PersonAddOutlinedIcon onClick={this.handleOpen} /></div>
                 <div>
                     <Dialog
+                        style={{ height:" 67%"}}
                         open={this.state.open}
                         onClose={this.handleClose}>
                         <h3 style={{ padding: "1px 1px 1px 10px" }}>Collaborators</h3>

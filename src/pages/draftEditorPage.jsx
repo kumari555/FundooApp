@@ -1,8 +1,8 @@
 import React from 'react'
-import QuestionComponent from '../components/questionComponent';
-
+import DraftEditorComponent from '../components/draftEditorComponent';
+import DraftDashboardComponent from '../components/draftDashboardcomponent';
 import { withRouter } from 'react-router-dom';
-class QuestionPage extends React.Component {
+class DraftEditorPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -12,11 +12,12 @@ class QuestionPage extends React.Component {
         console.log("response in question Page--->", this.props)
         return (
             <div>
-                <QuestionComponent
+                <div><DraftDashboardComponent /></div>
+                <DraftEditorComponent
                 // noteTitleProps={this.props.history.location.state}
                 />
             </div>
         )
     }
 }
-export default withRouter(QuestionPage);
+export default withRouter(DraftEditorPage);

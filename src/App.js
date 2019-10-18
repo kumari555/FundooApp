@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { Editor } from 'react-draft-wysiwyg';
 import '../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import ServiceComponent from './components/serviceComponent';
 import Register from './pages/register';
@@ -12,7 +11,7 @@ import ArchivePage from './pages/archivePage';
 import TrashPage from './pages/trashPage';
 import RemainderPage from './pages/reminderPage';
 import EditLabelPage from './pages/editLabelPage';
-import QuestionPage from './pages/questionPage';
+import DraftEditorPage from './pages/draftEditorPage';
 
 class App extends Component {
   render() {
@@ -29,7 +28,7 @@ class App extends Component {
           <Route path='/trashPage' component={TrashPage}></Route>
           <Route path='/reminderPage' component={RemainderPage}></Route>
           <Route path='/editLabelPage' component={EditLabelPage}></Route>
-          <Route path='/questionPage' component={QuestionPage}></Route>
+          <Route path='/draftEditorPage' component={DraftEditorPage}></Route>
 
         </div>
       </Router>

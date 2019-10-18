@@ -1,6 +1,6 @@
 import React from 'react'
 // import GetReminderComponent from '../components/getReminderComponent';
-import NotecardComponent from '../components/noteCardComponent';
+
 import DashboardComponent from '../components/dashboardComponent';
 import GetArchiveComponent from '../components/getArchiveComponent';
 import { withRouter } from 'react-router-dom';

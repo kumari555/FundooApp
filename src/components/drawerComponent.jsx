@@ -31,7 +31,10 @@ const theme = createMuiTheme({
     overrides: {
         MuiDrawer: {
             paper: {
-                top: "64px"
+                top: "64px",
+                height: " 90%",
+                overflowY: "scroll",
+                zIndex: " 999"
             }
         },
 
@@ -40,14 +43,7 @@ const theme = createMuiTheme({
                 boxShadow: "1px 1px 9px 1px rgb(206, 206, 206)"
             }
         },
-        MuiDrawer: {
-            paper: {
-                height: " 90%",
-                overflowY: "scroll",
-                zIndex: " 999",
-                top: "68px"
-            }
-        }
+      
     }
 })
 class DrawerComponent extends React.Component {
@@ -59,7 +55,6 @@ class DrawerComponent extends React.Component {
             getLabelNote: [],
             open: false,
             editLabel: "",
-            open: false,
             labelId: "",
             userId: "",
             labelName: "",

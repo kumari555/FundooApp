@@ -253,7 +253,8 @@ class GetNoteComponent extends React.Component {
                                 <div className="getNotes-align" onClick={this.handleClickOpen}>
                                     <InputBase
                                         placeholder="title"
-                                        value={key.title}
+                                    value={key.title}
+                                    multiline
                                         onClick={() => this.handleUpdateCard(key.id, key.title, key.description, key.color)}
                                     />
                                 </div>
@@ -261,6 +262,7 @@ class GetNoteComponent extends React.Component {
                                     <InputBase
                                         placeholder="take a note....."
                                         value={key.description}
+                                        multiline
                                         onClick={() => this.handleUpdateCard(key.id, key.title, key.description, key.color)}
                                     />
                                 </div>
@@ -278,9 +280,10 @@ class GetNoteComponent extends React.Component {
                                     console.log("key in remainder", reminderKey);
                                     return (
                                         <Chip
-                                            label={reminderKey}
-                                            onDelete={() => this.handeChipReminder(key.id)}
+                                          className="reminder-chip"
                                             label={reminderKey.split(" ").splice(0, 5)}
+                                            onDelete={() => this.handeChipReminder(key.id)}
+                                           
                                         />
                                     )
                                 })}
@@ -354,7 +357,8 @@ class GetNoteComponent extends React.Component {
                             </Card>
                         </div>
                         <div>
-                            <Dialog
+                        <Dialog
+                            
                                 open={this.state.open}
                                 onClose={this.handleClose}
                             // aria-labelledby="alert-dialog-title"
@@ -397,7 +401,7 @@ class GetNoteComponent extends React.Component {
                            </Button>
                             </Dialog>
                         </div>
-                    </MuiThemeProvider >
+                    </MuiThemeProvider>
                 )
             )
         })

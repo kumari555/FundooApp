@@ -3,28 +3,16 @@ import Toolbar from '@material-ui/core/Toolbar';
 import { AppBar } from '@material-ui/core';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import SearchIcon from '@material-ui/icons/Search';
-import InputBase from '@material-ui/core/InputBase';
 
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core';
-import keep from '../assets/keep-512.png';
 import Popper from '@material-ui/core/Popper';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import { withRouter } from 'react-router-dom';
-import DrawerComponent from '../components/drawerComponent';
+import DrawerComponent from './drawerComponent';
 import Divider from '@material-ui/core/Divider';
-
 import Avatar from '@material-ui/core/Avatar';
-
 import { ProfileImage } from '../services/userServices';
-
-
-import ViewAgendaOutlinedIcon from '@material-ui/icons/ViewAgendaOutlined';
-
-import RefreshOutlinedIcon from '@material-ui/icons/RefreshOutlined';
-import Tooltip from '@material-ui/core/Tooltip';
-import GridOnIcon from '@material-ui/icons/GridOn';
 //import SigninComponent from '../components/signinComponent';
 const Url = 'http://fundoonotes.incubation.bridgelabz.com/'
 const theme = createMuiTheme({
@@ -49,7 +37,7 @@ const theme = createMuiTheme({
 
     }
 })
-class DashboardComponent extends React.Component {
+class DraftDashboardComponent extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -167,45 +155,23 @@ class DashboardComponent extends React.Component {
             <div>
                 <div>
                     <MuiThemeProvider theme={theme}>
-                        <AppBar className="dashboard-appbar">
+                        <AppBar >
                             <MuiThemeProvider theme={theme}>
                                 <Toolbar>
-                                    <div className="dashboard-div1">
-                                        <div className="menuicon">
+                                    <div className="draftDashboard-div1">
+                                        <div style={{ padding: " 10px 0px 0px 0px" }}>
                                             <IconButton onClick={this.handlemenulist} >
                                                 <MenuIcon />
                                             </IconButton>
                                         </div>
-                                        <div className="fundo-image-div">
-                                            <img className="fundo-image" src={keep} alt="profile" />
-                                        </div>
-                                        <div className="fundo-text">
-                                            {this.props.location.state ? this.props.location.state : this.state.appTitle}
-                                        </div>
-                                    </div>
-                                    <div className="searchbar">
+
                                         <div>
-                                            <SearchIcon />
+                                            <h2>FundoNotes</h2>
                                         </div>
-                                        <InputBase
-                                            style={{ width: " 100%" }}
-                                            placeholder="Search…"
-                                            // value={this.state.search}
-                                            onChange={this.handleSearch}
-                                        />
                                     </div>
-                                    <div className="appbar-div2">
-                                        <div style={{ padding: "10px 1px 1px 1px", width: " 16%" }}> <Tooltip title="refreash">
-                                            <RefreshOutlinedIcon className="refreshIcon"
-                                                onClick={this.handleRefreash} /></Tooltip></div>
-                                        <div className="listview-css"> {!this.state.listOpen ?
-                                            <Tooltip title="List view">
-                                                <ViewAgendaOutlinedIcon style={{ padding: "10px 1px 1px 1px" }}
-                                                    onClick={this.handleListIcon}
-                                                /></Tooltip>
-                                            : <Tooltip title="Grid view"><GridOnIcon style={{ padding: "10px 1px 1px 1px" }}
-                                                onClick={this.handleGridIcon} /></Tooltip>
-                                        }</div>
+
+                                    <div>
+                                        <div></div>
                                         <div>
                                             <Avatar className="icon-button" onClick={this.handleAccount}>
                                                 {this.state.imageSet ?
@@ -281,4 +247,4 @@ class DashboardComponent extends React.Component {
         )
     }
 }
-export default withRouter(DashboardComponent);
+export default withRouter(DraftDashboardComponent);

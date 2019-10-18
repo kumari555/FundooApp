@@ -61,7 +61,7 @@ class GetArchiveComponent extends React.Component {
             getNoteData: []
         }
     }
-  
+
     componentWillMount() {
         this.getArchiveNote()
     }
@@ -221,9 +221,9 @@ class GetArchiveComponent extends React.Component {
                                     console.log("key in remainder", reminderKey);
                                     return (
                                         <Chip
-                                            label={reminderKey}
-                                            onDelete={() => this.handeChipReminder(key.id)}
                                             label={reminderKey.split(" ").splice(0, 5)}
+                                            onDelete={() => this.handeChipReminder(key.id)}
+                                        // label={reminderKey.split(" ").splice(0, 5)}
                                         />
                                     )
                                 })}
@@ -299,8 +299,6 @@ class GetArchiveComponent extends React.Component {
             )
         })
         return (
-
-
             <div className="archivenotes" >
                 {getArchiveNotesData}
             </div>

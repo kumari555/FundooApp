@@ -1,6 +1,6 @@
 import React from 'react';
 import { Editor } from 'react-draft-wysiwyg';
-import { convertToRaw, EditorState, RichUtils } from 'draft-js';
+import { EditorState} from 'draft-js';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { withRouter } from 'react-router-dom';
 import Divider from '@material-ui/core/Divider';
@@ -15,7 +15,7 @@ const theme = createMuiTheme({
         },
     }
 })
-class QuestionComponent extends React.Component {
+class DraftEditorComponent extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -104,4 +104,4 @@ class QuestionComponent extends React.Component {
         )
     }
 }
-export default withRouter(QuestionComponent);
+export default withRouter(DraftEditorComponent);

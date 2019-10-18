@@ -1,6 +1,4 @@
 import React from 'react'
-
-import { getNoteLabelList } from '../services/noteServices';
 import { withRouter } from 'react-router-dom';
 import InputBase from '@material-ui/core/InputBase';
 import Card from '@material-ui/core/Card';
@@ -8,7 +6,6 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core';
 import AddAlertOutlinedIcon from '@material-ui/icons/AddAlertOutlined';
 import ImageOutlinedIcon from '@material-ui/icons/ImageOutlined';
 import PersonAddOutlinedIcon from '@material-ui/icons/PersonAddOutlined';
-import { getNotes } from '../services/noteServices';
 import { changeColorNotes } from '../services/noteServices';
 import ColorComponent from '../components/colorComponent';
 import Dialog from '@material-ui/core/Dialog';
