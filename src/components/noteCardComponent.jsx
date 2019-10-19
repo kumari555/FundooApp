@@ -8,7 +8,7 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core';
 
 import ArchiveOutlinedIcon from '@material-ui/icons/ArchiveOutlined';
 import ImageOutlinedIcon from '@material-ui/icons/ImageOutlined';
-
+import { withRouter } from 'react-router-dom';
 import ReminderNoteComponent from '../components/reminderNotesComponent';
 import UndoOutlinedIcon from '@material-ui/icons/UndoOutlined';
 import RedoOutlinedIcon from '@material-ui/icons/RedoOutlined';
@@ -33,7 +33,7 @@ const theme = createMuiTheme({
     }
 })
 
-export default class NotecardComponent extends React.Component {
+class NotecardComponent extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -63,9 +63,9 @@ export default class NotecardComponent extends React.Component {
             Tittle: Tittle
         })
     }
-    handleDescription = (event) => {
+    handleDescription = async(event) => {
         var Description = event.target.value
-        this.setState({
+       await this.setState({
             Description: Description
         })
     }
@@ -83,6 +83,11 @@ export default class NotecardComponent extends React.Component {
             selectedColor: value
         })
         console.log("response in getNotes for color and id--->", this.state.selectedColor)
+    }
+    getReminder = (updateNote) => {
+        if (updateNote) {
+          
+        }
     }
     handleCreateNote = () => {
         // console.log("data after set state---", this.state.selectedDate);
@@ -144,10 +149,12 @@ export default class NotecardComponent extends React.Component {
     }
     render() {
         console.log("token in note page----->", localStorage.getItem('token'));
+        console.log("token in note page----->", this.state.selectedColor);
         return (
             !this.state.Open ?
                 <div className="noteComponent" >
-                    <Card className="note-card" onClick={this.handleCardopen}>
+                    <Card className="note-card" onClick={this.handleCardopen}
+                    >
                         <div className="createText-align">
                             <InputBase
                                 placeholder="take a note....."
@@ -164,7 +171,7 @@ export default class NotecardComponent extends React.Component {
                     </Card>
                 </div>
                 : <div className="inside-card-div">
-                    <Card className="inner-card">
+                    <Card className="inner-card" style={{ backgroundColor: this.state.selectedColor }}>
                         <div className="inner-note">
                             <InputBase
                                 placeholder="Title" onChange={this.handleTitle}
@@ -201,11 +208,12 @@ export default class NotecardComponent extends React.Component {
                             </div>
                             <div className="inner-icons">
                                 <MuiThemeProvider theme={theme}>
-                                    <ReminderNoteComponent reminderPropsToCreateNote={this.reminderData} />
+                                    <ReminderNoteComponent reminderPropsToCreateNote={this.reminderData}
+                                        getReminderProps={this.getReminder}/>
                                     <Tooltip title="Collabarator">
                                         <CollaboratorComponent /></Tooltip>
                                     <ColorComponent colorComponentProps={this.handleGetColor}
-                                        backgroundColor={this.state.selectedColor} />
+                                    />
                                     <Tooltip title="Add image">
                                         <ImageOutlinedIcon /></Tooltip>
 
@@ -234,3 +242,4 @@ export default class NotecardComponent extends React.Component {
         )
     }
 }
+export default withRouter(NotecardComponent)

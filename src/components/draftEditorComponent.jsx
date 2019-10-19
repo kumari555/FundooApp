@@ -1,18 +1,21 @@
 import React from 'react';
 import { Editor } from 'react-draft-wysiwyg';
-import { EditorState} from 'draft-js';
+import { EditorState } from 'draft-js';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { withRouter } from 'react-router-dom';
 import Divider from '@material-ui/core/Divider';
 import { MuiThemeProvider, createMuiTheme, Button } from '@material-ui/core';
 import { addQuestionAndAnswer } from '../services/noteServices';
+import ThumbUpIcon from '@material-ui/icons/ThumbUp';
+import StarBorderIcon from '@material-ui/icons/StarBorder';
 const theme = createMuiTheme({
     overrides: {
         MuiDivider: {
             root: {
-                backgroundColor: "rgb(0, 0, 0)"
+                // height: " 2px",
+                backgroundColor: "rgba(0, 0, 0, 0.51)"
             }
-        },
+        }
     }
 })
 class DraftEditorComponent extends React.Component {
@@ -22,7 +25,10 @@ class DraftEditorComponent extends React.Component {
             editorState: EditorState.createEmpty(),
             question: "",
             // msg: "",
-            noteId: ""
+            noteId: "",
+            Open: false,
+            askQuestion: [],
+            createdDate: []
         }
     }
     onChange = (editorState) => {
@@ -41,7 +47,13 @@ class DraftEditorComponent extends React.Component {
         console.log("message data", data);
         addQuestionAndAnswer(data)
             .then(response => {
-                console.log("response in draft component", response);
+                console.log("response in draft component", response.data.data.details);
+                this.setState({
+                    askQuestion: response.data.data.details.message,
+                    Open: true,
+                    createdDate: response.data.data.details.createdDate
+                })
+
             })
     }
     handleDashboard = () => {
@@ -57,14 +69,17 @@ class DraftEditorComponent extends React.Component {
     //     inlineStyle
     // )
     render() {
-        // console.log("response in question Page--->", this.props.history.location.state)
-        // var Details = this.props.history.location.state.map((key) => {
-        //     console.log("data after maping", key);
-        //     return (
-        //         <div>
-        //             <div>{key}</div>
-        //         </div>
-        //     )
+        console.log("response in question Page--->", this.state.createdDate)
+        // var questiondata = this.state.askQuestion.map((key, index) => {
+        //     console.log("question key", key);
+        //     // })
+        //     // var questionDetails = this.state.askQuestion.map((key) => {
+        //     //     console.log("data after maping", key);
+        //     //     return (
+        //     //         <div>
+        //     //          {key.message}
+        //     //         </div>
+        //     //     )
         // })
         return (
             <div>
@@ -74,31 +89,46 @@ class DraftEditorComponent extends React.Component {
                             <div><div> {this.props.location.state[0]}</div>
                                 <div> {this.props.location.state[1]}</div></div>
                             <div><Button onClick={this.handleDashboard}>Close</Button></div></div>
-                        <Divider />
-                        <div><h2>Ask a Question</h2></div>
+                        <Divider style={{ boxShadow: "1px 3px 5px 0px grey" }} />
                     </div>
-                    <div className="editor-css">
-                        <Divider />
-                        
-                            <div className="question-css">
-                                <Editor
-                                    defaultEditorState={this.state.editorState}
-                                    // defaultEditorState={this.state.editorState}
-                                    toolbarClassName="toolbarClassName"
-                                    wrapperClassName="wrapperClassName"
-                                    editorClassName="editorClassName"
-                                    placeholder="Ask a Question....."
-                                    // onEditorStateChange={(editorState) => this.handleQuestion(editorState)}
-                                    // onChange={(event) => this.handleQuestion(event)}
 
-                                    onChange={this.onChange.bind(this)}
-                                />
+                    {!this.state.Open ?
+                        <div >
+                            <div style={{ padding: "1px 1px 1px 97px" }}><h2>Ask a Question</h2></div>
+                            <div className="editor-css">
+                                <Divider />
+
+                                <div className="question-css">
+                                    <Editor
+                                        defaultEditorState={this.state.editorState}
+                                        // defaultEditorState={this.state.editorState}
+                                        toolbarClassName="toolbarClassName"
+                                        wrapperClassName="wrapperClassName"
+                                        editorClassName="editorClassName"
+                                        placeholder="Ask a Question....."
+                                        // onEditorStateChange={(editorState) => this.handleQuestion(editorState)}
+                                        // onChange={(event) => this.handleQuestion(event)}
+                                        onChange={this.onChange.bind(this)}
+                                    />
+                                </div>
+                                <Divider />
                             </div>
-                      
-                        <Divider />
-                    </div>
-                    <div><Button onClick={() => this.handleQuestion(this.props.location.state[2])} >Ask</Button></div>
-
+                            <div className="draftButton">
+                                <Button onClick={() => this.handleQuestion(this.props.location.state[2])} >Ask</Button></div>
+                        </div>
+                        :
+                        <div className="afterQuestion">
+                            <div><h2>Question Asked</h2></div>
+                            {this.state.askQuestion}
+                            <Divider className="divider-css" />
+                            <div><p style={{ padding: "1px 1px 1px 133px" }}>
+                                {localStorage.getItem("Firstname")}{localStorage.getItem("Lastname")}{this.state.createdDate}
+                            </p></div>
+                            <div className="draft-icons"><div style={{ padding: "7px 1px 1px 85px" }}>{this.state.askQuestion}</div>
+                                <div style={{ padding: "0px 264px 1px 0px" }}><ThumbUpIcon />0 Likes<StarBorderIcon /><StarBorderIcon /><StarBorderIcon /><StarBorderIcon /><StarBorderIcon /></div>
+                            </div>
+                        </div>
+                    }
                 </MuiThemeProvider>
             </div>
         )

@@ -6,14 +6,14 @@ import { addUpdateReminderNotes } from '../services/noteServices';
 import TextField from '@material-ui/core/TextField';
 
 
-
+import { withRouter } from 'react-router-dom';
 import AddAlertOutlinedIcon from '@material-ui/icons/AddAlertOutlined';
 
 import MenuItem from '@material-ui/core/MenuItem';
 import Tooltip from '@material-ui/core/Tooltip';
 import { getNotes } from '../services/noteServices';
 
-export default class ReminderNoteComponent extends React.Component {
+class ReminderNoteComponent extends React.Component {
     constructor() {
         super()
         this.state = {
@@ -34,18 +34,19 @@ export default class ReminderNoteComponent extends React.Component {
                 })
             })
     }
-    handlemore = (event) => {
+    handlemore = async (event) => {
         const { currentTarget } = event
-        this.setState({
+        await this.setState({
             anchorEl: (this.state.anchorEl ? null : currentTarget)
         })
     }
-    handleSelectDate = async(event) => {
-       await this.setState({
+    handleSelectDate = async (event) => {
+        await this.setState({
             selectedDate: event.target.value
-       })
+        })
         console.log("dataaaaaaaaa", this.state.selectedDate);
-       //this.props.reminderPropsToCreateNote(this.state.selectedDate)
+        if (this.props.reminderPropsToCreateNote(this.state.selectedDate))
+        { this.props.getReminderProps(true) }
     }
     handleDate = async () => {
         console.log("noteid in remainder", this.props);
@@ -56,12 +57,15 @@ export default class ReminderNoteComponent extends React.Component {
         await addUpdateReminderNotes(data)
             .then(response => {
                 console.log("response in remainder notes", response)
-                 this.props.reminderProps(true)
+                this.props.reminderProps(true)
                 this.getNotes()
             })
             .catch(err => {
                 console.log("err while updating", err);
             })
+    }
+    handleTomarrow = () => {
+        
     }
     render() {
         const { anchorEl } = this.state;
@@ -75,7 +79,7 @@ export default class ReminderNoteComponent extends React.Component {
 
                     <Paper>
                         <MenuItem>  <h3>remainder: </h3>  </MenuItem>
-                        <MenuItem>  <div>Tomarrow</div>  </MenuItem>
+                        <MenuItem onClick={this.handleTomarrow}>  <div>Tomarrow</div>  </MenuItem>
                         <MenuItem>  <div>Select Date and Time :</div>  </MenuItem>
                         <MenuItem>
                             <TextField
@@ -95,3 +99,4 @@ export default class ReminderNoteComponent extends React.Component {
         )
     }
 }
+export default withRouter(ReminderNoteComponent)

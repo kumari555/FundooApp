@@ -21,10 +21,6 @@ import DoneOutlinedIcon from '@material-ui/icons/DoneOutlined';
 import { noteLabels } from '../services/noteServices';
 import LabelOutlinedIcon from '@material-ui/icons/LabelOutlined';
 import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined';
-
-
-import Button from '@material-ui/core/Button';
-
 import { deleteNoteLabel } from '../services/noteServices';
 import { updateNoteLabel } from '../services/noteServices';
 const theme = createMuiTheme({
@@ -34,7 +30,10 @@ const theme = createMuiTheme({
                 top: "64px",
                 height: " 90%",
                 overflowY: "scroll",
-                zIndex: " 999"
+                zIndex: " 999",
+                '@media (min-width: 500px)': {
+                    top: " 51px"
+                }
             }
         },
 
@@ -43,7 +42,7 @@ const theme = createMuiTheme({
                 boxShadow: "1px 1px 9px 1px rgb(206, 206, 206)"
             }
         },
-      
+
     }
 })
 class DrawerComponent extends React.Component {
@@ -161,7 +160,7 @@ class DrawerComponent extends React.Component {
             })
     }
     handleDelete = (labelId) => {
-    
+
         var data = {
             id: labelId,
             isDeleted: false
@@ -279,8 +278,7 @@ class DrawerComponent extends React.Component {
                                         </div>
                                         <Divider />
                                         <div>{editLabelDetails}</div>
-                                        <Divider />
-                                        <Button color="primary">Done</Button>
+
                                     </div>
                                 </Modal>
                             </div>

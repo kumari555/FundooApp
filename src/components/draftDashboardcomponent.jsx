@@ -164,14 +164,11 @@ class DraftDashboardComponent extends React.Component {
                                                 <MenuIcon />
                                             </IconButton>
                                         </div>
-
                                         <div>
                                             <h2>FundoNotes</h2>
                                         </div>
                                     </div>
-
-                                    <div>
-                                        <div></div>
+                                    <div className="Avatar-draft">
                                         <div>
                                             <Avatar className="icon-button" onClick={this.handleAccount}>
                                                 {this.state.imageSet ?

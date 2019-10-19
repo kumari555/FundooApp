@@ -2,11 +2,11 @@ import React from 'react'
 import { getNotes } from '../services/noteServices';
 import Card from '@material-ui/core/Card';
 import { MuiThemeProvider, createMuiTheme, InputBase } from '@material-ui/core';
-import AddAlertOutlinedIcon from '@material-ui/icons/AddAlertOutlined';
+// import AddAlertOutlinedIcon from '@material-ui/icons/AddAlertOutlined';
 import ImageOutlinedIcon from '@material-ui/icons/ImageOutlined';
-import PersonAddOutlinedIcon from '@material-ui/icons/PersonAddOutlined';
-import UndoOutlinedIcon from '@material-ui/icons/UndoOutlined';
-import RedoOutlinedIcon from '@material-ui/icons/RedoOutlined';
+// import PersonAddOutlinedIcon from '@material-ui/icons/PersonAddOutlined';
+// import UndoOutlinedIcon from '@material-ui/icons/UndoOutlined';
+// import RedoOutlinedIcon from '@material-ui/icons/RedoOutlined';
 import ColorComponent from '../components/colorComponent';
 import { changeColorNotes } from '../services/noteServices';
 import Dialog from '@material-ui/core/Dialog';
@@ -28,6 +28,7 @@ import Avatar from '@material-ui/core/Avatar';
 import ClearIcon from '@material-ui/icons/Clear';
 import Divider from '@material-ui/core/Divider';
 import { removeCollaboratorsNotes } from '../services/noteServices';
+import MenuItem from '@material-ui/core/MenuItem';
 const theme = createMuiTheme({
     overrides: {
         MuiSvgIcon: {
@@ -48,7 +49,11 @@ const theme = createMuiTheme({
         MuiDialog: {
             paperWidthSm: {
                 boxShadow: "3px 1px 4px 2px rgb(206, 206, 206)",
-                width: "36%"
+                width: "36%",
+                '@media (min-width: 300px)': {
+                    width: " 80%",
+                    marginTop: " 53 %"
+                }
             }
         },
         MuiPaper: {
@@ -56,12 +61,7 @@ const theme = createMuiTheme({
                 borderRadius: "11px"
             }
         }
-        //         MuiDialog: {
-        //         paper: {
 
-        //             overflowY:" hidden"
-        //     }
-        // }
     }
 })
 function searchFunction(searchValue) {
@@ -126,15 +126,17 @@ class GetNoteComponent extends React.Component {
             open: false
         })
     }
-    handleUpdateCard = (id, oldTitle, oldDescription, oldColor) => {
+    handleUpdateCard = (id, oldTitle, oldDescription, color) => {
+
         this.setState({
-            open: false,
+            // open: false,
             noteId: id,
             title: oldTitle,
             description: oldDescription,
-            color: oldColor
+            color: color,
+
         })
-        // console.log("data for updation", this.state.noteId, this.state.title, this.state.description);
+        console.log("data for updation", this.state.noteId, this.state.title, this.state.description, this.state.color);
         var data = {
             noteId: this.state.noteId,
             title: this.state.title,
@@ -212,10 +214,11 @@ class GetNoteComponent extends React.Component {
         removeReminderNotes(data)
             .then(response => {
                 console.log("response in removeing remainder Notes", response);
+
             })
     }
     handleOpen = (email) => {
-        // console.log("collaborator state", email);
+        // console.log("colla62email);
         this.setState({
             dialogOpen: true,
             mail: email
@@ -233,10 +236,14 @@ class GetNoteComponent extends React.Component {
         removeCollaboratorsNotes(noteId, userId)
             .then(response => {
                 console.log("response in remove collaborator getnotes", response);
+                this.getNotes()
             })
     }
+    handleQuestionPage = () => {
+        this.props.history.push('/draftEditorPage')
+    }
     render() {
-        // console.log("dataaaaaaaaaaaaaaa",this.state.mail);
+        console.log("dataaaaaaaaaaaaaaa", this.state.color);
 
         var list = this.props.gridViewProps ? "noteList" : null
         var getNoteDetails = this.state.getNoteData.reverse().filter(searchFunction(this.props.SearchingNotesProps)).map((key, index) => {
@@ -253,8 +260,8 @@ class GetNoteComponent extends React.Component {
                                 <div className="getNotes-align" onClick={this.handleClickOpen}>
                                     <InputBase
                                         placeholder="title"
-                                    value={key.title}
-                                    multiline
+                                        value={key.title}
+                                        multiline
                                         onClick={() => this.handleUpdateCard(key.id, key.title, key.description, key.color)}
                                     />
                                 </div>
@@ -280,10 +287,9 @@ class GetNoteComponent extends React.Component {
                                     console.log("key in remainder", reminderKey);
                                     return (
                                         <Chip
-                                          className="reminder-chip"
+                                            className="reminder-chip"
                                             label={reminderKey.split(" ").splice(0, 5)}
                                             onDelete={() => this.handeChipReminder(key.id)}
-                                           
                                         />
                                     )
                                 })}
@@ -304,15 +310,15 @@ class GetNoteComponent extends React.Component {
                                                         <div><Avatar>R</Avatar></div>
                                                         <div><h3 style={{ padding: "1px 1px 0px 16px" }}>{localStorage.getItem("Email")}</h3></div>
                                                     </div>
-
-                                                    <div> <AccountCircleIcon /></div>
-                                                    <div>{this.state.mail}</div>
-                                                    <div onClick={() => this.handleCancel(key.id, collaboratorkey.userId)}> <ClearIcon /></div>
-
+                                                    <MenuItem><div style={{ display: " flex" }}>
+                                                        <div> <AccountCircleIcon /></div>
+                                                        <div>{this.state.mail}</div>
+                                                        <div onClick={() => this.handleCancel(key.id, collaboratorkey.userId)}
+                                                            style={{ padding: "1px 1px 1px 143px" }}> <ClearIcon /></div>
+                                                    </div></MenuItem>
                                                     <div onClick={this.handleClose}>
                                                         <Button>Close</Button>
                                                     </div>
-
                                                 </Dialog>
                                             </div>
                                         </div>
@@ -322,6 +328,7 @@ class GetNoteComponent extends React.Component {
                                 <div className="align-icons">
                                     <MuiThemeProvider theme={theme}>
                                         <ReminderNoteComponent reminderProps={this.reminderData}
+                                            // getReminderProps={this.getReminder}
                                             noteID={key.id} />
                                         <Tooltip title="Collabarator">
                                             <CollaboratorComponent collaboratorProps={this.collaboratorData}
@@ -356,51 +363,60 @@ class GetNoteComponent extends React.Component {
                                 })}
                             </Card>
                         </div>
-                        <div>
-                        <Dialog
-                            
-                                open={this.state.open}
-                                onClose={this.handleClose}
-                            // aria-labelledby="alert-dialog-title"
-                            // aria-describedby="alert-dialog-description"
-                            >
-                                <DialogContent>
-                                    <DialogContentText id="alert-dialog-description">
-                                        <div>
-                                            <InputBase
-                                                placeholder="title"
-                                                value={this.state.title}
-                                                onChange={this.handleTitle}
-                                                className="titleDescInput" />
-                                        </div>
-                                        <div>
-                                            <InputBase
-                                                placeholder="take a note....."
-                                                value={this.state.description}
-                                                onChange={this.handledescription}
-                                            />
-                                        </div>
-                                    </DialogContentText>
-                                </DialogContent>
-                                <div className="update-icons">
-                                    <MuiThemeProvider theme={theme}>
-                                        <AddAlertOutlinedIcon />
-                                        <PersonAddOutlinedIcon />
-                                        <ColorComponent colorComponentProps={this.handleGetColor}
-                                            noteID={key.id}></ColorComponent>
-                                        <ImageOutlinedIcon />
-                                        <ArchiveComponent noteID={key.id}></ArchiveComponent>
-                                        <MoreComponent
-                                            noteID={key.id}></MoreComponent>
-                                        <UndoOutlinedIcon />
-                                        <RedoOutlinedIcon />
-                                    </MuiThemeProvider>
-                                </div>
-                                <Button onClick={this.handleUpdateCard} color="primary">
-                                    Close
+                    {(this.state.noteId === key.id &&
+                            <div style={{ backgroundColor: key.color }}>
+                                <Dialog
+                                    open={this.state.open}
+                                    onClose={this.handleClose}
+                                >
+                                    <DialogContent >
+                                        <DialogContentText id="alert-dialog-description">
+                                            <div>
+                                                <InputBase
+                                                    placeholder="title"
+                                                    value={this.state.title}
+                                                    onChange={this.handleTitle}
+                                                    className="titleDescInput" />
+                                            </div>
+                                            <div>
+                                                <InputBase
+                                                    placeholder="take a note....."
+                                                    value={this.state.description}
+                                                    onChange={this.handledescription}
+                                                />
+                                            </div>
+                                        </DialogContentText>
+                                    </DialogContent>
+                                    <div className="update-icons">
+                                        <MuiThemeProvider theme={theme}>
+                                            <ReminderNoteComponent reminderProps={this.reminderData}
+                                                noteID={key.id} />
+                                            <Tooltip title="Collabarator">
+                                                <CollaboratorComponent collaboratorProps={this.collaboratorData}
+                                                    noteID={key.id} collaboratorkey={key.userId} />
+                                            </Tooltip>
+                                            <ColorComponent colorComponentProps={this.handleGetColor}
+                                                noteID={key.id}></ColorComponent>
+                                            <Tooltip title="Add image">
+                                                <ImageOutlinedIcon />
+                                            </Tooltip>
+                                            <ArchiveComponent archiveData={this.storeData}
+                                                noteID={key.id}></ArchiveComponent>
+                                            <MoreComponent
+                                                deletingData={this.presentData}
+                                                labelNoteProps={this.labelData}
+                                                noteID={key.id}
+                                                noteTitle={key.title}
+                                                noteDescription={key.description}
+                                            ></MoreComponent>
+                                        </MuiThemeProvider>
+                                    </div>
+                                    <Button onClick={this.handleUpdateCard} color="primary">
+                                        Close
                            </Button>
-                            </Dialog>
-                        </div>
+                                </Dialog>
+                            </div>
+                        )}
                     </MuiThemeProvider>
                 )
             )

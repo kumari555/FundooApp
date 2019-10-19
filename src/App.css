@@ -265,7 +265,7 @@
 /*--------------------getNoteComponent-----------*/
 
 #noteList {
-    width: 80%;
+    width: 77%;
     height: auto;
     margin-left: 11%;
 }
@@ -294,7 +294,7 @@
 
 .email-css {
     display: flex;
-    justify-content: flex-end;
+    /* justify-content: flex-end; */
 }
 
 .align-icons {
@@ -530,7 +530,7 @@
 }
 
 .titleData {
-    margin-top: 6%;
+    margin-top: 10%;
     padding: 1px 1px 1px 99px;
     width: 83%;
 }
@@ -542,6 +542,33 @@
 
 .question-css {
     border: double darkslategray;
+}
+
+.afterQuestion {
+    /* margin-top: 6%; */
+    padding: 1px 1px 1px 99px;
+    width: 83%;
+}
+
+.Avatar-draft {
+    display: flex;
+    width: 78%;
+    justify-content: flex-end;
+}
+
+.draftButton {
+    text-align: end;
+    padding: 1px 128px 1px 1px;
+}
+
+.draft-icons {
+    display: flex;
+    width: 70%;
+    justify-content: space-around;
+}
+
+.divider-css {
+    box-shadow: 1px 3px 5px 0px grey;
 }
 
 /*--------------------------draft dashboardComponent--------------*/

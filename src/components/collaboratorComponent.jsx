@@ -11,11 +11,10 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Dialog from '@material-ui/core/Dialog';
 
 import Button from '@material-ui/core/Button';
-
 import Avatar from '@material-ui/core/Avatar';
 import { AddcollaboratorsNotes } from '../services/noteServices';
 import { removeCollaboratorsNotes } from '../services/noteServices';
-import ClearIcon from '@material-ui/icons/Clear';
+
 function mailSearch(searchValue) {
     return function (x) {
         return x.email.includes(searchValue)
@@ -34,8 +33,8 @@ export default class CollaboratorComponent extends React.Component {
 
         }
     }
-    handleOpen = () => {
-        this.setState({
+    handleOpen = async () => {
+        await this.setState({
             open: true,
 
         })
@@ -125,7 +124,7 @@ export default class CollaboratorComponent extends React.Component {
                 <div><PersonAddOutlinedIcon onClick={this.handleOpen} /></div>
                 <div>
                     <Dialog
-                        style={{ height:" 67%"}}
+                        style={{ height: " 67%" }}
                         open={this.state.open}
                         onClose={this.handleClose}>
                         <h3 style={{ padding: "1px 1px 1px 10px" }}>Collaborators</h3>
@@ -136,19 +135,20 @@ export default class CollaboratorComponent extends React.Component {
                         </div>
                         <div> <div><AccountCircleIcon /></div>
                             <div>{mailerDetails}</div>
-                            <div onClick={() => this.handleCancel()}> <ClearIcon /></div></div>
+                        </div>
                         <div style={{ display: "flex" }}>
                             <div> <AccountCircleIcon /></div>
-                            <div><InputBase
+                            <div style={{ padding: "1px 1px 1px 10px" }}><InputBase
                                 placeholder="search a mail...."
                                 // defaultValue={mailerDetails}
                                 value={this.state.searchEmail}
                                 onChange={this.handleSearch}
                             />
+                            </div>
+                            <div onClick={this.handleSave}
+                                style={{ padding: "1px 1px 1px 138px" }}>
+                                <Button> Save</Button>
                             </div></div>
-                        <div onClick={this.handleSave} >
-                            <Button> Save</Button>
-                        </div>
                         <div> {emailDetails}</div>
                         <Button color="primary" >
                             Cancel

@@ -66,8 +66,8 @@ class DashboardComponent extends React.Component {
             imagepath: ""
         }
     }
-    handlemenulist = () => {
-        this.setState({
+    handlemenulist = async() => {
+     await this.setState({
             isOpen: !this.state.isOpen
         })
         this.props.transitionProps(true)
@@ -95,8 +95,8 @@ class DashboardComponent extends React.Component {
         this.props.SearchNotes(event.target.value)
     }
 
-    handleProfileImage = (event) => {
-        this.setState({
+    handleProfileImage = async(event) => {
+       await this.setState({
             selectedFile: event.target.files[0]
         })
         console.log("imgae path -->", event.target.files[0]);

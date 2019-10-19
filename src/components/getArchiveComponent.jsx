@@ -6,9 +6,9 @@ import { withRouter } from 'react-router-dom';
 
 import Card from '@material-ui/core/Card';
 import { MuiThemeProvider, createMuiTheme, InputBase } from '@material-ui/core';
-import AddAlertOutlinedIcon from '@material-ui/icons/AddAlertOutlined';
+
 import ImageOutlinedIcon from '@material-ui/icons/ImageOutlined';
-import PersonAddOutlinedIcon from '@material-ui/icons/PersonAddOutlined';
+
 
 import { changeColorNotes } from '../services/noteServices';
 import ColorComponent from '../components/colorComponent';
@@ -22,11 +22,16 @@ import Chip from '@material-ui/core/Chip';
 import { updateNotes } from '../services/noteServices';
 import MoreComponent from '../components/moreComponent';
 import { removeLabelToNotes } from '../services/noteServices';
-import UndoOutlinedIcon from '@material-ui/icons/UndoOutlined';
-import RedoOutlinedIcon from '@material-ui/icons/RedoOutlined';
+
 import { removeReminderNotes } from '../services/noteServices';
 import ReminderNoteComponent from '../components/reminderNotesComponent';
 import CollaboratorComponent from '../components/collaboratorComponent';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import Avatar from '@material-ui/core/Avatar';
+import ClearIcon from '@material-ui/icons/Clear';
+import Divider from '@material-ui/core/Divider';
+import MenuItem from '@material-ui/core/MenuItem';
+import { removeCollaboratorsNotes } from '../services/noteServices';
 const theme = createMuiTheme({
     overrides: {
         MuiSvgIcon: {
@@ -186,6 +191,28 @@ class GetArchiveComponent extends React.Component {
                 console.log("response in removeing remainder Notes", response);
             })
     }
+    collaboratorData = (updateNote) => {
+        if (updateNote) {
+            this.getArchiveNote()
+        }
+    }
+    handleOpen = (email) => {
+        // console.log("colla62email);
+        this.setState({
+            dialogOpen: true,
+            mail: email
+        })
+        console.log("collaborator state", this.state.mail);
+
+    }
+    handleCancel = (noteId, userId) => {
+        console.log("response in remove collaborator in getnotes", noteId, userId);
+        removeCollaboratorsNotes(noteId, userId)
+            .then(response => {
+                console.log("response in remove collaborator getnotes", response);
+                this.getArchiveNote() 
+            })
+    }
     render() {
         var list = this.props.gridViewProps ? "noteList" : null
         var getArchiveNotesData = this.state.archiveData.map((key) => {
@@ -227,13 +254,45 @@ class GetArchiveComponent extends React.Component {
                                         />
                                     )
                                 })}
+                                {key.collaborators.map(collaboratorkey => {
+                                    console.log("key in collaborator", collaboratorkey);
+                                    return (
+                                        <div>
+                                            <div onClick={() => this.handleOpen(collaboratorkey.email)} >
+                                                <AccountCircleIcon />
+                                            </div>
+                                            <div>
+                                                <Dialog
+                                                    open={this.state.dialogOpen}
+                                                    onClose={this.handleClose}>
+                                                    <h3 style={{ padding: "1px 1px 1px 10px" }}>Collaborators</h3>
+                                                    <Divider />
+                                                    <div className="email-css">
+                                                        <div><Avatar>R</Avatar></div>
+                                                        <div><h3 style={{ padding: "1px 1px 0px 16px" }}>{localStorage.getItem("Email")}</h3></div>
+                                                    </div>
+                                                    <MenuItem><div style={{ display: " flex" }}>
+                                                        <div> <AccountCircleIcon /></div>
+                                                        <div>{this.state.mail}</div>
+                                                        <div onClick={() => this.handleCancel(key.id, collaboratorkey.userId)}
+                                                            style={{ padding: "1px 1px 1px 143px" }}> <ClearIcon /></div>
+                                                    </div></MenuItem>
+                                                    <div onClick={this.handleClose}>
+                                                        <Button>Close</Button>
+                                                    </div>
+                                                </Dialog>
+                                            </div>
+                                        </div>
+                                    )
+                                })}
+
                                 <div className="align-icons">
                                     <MuiThemeProvider theme={theme}>
-
                                         <ReminderNoteComponent reminderProps={this.reminderData}
                                             noteID={key.id} />
                                         <Tooltip title="Collabarator">
-                                            <CollaboratorComponent />
+                                            <CollaboratorComponent collaboratorProps={this.collaboratorData}
+                                                noteID={key.id} collaboratorkey={key.userId} />
                                         </Tooltip>
                                         <ColorComponent colorComponentProps={this.handleGetColor}
                                             noteID={key.id}></ColorComponent>
@@ -244,7 +303,7 @@ class GetArchiveComponent extends React.Component {
                                             noteID={key.id}></UnArchiveComponent>
                                         <MoreComponent
                                             deletingData={this.presentData}
-                                            // labelNoteProps={this.labelData}
+                                            labelNoteProps={this.labelData}
                                             noteID={key.id}
                                         ></MoreComponent>
                                     </MuiThemeProvider>
@@ -279,15 +338,24 @@ class GetArchiveComponent extends React.Component {
                             </DialogContent>
                             <div className="update-icons">
                                 <MuiThemeProvider theme={theme}>
-                                    <AddAlertOutlinedIcon />
-                                    <PersonAddOutlinedIcon />
+                                    <ReminderNoteComponent reminderProps={this.reminderData}
+                                        noteID={key.id} />
+                                    <Tooltip title="Collabarator">
+                                        <CollaboratorComponent collaboratorProps={this.collaboratorData}
+                                            noteID={key.id} collaboratorkey={key.userId} />
+                                    </Tooltip>
                                     <ColorComponent colorComponentProps={this.handleGetColor}
                                         noteID={key.id}></ColorComponent>
-                                    <ImageOutlinedIcon />
-                                    <UnArchiveComponent noteID={key.id}></UnArchiveComponent>
-                                    <MoreComponent noteID={key.id}></MoreComponent>
-                                    <UndoOutlinedIcon />
-                                    <RedoOutlinedIcon />
+                                    <Tooltip title="Add image">
+                                        <ImageOutlinedIcon />
+                                    </Tooltip>
+                                    <UnArchiveComponent archiveData={this.storeData}
+                                        noteID={key.id}></UnArchiveComponent>
+                                    <MoreComponent
+                                        deletingData={this.presentData}
+                                        labelNoteProps={this.labelData}
+                                        noteID={key.id}
+                                    ></MoreComponent>
                                 </MuiThemeProvider>
                             </div>
                             <Button onClick={this.handleUpdateCard} color="primary">

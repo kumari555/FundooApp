@@ -52,7 +52,7 @@ export default class LabelComponent extends React.Component {
             .catch(err => {
                 console.log("err while updating", err);
             })
-        
+
     }
     handleLabel(event) {
         const { currentTarget } = event
@@ -97,11 +97,11 @@ export default class LabelComponent extends React.Component {
         addLabelToNotes(data, this.props.labelToNote, lableId)
             .then(response => {
                 console.log("data in checklist labels--->", response);
-
+                this.props.labelDataProps(true)
                 this.getNotesf()
-                // this.props.labelNoteProps(true)
+                
             })
-       
+
 
     }
 
