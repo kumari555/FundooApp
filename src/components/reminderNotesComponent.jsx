@@ -45,8 +45,23 @@ class ReminderNoteComponent extends React.Component {
             selectedDate: event.target.value
         })
         console.log("dataaaaaaaaa", this.state.selectedDate);
-        if (this.props.reminderPropsToCreateNote(this.state.selectedDate))
-        { this.props.getReminderProps(true) }
+        // if()
+        this.props.reminderPropsToCreateNote(this.state.selectedDate)
+
+        var data = {
+            noteIdList: [this.props.noteID],
+            reminder: this.state.selectedDate
+        }
+        await addUpdateReminderNotes(data)
+            .then(response => {
+                console.log("response in remainder notes", response)
+                this.props.reminderProps(true)
+                this.getNotes()
+            })
+            .catch(err => {
+                console.log("err while updating", err);
+            })
+        // { this.props.getReminderProps(true) }
     }
     handleDate = async () => {
         console.log("noteid in remainder", this.props);
@@ -65,7 +80,7 @@ class ReminderNoteComponent extends React.Component {
             })
     }
     handleTomarrow = () => {
-        
+
     }
     render() {
         const { anchorEl } = this.state;
@@ -90,9 +105,9 @@ class ReminderNoteComponent extends React.Component {
                             //value={this.state.selectedDate}
                             />
                         </MenuItem>
-                        <MenuItem
+                        {/**  <MenuItem
                             onClick={this.handleDate}>
-                            <div className="saveDate">Save</div></MenuItem>
+                            <div className="saveDate">Save</div></MenuItem> */ }
                     </Paper>
                 </Popper>
             </div>

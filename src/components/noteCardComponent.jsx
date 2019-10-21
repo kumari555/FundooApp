@@ -49,6 +49,7 @@ class NotecardComponent extends React.Component {
             checkItem: false,
             checkLabel: false,
             arr1: [1],
+            date:false,
 
         }
     }
@@ -72,7 +73,8 @@ class NotecardComponent extends React.Component {
     reminderData = async (value) => {
         console.log("value of seleted reminder", value);
         await this.setState({
-            selectedDate: value
+            selectedDate: value,
+            date:true
         })
         console.log("data after set state", this.state.selectedDate);
     }
@@ -84,11 +86,11 @@ class NotecardComponent extends React.Component {
         })
         console.log("response in getNotes for color and id--->", this.state.selectedColor)
     }
-    getReminder = (updateNote) => {
-        if (updateNote) {
+    // getReminder = (updateNote) => {
+    //     if (updateNote) {
           
-        }
-    }
+    //     }
+    // }
     handleCreateNote = () => {
         // console.log("data after set state---", this.state.selectedDate);
         var data = {
@@ -108,6 +110,7 @@ class NotecardComponent extends React.Component {
                     Tittle: "",
                     Description: "",
                     selectedDate: "",
+                    selectedColor:""
                 })
                 // console.log("notedata", this.state.noteData);
                 this.props.noteCard(this.state.noteData)
@@ -192,7 +195,7 @@ class NotecardComponent extends React.Component {
                                         </div>)
                                     })
                                     :
-                                    (<div style={{ padding: "13px 1px 1px 8px" }}>
+                                    (<div>
                                         <InputBase
                                             placeholder="takea note.."
                                             onChange={this.handleDescription}
@@ -200,11 +203,14 @@ class NotecardComponent extends React.Component {
                                         />
                                     </div>)
                                 }
-                                <div>
-                                    <Chip
-                                        label={this.state.selectedDate}
-                                    />
-                                </div>
+                                {this.state.date ?
+                                    <div>
+                                        <Chip
+                                            label={this.state.selectedDate}
+                                        />
+                                    </div>
+                                    :(null)
+                                }
                             </div>
                             <div className="inner-icons">
                                 <MuiThemeProvider theme={theme}>

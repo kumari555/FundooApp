@@ -160,7 +160,6 @@ class DrawerComponent extends React.Component {
             })
     }
     handleDelete = (labelId) => {
-
         var data = {
             id: labelId,
             isDeleted: false

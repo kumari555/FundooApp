@@ -58,6 +58,11 @@ const theme = createMuiTheme({
 
     }
 })
+function searchFunction(searchValue) {
+    return function (x) {
+        return x.title.includes(searchValue) || x.description.includes(searchValue)
+    }
+}
 class GetArchiveComponent extends React.Component {
     constructor(props) {
         super(props)
@@ -210,12 +215,12 @@ class GetArchiveComponent extends React.Component {
         removeCollaboratorsNotes(noteId, userId)
             .then(response => {
                 console.log("response in remove collaborator getnotes", response);
-                this.getArchiveNote() 
+                this.getArchiveNote()
             })
     }
     render() {
         var list = this.props.gridViewProps ? "noteList" : null
-        var getArchiveNotesData = this.state.archiveData.map((key) => {
+        var getArchiveNotesData = this.state.archiveData.filter(searchFunction(this.props.SearchingNotesProps)).map((key) => {
             //console.log("key data in getarchivenote--->", key);
             return (
                 <MuiThemeProvider theme={theme}>

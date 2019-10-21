@@ -66,8 +66,8 @@ class DashboardComponent extends React.Component {
             imagepath: ""
         }
     }
-    handlemenulist = async() => {
-     await this.setState({
+    handlemenulist = async () => {
+        await this.setState({
             isOpen: !this.state.isOpen
         })
         this.props.transitionProps(true)
@@ -90,13 +90,13 @@ class DashboardComponent extends React.Component {
         this.props.history.push('/register')
     }
     handleSearch = (event) => {
-        //   console.log("value in serchbar --->", event.target.value);
+        console.log("value in serchbar --->", event.target.value);
 
         this.props.SearchNotes(event.target.value)
     }
 
-    handleProfileImage = async(event) => {
-       await this.setState({
+    handleProfileImage = async (event) => {
+        await this.setState({
             selectedFile: event.target.files[0]
         })
         console.log("imgae path -->", event.target.files[0]);
@@ -195,7 +195,7 @@ class DashboardComponent extends React.Component {
                                         />
                                     </div>
                                     <div className="appbar-div2">
-                                        <div style={{ padding: "10px 1px 1px 1px", width: " 16%" }}> <Tooltip title="refreash">
+                                        <div className="refreashIcon"style={{ padding: "10px 1px 1px 1px", width: " 16%" }}> <Tooltip title="refreash">
                                             <RefreshOutlinedIcon className="refreshIcon"
                                                 onClick={this.handleRefreash} /></Tooltip></div>
                                         <div className="listview-css"> {!this.state.listOpen ?

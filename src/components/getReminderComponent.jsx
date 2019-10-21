@@ -27,6 +27,7 @@ import Avatar from '@material-ui/core/Avatar';
 import ClearIcon from '@material-ui/icons/Clear';
 import Divider from '@material-ui/core/Divider';
 import MenuItem from '@material-ui/core/MenuItem';
+import { removeCollaboratorsNotes } from '../services/noteServices';
 const theme = createMuiTheme({
     overrides: {
         MuiSvgIcon: {
@@ -204,6 +205,22 @@ class GetReminderComponent extends React.Component {
         if (updateNote) {
             this.getReminderNote()
         }
+    }
+    handleOpen = (email) => {
+        // console.log("colla62email);
+        this.setState({
+            dialogOpen: true,
+            mail: email
+        })
+        console.log("collaborator state", this.state.mail);
+    }
+    handleCancel = (noteId, userId) => {
+        console.log("response in remove collaborator in getnotes", noteId, userId);
+        removeCollaboratorsNotes(noteId, userId)
+            .then(response => {
+                console.log("response in remove collaborator getnotes", response);
+                this.getReminderNote()
+            })
     }
     render() {
         var list = this.props.gridViewProps ? "noteList" : null

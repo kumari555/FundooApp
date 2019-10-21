@@ -46,6 +46,11 @@ const theme = createMuiTheme({
 
     }
 })
+function searchFunction(searchValue) {
+    return function (x) {
+        return x.title.includes(searchValue) || x.description.includes(searchValue)
+    }
+}
 class GetTrashNotesComponent extends React.Component {
     constructor(props) {
         super(props)
@@ -67,7 +72,7 @@ class GetTrashNotesComponent extends React.Component {
 
             })
     }
-   
+
     handleClickOpen = () => {
         this.setState({
             open: true
@@ -152,7 +157,7 @@ class GetTrashNotesComponent extends React.Component {
     }
     render() {
         var list = this.props.gridViewProps ? "noteList" : null
-        var getTrashNotesData = this.state.trashData.map((key) => {
+        var getTrashNotesData = this.state.trashData.filter(searchFunction(this.props.SearchingNotesProps)).map((key) => {
             //console.log("key data in getarchivenote--->", key);
             return (
                 <MuiThemeProvider theme={theme}>

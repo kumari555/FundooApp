@@ -189,3 +189,19 @@ export function addQuestionAndAnswer(data) {
             }
         })
 }
+export function questionLikes(parentId, data) {
+    return axios.post(baseURL + `/questionAndAnswerNotes/like/${parentId}`, data,
+        {
+            headers: {
+                Authorization: localStorage.getItem("token")
+            }
+        })
+}
+export function questioRating(parentId, data) {
+    return axios.post(baseURL + `/questionAndAnswerNotes/rate/${ parentId }`, data,
+        {
+            headers: {
+                Authorization: localStorage.getItem("token")
+            }
+        })
+}

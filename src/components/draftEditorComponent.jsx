@@ -7,7 +7,9 @@ import Divider from '@material-ui/core/Divider';
 import { MuiThemeProvider, createMuiTheme, Button } from '@material-ui/core';
 import { addQuestionAndAnswer } from '../services/noteServices';
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
-import StarBorderIcon from '@material-ui/icons/StarBorder';
+import { questionLikes } from '../services/noteServices';
+import { questioRating } from '../services/noteServices';
+import Rating from 'material-ui-rating'
 const theme = createMuiTheme({
     overrides: {
         MuiDivider: {
@@ -28,16 +30,19 @@ class DraftEditorComponent extends React.Component {
             noteId: "",
             Open: false,
             askQuestion: [],
-            createdDate: []
+            createdDate: [],
+            like: false,
+            id: "",
+            giveLike: false,
+            givenRate: ""
+
         }
     }
     onChange = (editorState) => {
         console.log("data in e", editorState);
         this.setState({ editorState });
         console.log("after set state question", this.state.editorState.blocks[0].text)
-
     }
-
     handleQuestion = (noteId) => {
         console.log("msg", noteId);
         var data = {
@@ -51,36 +56,43 @@ class DraftEditorComponent extends React.Component {
                 this.setState({
                     askQuestion: response.data.data.details.message,
                     Open: true,
-                    createdDate: response.data.data.details.createdDate
+                    createdDate: response.data.data.details.createdDate,
+                    id: response.data.data.details.id
                 })
-
+                console.log("hgjgkhd", this.state.id);
             })
     }
     handleDashboard = () => {
         this.props.history.push('/dashboard')
     }
-    // const editorStateWithAllSelection = EditorState.acceptSelection(
-    //     editorState,
-    //     selection
-    // );
-
-    // const newState = RichUtils.toggleInlineStyle(
-    //     editorStateWithAllSelection,
-    //     inlineStyle
-    // )
+    handleLike = () => {
+        var data = {
+            like: true,
+        }
+        questionLikes(this.state.id, data)
+            .then(response => {
+                console.log("after like response", response);
+            })
+        this.setState({
+            giveLike: true
+        })
+    }
+    handlerating = async (e) => {
+        console.log("rating after set state", e);
+        var data = {
+            rate: true,
+        }
+        questioRating(this.state.id, data)
+            .then(response => {
+                console.log("after rateing response", response);
+            })
+        await this.setState({
+            givenRate: e
+        })
+        console.log("rating after set state....", this.state.givenRate);
+    }
     render() {
         console.log("response in question Page--->", this.state.createdDate)
-        // var questiondata = this.state.askQuestion.map((key, index) => {
-        //     console.log("question key", key);
-        //     // })
-        //     // var questionDetails = this.state.askQuestion.map((key) => {
-        //     //     console.log("data after maping", key);
-        //     //     return (
-        //     //         <div>
-        //     //          {key.message}
-        //     //         </div>
-        //     //     )
-        // })
         return (
             <div>
                 <MuiThemeProvider theme={theme}>
@@ -91,17 +103,14 @@ class DraftEditorComponent extends React.Component {
                             <div><Button onClick={this.handleDashboard}>Close</Button></div></div>
                         <Divider style={{ boxShadow: "1px 3px 5px 0px grey" }} />
                     </div>
-
                     {!this.state.Open ?
-                        <div >
+                        <div>
                             <div style={{ padding: "1px 1px 1px 97px" }}><h2>Ask a Question</h2></div>
                             <div className="editor-css">
                                 <Divider />
-
                                 <div className="question-css">
                                     <Editor
                                         defaultEditorState={this.state.editorState}
-                                        // defaultEditorState={this.state.editorState}
                                         toolbarClassName="toolbarClassName"
                                         wrapperClassName="wrapperClassName"
                                         editorClassName="editorClassName"
@@ -125,7 +134,15 @@ class DraftEditorComponent extends React.Component {
                                 {localStorage.getItem("Firstname")}{localStorage.getItem("Lastname")}{this.state.createdDate}
                             </p></div>
                             <div className="draft-icons"><div style={{ padding: "7px 1px 1px 85px" }}>{this.state.askQuestion}</div>
-                                <div style={{ padding: "0px 264px 1px 0px" }}><ThumbUpIcon />0 Likes<StarBorderIcon /><StarBorderIcon /><StarBorderIcon /><StarBorderIcon /><StarBorderIcon /></div>
+                                <div style={{ padding: "0px 264px 1px 0px" }}>
+                                    {!this.state.giveLike ?
+                                        <div><ThumbUpIcon onClick={this.handleLike} /> 0 Likes</div>
+                                        : <div><ThumbUpIcon onClick={this.handleLike} /> 1 Likes</div>
+                                    }
+                                    <Rating name="half-rating" value={4} precision={0.5}
+                                        onChange={(e) => this.handlerating(e)}
+                                    />{this.state.givenRate}
+                                </div>
                             </div>
                         </div>
                     }

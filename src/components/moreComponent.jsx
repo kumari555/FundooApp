@@ -76,14 +76,13 @@ class MoreComponent extends React.Component {
 
         await this.setState({
             arr: [this.props.noteTitle, this.props.noteDescription, this.props.noteID]
-            
         })
         console.log("props in morecomponent", this.state.arr);
         this.props.history.push('/draftEditorPage', this.state.arr)
     }
     handleLabelData = (updateNote) => {
         if (updateNote) {
-            this.getNotes()
+           
         }  
     }
     render() {
@@ -97,10 +96,10 @@ class MoreComponent extends React.Component {
                 <Popper id={id} open={open} anchorEl={anchorEl}>
                     <Paper><MenuItem onClick={this.handleDeleteNote}>
                         <div>Delete note</div></MenuItem>
-                        <LabelComponent labelToNote={this.props.noteID}
+                        <LabelComponent labelToNote={this.props.noteID} labelDataProps={this.handleLabelData}
                         />
                         <div><MenuItem onClick={this.handleQuestion}
-                            labelDataProps={this.handleLabelData}>Ask a question</MenuItem></div>
+                            >Ask a question</MenuItem></div>
                     </Paper>
                 </Popper>
             </div>

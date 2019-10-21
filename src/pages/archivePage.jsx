@@ -13,14 +13,20 @@ class ArchivePage extends React.Component {
         }
         this.createNoteRef = React.createRef();
     }
-
     handleSearch = (value) => {
-        // console.log("value in searchbar-->", value);
+        console.log("value in searchbarfor archive -->", value);
         this.setState({
             SearchingNotesProps: value
         })
-        //console.log("value in searchbar in array-->", this.state.value);
+        console.log("value in searchbar in array-->", this.state.SearchingNotesProps);
     }
+    // handleSearch = (value) => {
+    //     // console.log("value in searchbar-->", value);
+    //     this.setState({
+    //         SearchingNotesProps: value
+    //     })
+    //     //console.log("value in searchbar in array-->", this.state.value);
+    // }
     handleListView = (value) => {
         console.log("value handlelistview in array-->", value);
         this.setState({
@@ -35,7 +41,7 @@ class ArchivePage extends React.Component {
         console.log("transiton value", this.state.transitionvalue);
     }
     render() {
-        console.log("response in dashboard--->", this.props)
+        //console.log("response in dashboard--->", this.props)
         var transitionState = this.state.transitionvalue ? "transitionLeft" : null
         return (
             <div>

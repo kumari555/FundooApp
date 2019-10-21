@@ -170,7 +170,6 @@ class GetNoteComponent extends React.Component {
         this.setState({
             getNoteData: [...this.state.getNoteData, cardDetails]
         })
-
     }
     presentData = (updateNote) => {
         if (updateNote) {
@@ -242,6 +241,9 @@ class GetNoteComponent extends React.Component {
     handleQuestionPage = () => {
         this.props.history.push('/draftEditorPage')
     }
+    // handleQuestionAsked = () => {
+    //     this.props.history.push('/draftEditorPage')
+    // }
     render() {
         console.log("dataaaaaaaaaaaaaaa", this.state.color);
 
@@ -278,7 +280,6 @@ class GetNoteComponent extends React.Component {
                                         <Chip
                                             label={LabelKey.label}
                                             onDelete={() => this.handeChipLabel(key.id, LabelKey.id)}
-
                                         />
                                     )
                                 })
@@ -297,7 +298,8 @@ class GetNoteComponent extends React.Component {
                                     console.log("key in collaborator", collaboratorkey);
                                     return (
                                         <div>
-                                            <div onClick={() => this.handleOpen(collaboratorkey.email)} >
+                                            <div onClick={() => this.handleOpen(collaboratorkey.email)}
+                                            >
                                                 <AccountCircleIcon />
                                             </div>
                                             <div>
@@ -324,7 +326,6 @@ class GetNoteComponent extends React.Component {
                                         </div>
                                     )
                                 })}
-
                                 <div className="align-icons">
                                     <MuiThemeProvider theme={theme}>
                                         <ReminderNoteComponent reminderProps={this.reminderData}
@@ -354,7 +355,7 @@ class GetNoteComponent extends React.Component {
                                 {key.questionAndAnswerNotes.map(questionKey => {
                                     console.log("key in questionKey", questionKey);
                                     return (
-                                        <div>
+                                        <div onClick={this.handleQuestionAsked}>
                                             <Divider />
                                             <p>Question asked</p>
                                             {questionKey.message}
@@ -363,7 +364,7 @@ class GetNoteComponent extends React.Component {
                                 })}
                             </Card>
                         </div>
-                    {(this.state.noteId === key.id &&
+                        {(this.state.noteId === key.id &&
                             <div style={{ backgroundColor: key.color }}>
                                 <Dialog
                                     open={this.state.open}

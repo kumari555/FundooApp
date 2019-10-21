@@ -49,7 +49,7 @@ class Dashboard extends React.Component {
                     listViewProps={this.handleListView}
                 />
                 <div className="dashboardnote" >
-                    <NotecardComponent noteCard={this.createNote}  />
+                    <NotecardComponent noteCard={this.createNote} />
                 </div>
                 <div className="get-notes" id={transitionState}>
                     <GetNoteComponent

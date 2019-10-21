@@ -133,9 +133,9 @@ export default class CollaboratorComponent extends React.Component {
                             <div><Avatar>R</Avatar></div>
                             <div><h3 style={{ padding: "1px 1px 0px 16px" }}>{localStorage.getItem("Email")}</h3></div>
                         </div>
-                        <div> <div><AccountCircleIcon /></div>
+                      
                             <div>{mailerDetails}</div>
-                        </div>
+                        
                         <div style={{ display: "flex" }}>
                             <div> <AccountCircleIcon /></div>
                             <div style={{ padding: "1px 1px 1px 10px" }}><InputBase

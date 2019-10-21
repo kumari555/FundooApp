@@ -12,7 +12,6 @@ import TrashPage from './pages/trashPage';
 import RemainderPage from './pages/reminderPage';
 import EditLabelPage from './pages/editLabelPage';
 import DraftEditorPage from './pages/draftEditorPage';
-
 class App extends Component {
   render() {
     return (
