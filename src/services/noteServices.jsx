@@ -198,7 +198,7 @@ export function questionLikes(parentId, data) {
         })
 }
 export function questioRating(parentId, data) {
-    return axios.post(baseURL + `/questionAndAnswerNotes/rate/${ parentId }`, data,
+    return axios.post(baseURL + `/questionAndAnswerNotes/rate/${parentId}`, data,
         {
             headers: {
                 Authorization: localStorage.getItem("token")

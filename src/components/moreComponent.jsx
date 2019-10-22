@@ -21,7 +21,10 @@ class MoreComponent extends React.Component {
             afterDelete: [],
             Title: "",
             Description: "",
-            arr: []
+            arr: [],
+            noteID: "",
+            
+            
         }
     }
 
@@ -71,19 +74,31 @@ class MoreComponent extends React.Component {
             isOPen: !this.state.isOPen
         })
     }
-
-    handleQuestion = async () => {
-
-        await this.setState({
-            arr: [this.props.noteTitle, this.props.noteDescription, this.props.noteID]
-        })
-        console.log("props in morecomponent", this.state.arr);
-        this.props.history.push('/draftEditorPage', this.state.arr)
+    handleShowQuestion = async (id) => {
+        var data = [
+            noteID= this.props.noteID,
+            title= this.props.noteTitle,
+            Description= this.props.noteDescription,
+            this.props.questionAndAnswerProps,
+            true
+        ]
+        console.log("props in morecomponent---->", data);
+        this.props.history.push(`/draftEditorPage/${id}`, data)
+    }
+    handleAskQuestion = async () => {
+        //   console.log("props in morecomponent ======>", this.props.questionAndAnswerProps);
+        var data = [
+            noteID= this.props.noteID,
+            title= this.props.noteTitle,
+            Description=this.props.noteDescription,
+        ]
+        console.log("props in morecomponent", data);
+        this.props.history.push("/draftEditorPage", data)
     }
     handleLabelData = (updateNote) => {
         if (updateNote) {
-           
-        }  
+
+        }
     }
     render() {
         // console.log("props in morecomponent", this.props.noteTitle, this.props.noteDescription);
@@ -98,11 +113,14 @@ class MoreComponent extends React.Component {
                         <div>Delete note</div></MenuItem>
                         <LabelComponent labelToNote={this.props.noteID} labelDataProps={this.handleLabelData}
                         />
-                        <div><MenuItem onClick={this.handleQuestion}
-                            >Ask a question</MenuItem></div>
+                        {
+                            this.props.questionAndAnswerProps.length > 0 ?
+                                <div onClick={() => this.handleShowQuestion(this.props.noteID)}>show question</div>
+                                : <div onClick={() => this.handleAskQuestion()}>Ask a question</div>
+                        }
                     </Paper>
                 </Popper>
-            </div>
+            </div >
         )
     }
 }

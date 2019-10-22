@@ -241,16 +241,21 @@ class GetNoteComponent extends React.Component {
     handleQuestionPage = () => {
         this.props.history.push('/draftEditorPage')
     }
-    // handleQuestionAsked = () => {
-    //     this.props.history.push('/draftEditorPage')
-    // }
+    handleQuestionAsked = async (title, description, noteId, question, createdDate, parentId) => {
+        await this.setState({
+            arr: [title, description, noteId, question, createdDate, parentId]
+        })
+        console.log("props in morecomponent", this.state.arr);
+        this.props.history.push('/questionPage', this.state.arr)
+    }
     render() {
         console.log("dataaaaaaaaaaaaaaa", this.state.color);
-
         var list = this.props.gridViewProps ? "noteList" : null
         var getNoteDetails = this.state.getNoteData.reverse().filter(searchFunction(this.props.SearchingNotesProps)).map((key, index) => {
             //console.log("data in key-->", key)
-            // console.log("data in index-->", index)
+            //console.log("data in indexfffffff-->", key.questionAndAnswerNotes.message)
+
+            // console.log("keyyyyyyyyyyyyyyy--->", key.questionAndAnswerNotes[key.questionAndAnswerNotes.length - 1 - [key.questionAndAnswerNotes.length - 1]]);
             return (
                 (((key.isArchived === false)
                     && key.isDeleted === false)
@@ -285,7 +290,7 @@ class GetNoteComponent extends React.Component {
                                 })
                                 }
                                 {key.reminder.map(reminderKey => {
-                                    console.log("key in remainder", reminderKey);
+                                    //console.log("key in remainder", reminderKey);
                                     return (
                                         <Chip
                                             className="reminder-chip"
@@ -295,7 +300,7 @@ class GetNoteComponent extends React.Component {
                                     )
                                 })}
                                 {key.collaborators.map(collaboratorkey => {
-                                    console.log("key in collaborator", collaboratorkey);
+                                    // console.log("key in collaborator", collaboratorkey);
                                     return (
                                         <div>
                                             <div onClick={() => this.handleOpen(collaboratorkey.email)}
@@ -348,20 +353,32 @@ class GetNoteComponent extends React.Component {
                                             noteID={key.id}
                                             noteTitle={key.title}
                                             noteDescription={key.description}
+                                            questionAndAnswerProps={key.questionAndAnswerNotes}
                                         ></MoreComponent>
                                     </MuiThemeProvider>
                                 </div>
 
+                                {key.questionAndAnswerNotes.length > 0 &&
+
+                                    // console.log("ujhhhhhhhh--------->", key.questionAndAnswerNotes[0].createdDate)
+                                    <div onClick={() => this.handleQuestionAsked(key.title, key.description, key.id, key.questionAndAnswerNotes[0].message, key.questionAndAnswerNotes[0].createdDate, key.questionAndAnswerNotes[key.questionAndAnswerNotes.length - 1].id)}>
+
+                                        <h3>Question Asked</h3>
+
+                                        {key.questionAndAnswerNotes[key.questionAndAnswerNotes.length - 1 - [key.questionAndAnswerNotes.length - 1]].message}
+                                    </div>
+                                }
                                 {key.questionAndAnswerNotes.map(questionKey => {
-                                    console.log("key in questionKey", questionKey);
-                                    return (
-                                        <div onClick={this.handleQuestionAsked}>
-                                            <Divider />
-                                            <p>Question asked</p>
-                                            {questionKey.message}
-                                        </div>
-                                    )
+                                    console.log("key in question=====>", questionKey);
+                                    // return (
+                                    //     <Chip
+                                    //         className="reminder-chip"
+                                    //         label={reminderKey.split(" ").splice(0, 5)}
+                                    //         onDelete={() => this.handeChipReminder(key.id)}
+                                    //     />
+                                    // )
                                 })}
+
                             </Card>
                         </div>
                         {(this.state.noteId === key.id &&
