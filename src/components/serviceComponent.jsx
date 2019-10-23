@@ -110,12 +110,11 @@ class ServiceComponent extends React.Component {
                                 mouseOverColor : "gray" && (key.id === this.props.productId) ? this.props.color : "gray"
                         }}>
                             <Card className="innerCard">
-
                                 <h3>price:${key.price} per month</h3>
                                 {key.name}
-                                <ul>
+                                <ul className="register-text">
                                     <li> ${key.price}/month</li>
-                                    <li className="desp">{key.description}</li>
+                                    <li>{key.description}</li>
                                 </ul>
                             </Card>
                             <div className="textCart">
@@ -150,7 +149,7 @@ class ServiceComponent extends React.Component {
                     </div>
                     <div className="nextLink">
                         <Button size="small" color="primary" onClick={this.handleLogin}>
-                            sign in instead
+                            <p className="signin-align"> sign in instead</p>
                         </Button>
                     </div>
                 </div>

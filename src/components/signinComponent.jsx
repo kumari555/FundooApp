@@ -106,98 +106,100 @@ class SigninComponent extends React.Component {
         return (
             <div className="main-login">
                 <Card className="signinCard">
-                    <div className="signin-div">
-                        <h1>
-                            <span style={{ color: "red" }}>F</span>
-                            <span style={{ color: "yellow" }}>u</span>
-                            <span style={{ color: "blue" }}>n</span>
-                            <span style={{ color: "green" }}>d</span>
-                            <span style={{ color: "purple" }}>o</span>
-                            <span style={{ color: "orange" }}>o</span>
-                        </h1>
-                        <h3>Signin</h3>
-                        <p>Continue to Fundoo</p>
-                        <div className="email-in-signin">
-                            <TextField style={{ width: "75%" }}
-                                id="email"
-                                label="Email"
-                                type="email"
-                                name="email"
-                                autoComplete="email"
-                                margin="normal"
-                                variant="outlined"
-                                onChange={this.handleEmailChange}
-                                value={this.state.email}
-                            />
-                        </div>
-                        <div className="email-in-signin">
-                            <TextField style={{ width: "75%" }}
-                                id="password"
-                                name="password"
-                                label="Password"
-                                type="password"
-                                autoComplete="current-password"
-                                margin="normal"
-                                variant="outlined"
-                                onChange={this.handlepasswordChange}
-                                value={this.state.password}
-                            />
-                        </div>
-                        <div style={{ padding: "1px 1px 1px 421px", marginTop: "2%" }}>
-                            <Button variant="outlined" color="primary" onClick={this.handleLogin}>
-                                Login
-                     </Button>
-                        </div>
-                        <div style={{ padding: "1px 392px 1px 1px" }}>
-                            <Button size="small" color="primary" onClick={this.handleforgotpassword}>
-                                Forgot password?
-                         </Button>
-                        </div>
-                        <div style={{ padding: "1px 392px 1px 1px" }}>
-                            <Button size="small" color="primary" onClick={(event) => this.handleservicepage(event)}>
-                                Create account
-                          </Button>
-                        </div>
 
-                        {this.props.location.state !== undefined ?
-
-                            <div className="signin-cards">
-                                <MuiThemeProvider theme={theme}>
-                                    <ServiceComponent Cards={true}
-                                        productId={this.props.location.state.productId}
-                                        status={this.props.location.state.status}
-                                        color={this.props.location.state.color}
-                                    >
-                                    </ServiceComponent>
-                                </MuiThemeProvider>
-                            </div> :
-                            null}
-
-
-                        <Snackbar
-                            anchorOrigin={{
-                                vertical: 'bottom',
-                                horizontal: 'right',
-                            }}
-                            open={this.state.openSnackBar}
-                            autoHideDuration={6000}
-                            onClose={this.handleSnackClose}
-                            variant="error"
-                            ContentProps={{
-                                'aria-describedby': 'message-id',
-                            }}
-                            message={<span id="message-id"> {this.state.snackBarMessage} </span>}
-                            action={[
-                                <IconButton
-                                    key="close"
-                                    aria-label="Close"
-                                    color="inherit"
-                                    onClick={this.handleSnackClose}>
-                                    <CloseIcon />
-                                </IconButton>
-                            ]}
+                    <h1 className="fundoo-text">
+                        <span style={{ color: "red" }}>F</span>
+                        <span style={{ color: "yellow" }}>u</span>
+                        <span style={{ color: "blue" }}>n</span>
+                        <span style={{ color: "green" }}>d</span>
+                        <span style={{ color: "purple" }}>o</span>
+                        <span style={{ color: "orange" }}>o</span>
+                    </h1>
+                    <h3 style={{ marginTop: " -2%" }}>Signin</h3>
+                    <p style={{ marginTop: " -1%" }}>Continue to Fundoo</p>
+                    <div>
+                        <TextField
+                            // style={{ width: "75%" }}
+                            id="email"
+                            label="Email"
+                            type="email"
+                            name="email"
+                            autoComplete="email"
+                            margin="normal"
+                            variant="outlined"
+                            onChange={this.handleEmailChange}
+                            value={this.state.email}
                         />
                     </div>
+                    <div>
+                        <TextField
+                            // style={{ width: "75%" }}
+                            id="password"
+                            name="password"
+                            label="Password"
+                            type="password"
+                            autoComplete="current-password"
+                            margin="normal"
+                            variant="outlined"
+                            onChange={this.handlepasswordChange}
+                            value={this.state.password}
+                        />
+                    </div>
+                    <div className="login-button">
+                        <Button variant="outlined" color="primary" onClick={this.handleLogin}>
+                            Login
+                     </Button>
+                    </div>
+                    <div className="button-signin">
+                        <Button size="small" color="primary" onClick={this.handleforgotpassword}>
+                            Forgot password?
+                         </Button>
+                    </div>
+                    <div className="button-signin">
+                        <Button size="small" color="primary" onClick={(event) => this.handleservicepage(event)}>
+                            Create account
+                          </Button>
+                    </div>
+
+
+                    {this.props.location.state !== undefined ?
+
+                        <div className="signin-cards">
+                            <MuiThemeProvider theme={theme}>
+                                <ServiceComponent Cards={true}
+                                    productId={this.props.location.state.productId}
+                                    status={this.props.location.state.status}
+                                    color={this.props.location.state.color}
+                                >
+                                </ServiceComponent>
+                            </MuiThemeProvider>
+                        </div> :
+                        null}
+
+
+                    <Snackbar
+                        anchorOrigin={{
+                            vertical: 'bottom',
+                            horizontal: 'right',
+                        }}
+                        open={this.state.openSnackBar}
+                        autoHideDuration={6000}
+                        onClose={this.handleSnackClose}
+                        variant="error"
+                        ContentProps={{
+                            'aria-describedby': 'message-id',
+                        }}
+                        message={<span id="message-id"> {this.state.snackBarMessage} </span>}
+                        action={[
+                            <IconButton
+                                key="close"
+                                aria-label="Close"
+                                color="inherit"
+                                onClick={this.handleSnackClose}>
+                                <CloseIcon />
+                            </IconButton>
+                        ]}
+                    />
                 </Card>
             </div>
         )

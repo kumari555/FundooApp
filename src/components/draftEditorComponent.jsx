@@ -62,7 +62,8 @@ class DraftEditorComponent extends React.Component {
             this.setState({
                 noteId: this.props.location.state.noteID,
                 description: this.props.location.state.Description,
-                title: this.props.location.state.title
+                title: this.props.location.state.title,
+                Open: true,
             })
         }
         
@@ -125,7 +126,7 @@ class DraftEditorComponent extends React.Component {
         console.log("response in question Page--->", this.state.createdDate)
         return (
             <div>
-                <MuiThemeProvider theme={theme}>z
+                <MuiThemeProvider theme={theme}>
                     <div className="titleData">
                         <div className="close-css">
                             <div><div> {this.props.location.state[0]}</div>

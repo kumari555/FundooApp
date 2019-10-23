@@ -22,9 +22,7 @@ class MoreComponent extends React.Component {
             Title: "",
             Description: "",
             arr: [],
-            noteID: "",
-            
-            
+
         }
     }
 
@@ -76,9 +74,9 @@ class MoreComponent extends React.Component {
     }
     handleShowQuestion = async (id) => {
         var data = [
-            noteID= this.props.noteID,
-            title= this.props.noteTitle,
-            Description= this.props.noteDescription,
+            this.props.noteID,
+            this.props.noteTitle,
+            this.props.noteDescription,
             this.props.questionAndAnswerProps,
             true
         ]
@@ -88,9 +86,9 @@ class MoreComponent extends React.Component {
     handleAskQuestion = async () => {
         //   console.log("props in morecomponent ======>", this.props.questionAndAnswerProps);
         var data = [
-            noteID= this.props.noteID,
-            title= this.props.noteTitle,
-            Description=this.props.noteDescription,
+            this.props.noteID,
+            this.props.noteTitle,
+            this.props.noteDescription,
         ]
         console.log("props in morecomponent", data);
         this.props.history.push("/draftEditorPage", data)

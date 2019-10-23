@@ -16,15 +16,16 @@
 }
 
 .outerCard {
-    width: 38%;
+    width: 43%;
     height: 94%;
 }
 
 .innerCard {
     width: 100%;
     margin-top: -18%;
-    margin-left: -13%;
+    margin-left: -17%;
     height: 90%;
+    padding: 0px 0px 0px 4px;
 }
 
 .serviceCss {
@@ -61,69 +62,103 @@
     margin-top: -4%;
 }
 
+.signin-align {
+    font-size: inherit;
+}
+
+.register-text {
+    font-size: inherit;
+}
+
 /*------------------ registerComponent-------- */
 
 .service-main-div {
-    width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
 }
 
 .registerCard {
     display: flex;
-    /* margin-top: 12%; */
-    -ms-flex-align: center;
-    align-items: center;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    -ms-flex-direction: column;
     flex-direction: column;
-    width: 62%;
-    height: 100%;
-    /* overflow: hidden; */
-    overflow: hidden;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
 }
 
 .register {
     display: flex;
-    width: 100%;
+    width: 58%;
     justify-content: space-evenly;
 }
 
 .register-carts {
     height: auto;
+    width: 79%;
+    margin-top: 2%;
 }
 
 .Rbutton {
-    margin-left: 44%;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.cartButton {
+    margin-top: -5%;
+    margin-left: 49%;
+}
+
+.email-text {
+    width: 42%;
+    margin-right: 6%;
+}
+
+.register-Name {
+    margin-top: 1%;
+}
+
+.field-align {
+    width: 38%;
+}
+
+.fundoo-text {
+    font-size: 25px;
 }
 
 /*-------------------signin Component-----------------*/
 
 .signinCard {
-    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100vh;
+    height: 100vh
 }
 
-.signin-div {
-    width: 50%;
-    display: -ms-flexbox;
+.main-login {
     display: flex;
-    -ms-flex-align: center;
+    justify-content: center;
     align-items: center;
-    -ms-flex-pack: justify;
-    /* justify-content: center; */
-    -ms-flex-direction: column;
-    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+}
+
+.button-signin {
+    margin-right: 65%;
+    margin-top: -1%;
+}
+
+.login-button {
+    margin-left: 48%;
 }
 
 .signin-cards {
     background: lightgrey;
     height: 100%;
-    width: 50%;
-    margin-top: 4%;
-}
-
-.email-in-signin {
     width: 100%;
 }
 
@@ -351,9 +386,6 @@
     margin-left: 48%;
 }
 
-.cartButton {
-    margin-right: 20%
-} */
 
 /* .loginCard {
     display: flex;
@@ -747,5 +779,781 @@
     .refreashIcon {
         padding: 10px 4px 1px;
         width: 24%;
+    }
+    .outerCard {
+        width: 37vw;
+        height: 94%;
+    }
+    .innerCard {
+        width: 39vw;
+        margin-top: -22%;
+        margin-left: -17%;
+        height: 91%;
+    }
+    .serviceCss {
+        display: flex;
+        width: 100%;
+        -ms-flex-pack: center;
+        justify-content: center;
+        /* height: 1%; */
+        /* height: 30%; */
+        margin-top: 18%;
+    }
+}
+
+/*--------------------------------service Card media query----------*/
+
+@media only screen and (width: 768px) {
+    .outerCard {
+        width: 39vw;
+        height: 29vh;
+        margin-top: 20%;
+    }
+    .innerCard {
+        width: 38vw;
+        margin-top: -18%;
+        margin-left: -10%;
+        height: 26vh;
+        font-size: 22px;
+    }
+    .serviceCss {
+        display: flex;
+        width: 100%;
+        -ms-flex-pack: center;
+        justify-content: center;
+        /* height: 1%; */
+        /* height: 30%; */
+        /* margin-top: 18%; */
+    }
+    .nextLink {
+        margin-top: 10%;
+        text-align: center;
+    }
+    .serviceInfo {
+        text-align: center;
+        font-size: 19px;
+    }
+    .textCart {
+        margin-top: 4%;
+        bottom: auto;
+        text-align: center;
+        font-size: 25px;
+    }
+    .signin-align {
+        font-size: x-large;
+    }
+}
+
+@media only screen and (width: 1024px) {
+    .outerCard {
+        width: 39vw;
+        height: 29vh;
+        margin-top: 20%;
+    }
+    .innerCard {
+        width: 38vw;
+        margin-top: -18%;
+        margin-left: -10%;
+        height: 26vh;
+        font-size: 31px;
+    }
+    .serviceCss {
+        display: flex;
+        width: 100%;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+    .nextLink {
+        margin-top: 10%;
+        text-align: center;
+    }
+    .serviceInfo {
+        text-align: center;
+        font-size: 24px;
+    }
+    .textCart {
+        margin-top: 4%;
+        bottom: auto;
+        text-align: center;
+        font-size: 33px;
+    }
+    .signin-align {
+        font-size: xx-large;
+    }
+}
+
+@media screen and (width: 320px) {
+    .outerCard {
+        width: 43vw;
+        height: 38vh;
+        /* margin-top: 20% */
+    }
+    .innerCard {
+        width: 40vw;
+        margin-top: -22%;
+        margin-left: -3%;
+        height: 35vh;
+    }
+    .serviceCss {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        margin-top: 0%;
+        font-size: 13px;
+    }
+    .nextLink {
+        margin-top: 9%;
+        text-align: center;
+    }
+}
+
+@media screen and (width: 360px) {
+    .outerCard {
+        width: 43vw;
+        height: 36vh;
+        /* margin-top: 20% */
+    }
+    .innerCard {
+        width: 40vw;
+        margin-top: -22%;
+        margin-left: -3%;
+        height: 33vh;
+        font-size: 14px;
+    }
+    .serviceCss {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        margin-top: 5%;
+        font-size: 13px;
+    }
+    .nextLink {
+        margin-top: 9%;
+        text-align: center;
+    }
+}
+
+@media screen and (width: 411px) {
+    .outerCard {
+        width: 43vw;
+        height: 36vh;
+        /* margin-top: 20% */
+    }
+    .innerCard {
+        width: 40vw;
+        margin-top: -22%;
+        margin-left: -3%;
+        height: 33vh;
+        font-size: 16px;
+    }
+    .serviceCss {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        margin-top: 5%;
+        font-size: 13px;
+    }
+    .nextLink {
+        margin-top: 9%;
+        text-align: center;
+    }
+    .textCart {
+        margin-top: 4%;
+        bottom: auto;
+        text-align: center;
+        font-size: 19px;
+    }
+}
+
+@media screen and (width: 375px) {
+    .outerCard {
+        width: 43vw;
+        height: 36vh;
+    }
+    .innerCard {
+        width: 40vw;
+        margin-top: -22%;
+        margin-left: -3%;
+        height: 33vh;
+        font-size: 14px;
+    }
+    .serviceCss {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        margin-top: 5%;
+        font-size: 13px;
+    }
+    .nextLink {
+        margin-top: 9%;
+        text-align: center;
+    }
+    .textCart {
+        margin-top: 4%;
+        bottom: auto;
+        text-align: center;
+        font-size: 17px;
+    }
+}
+
+@media screen and (width: 414px) {
+    .outerCard {
+        width: 43vw;
+        height: 36vh;
+    }
+    .innerCard {
+        width: 40vw;
+        margin-top: -22%;
+        margin-left: -3%;
+        height: 33vh;
+        font-size: 16px;
+    }
+    .serviceCss {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        margin-top: 5%;
+        font-size: 13px;
+    }
+    .nextLink {
+        margin-top: 9%;
+        text-align: center;
+    }
+    .textCart {
+        margin-top: 4%;
+        bottom: auto;
+        text-align: center;
+        font-size: 17px;
+    }
+}
+
+/*------------------register card media query----------*/
+
+@media screen and (width: 360px) {
+    .cartButton {
+        margin-top: -13%;
+        margin-left: 66%;
+    }
+    .service-main-div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+    }
+    .registerCard {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        padding: 4px 5px 5px 4px;
+    }
+    .register {
+        display: flex;
+        width: 100%;
+        justify-content: space-evenly;
+    }
+    .register-carts {
+        height: auto;
+        width: 100%;
+        margin-top: 7%;
+    }
+    .Rbutton {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 6%;
+    }
+    .email-text {
+        width: 92%;
+        margin-right: 1%;
+    }
+    .register-Name {
+        margin-top: 1%;
+    }
+    .field-align {
+        width: 44%;
+    }
+}
+
+@media screen and (width: 411px) {
+    .cartButton {
+        margin-top: -13%;
+        margin-left: 66%;
+    }
+    .service-main-div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+    }
+    .registerCard {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        padding: 4px 5px 5px 4px;
+    }
+    .register {
+        display: flex;
+        width: 100%;
+        justify-content: space-evenly;
+    }
+    .register-carts {
+        height: auto;
+        width: 100%;
+        margin-top: 14%;
+    }
+    .Rbutton {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 6%;
+    }
+    .email-text {
+        width: 93%;
+        margin-right: 1%;
+    }
+    .register-Name {
+        margin-top: 1%;
+    }
+    .field-align {
+        width: 45%;
+    }
+}
+
+@media screen and (width: 320px) {
+    .cartButton {
+        margin-top: -15%;
+        margin-left: 65%;
+    }
+    .service-main-div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+    }
+    .registerCard {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        padding: 4px 5px 5px 4px;
+    }
+    .register {
+        display: flex;
+        width: 100%;
+        justify-content: space-evenly;
+        margin-top: -6%;
+    }
+    .register-carts {
+        height: auto;
+        width: 100%;
+        margin-top: 14%;
+    }
+    .Rbutton {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 6%;
+    }
+    .email-text {
+        width: 93%;
+        margin-top: -5%;
+        margin-right: 1%;
+    }
+    .register-Name {
+        margin-top: 1%;
+    }
+    .field-align {
+        width: 45%;
+    }
+}
+
+@media screen and (width: 375px) {
+    .cartButton {
+        margin-top: -13%;
+        margin-left: 66%;
+    }
+    .service-main-div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+    }
+    .registerCard {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        padding: 4px 5px 5px 4px;
+    }
+    .register {
+        display: flex;
+        width: 100%;
+        justify-content: space-evenly;
+    }
+    .register-carts {
+        height: auto;
+        width: 100%;
+        margin-top: 7%;
+    }
+    .Rbutton {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 6%;
+    }
+    .email-text {
+        width: 92%;
+    }
+    .register-Name {
+        margin-top: 1%;
+    }
+    .field-align {
+        width: 44%;
+    }
+}
+
+@media screen and (width: 414px) {
+    .cartButton {
+        margin-top: -13%;
+        margin-left: 66%;
+    }
+    .service-main-div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+    }
+    .registerCard {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        padding: 4px 5px 5px 4px;
+    }
+    .register {
+        display: flex;
+        width: 100%;
+        justify-content: space-evenly;
+    }
+    .register-carts {
+        height: auto;
+        width: 100%;
+        margin-top: 14%;
+    }
+    .Rbutton {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 6%;
+    }
+    .email-text {
+        width: 93%;
+        margin-right: 1%;
+    }
+    .register-Name {
+        margin-top: 1%;
+    }
+    .field-align {
+        width: 45%;
+    }
+}
+
+@media screen and (width: 375px) {
+    .cartButton {
+        margin-top: -13%;
+        margin-left: 66%;
+    }
+    .service-main-div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+    }
+    .registerCard {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        padding: 4px 5px 5px 4px;
+    }
+    .register {
+        display: flex;
+        width: 100%;
+        justify-content: space-evenly;
+        margin-top: -4%;
+    }
+    .register-carts {
+        height: auto;
+        width: 100%;
+        margin-top: 13%;
+    }
+    .Rbutton {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 14%;
+    }
+    .email-text {
+        width: 92%;
+        margin-right: 1%;
+    }
+    .register-Name {
+        margin-top: 1%;
+    }
+    .field-align {
+        width: 44%;
+    }
+    .register-text {
+        font-size: inherit;
+    }
+}
+
+@media screen and (width: 768px) {
+    .cartButton {
+        margin-top: -9%;
+        margin-left: 66%;
+    }
+    .service-main-div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+    }
+    .registerCard {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        padding: 4px 5px 5px 4px;
+    }
+    .register {
+        display: flex;
+        width: 100%;
+        justify-content: space-evenly;
+    }
+    .register-carts {
+        height: auto;
+        width: 100%;
+        margin-top: 7%;
+    }
+    .Rbutton {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 9%;
+    }
+    .email-text {
+        width: 76%;
+        margin-right: 19%;
+    }
+    .register-Name {
+        margin-top: 1%;
+        font-size: 31px;
+    }
+    .field-align {
+        width: 46%;
+    }
+    .register-text {
+        font-size: inherit;
+    }
+    .fundoo-text {
+        font-size: 36px;
+    }
+}
+
+@media screen and (width: 1024px) {
+    .cartButton {
+        margin-top: -6%;
+        margin-left: 66%;
+    }
+    .service-main-div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+    }
+    .registerCard {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        padding: 4px 5px 5px 4px;
+    }
+    .register {
+        display: flex;
+        width: 100%;
+        justify-content: space-evenly;
+    }
+    .register-carts {
+        height: auto;
+        width: 100%;
+        margin-top: 7%;
+    }
+    .Rbutton {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 9%;
+    }
+    .email-text {
+        width: 76%;
+        margin-right: 19%;
+    }
+    .register-Name {
+        margin-top: 1%;
+        font-size: 36px;
+    }
+    .field-align {
+        width: 46%;
+    }
+    .register-text {
+        font-size: inherit;
+    }
+    .fundoo-text {
+        font-size: 44px;
+    }
+}
+
+/*--------------------sign in component media query---------*/
+
+@media screen and (width: 360px) {
+    .signinCard {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        width: 100vh;
+        height: 100vh
+    }
+    .main-login {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+    }
+    .button-signin {
+        margin-right: 43%;
+        margin-top: -1%;
+        width: 50%;
+    }
+    .login-button {
+        margin-left: 58%;
+    }
+    .signin-cards {
+        background: lightgrey;
+        height: 100%;
+        width: 100%;
+    }
+    .serviceCss {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        margin-top: 7%;
+        font-size: 17px;
+    }
+    .fundoo-text {
+        font-size: 24px;
+    }
+    .innerCard {
+        width: 40vw;
+        margin-top: -21%;
+        margin-left: -3%;
+        height: 31vh;
+        font-size: 14px;
+    }
+    .outerCard {
+        width: 44vw;
+        height: 34vh;
+        margin-top: 11%;
+    }
+}
+
+@media screen and (width: 411px) {
+    .innerCard {
+        width: 40vw;
+        margin-top: -23%;
+        margin-left: -3%;
+        height: 28vh;
+        font-size: 14px;
+    }
+    .outerCard {
+        width: 44vw;
+        height: 31vh;
+        margin-top: 20%;
+    }
+    .serviceCss {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        margin-top: 13%;
+        font-size: 15px;
+    }
+}
+
+@media screen and (width: 320px) {
+    .serviceCss {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        /* margin-top: 13%; */
+        font-size: 15px;
+    }
+    .innerCard {
+        width: 40vw;
+        margin-top: -23%;
+        margin-left: -3%;
+        height: 28vh;
+        font-size: 14px;
+    }
+    .outerCard {
+        width: 44vw;
+        height: 31vh;
+        margin-top: 20%;
+    }
+    .signinCard {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        width: 100vh;
+        height: 100vh
+    }
+    .main-login {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+    }
+    .button-signin {
+        margin-right: 43%;
+        margin-top: -3%;
+        width: 50%;
+    }
+    .login-button {
+        margin-left: 58%;
+    }
+    .fundoo-text {
+        margin-top: 2%;
+        font-size: 20px;
     }
 }

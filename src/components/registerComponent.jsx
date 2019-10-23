@@ -7,7 +7,35 @@ import CloseIcon from '@material-ui/icons/Close';
 import Card from '@material-ui/core/Card';
 import { register } from '../services/userServices';
 import ServiceComponent from '../components/serviceComponent';
-import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core';
+const theme = createMuiTheme({
+    overrides: {
+        MuiButton: {
+            textSizeSmall: {
+                fontSize: "0.8125rem",
+                '@media (width: 768px)': {
+                    fontSize: "1.8125rem"
+                },
+                '@media (width: 1024px)': {
+                    fontSize: "1.8125rem"
+                }
+            }
+        },
+        MuiButton: {
+            root: {
+                fontSize: "0.8125rem",
+                '@media (width: 768px)': {
+                    fontSize: " 1.8125rem"
+                },
+                '@media (width: 1024px)': {
+                    fontSize: "1.8125rem"
+                }
+            }
+        }
+    }
+})
+
 class RegisterComponent extends React.Component {
     constructor(props) {
         super(props);
@@ -21,7 +49,6 @@ class RegisterComponent extends React.Component {
             Id: "",
         }
         console.log("props in register", this.props);
-
     }
     handlefirstnameChange = (event) => {
         var firstName = event.target.value;
@@ -124,121 +151,126 @@ class RegisterComponent extends React.Component {
 
         return (
             <div className="service-main-div">
-                <Card className="registerCard">
-                    <div>
-                        <h3>
+                <MuiThemeProvider theme={theme}>
+                    <Card className="registerCard">
+                        <h3 className="fundoo-text">
                             <span style={{ color: "red" }}>F</span>
                             <span style={{ color: "yellow" }}>u</span>
                             <span style={{ color: "blue" }}>n</span>
                             <span style={{ color: "green" }}>d</span>
                             <span style={{ color: "purple" }}>o</span>
                             <span style={{ color: "orange" }}>o</span>
-                            <Button className="cartButton" onClick={this.handleCard}>go to cart</Button>
-                        </h3>
-                    </div>
-                    <div>
-                        <p> Create your Fundoo Account</p>
-                    </div>
-                    <div className="register">
-                        <div>
-                            <TextField
-                                id="outlined-name"
-                                label="First name"
-                                margin="normal"
-                                // variant="outlined"
-                                onChange={this.handlefirstnameChange}
-                                value={this.state.firstname}
-                            />
-                        </div>
-                        <div>
-                            <TextField
-                                id="outlined-name"
-                                label="Last name"
-                                margin="normal"
-                                //variant="outlined"
-                                onChange={this.handlelastnameChange}
-                                value={this.state.lastname}
-                            />
-                        </div>
 
-                    </div>
-                    <div style={{ padding: "1px 336px 1px 1px" }}>
-                        <TextField
-                            id="outlined-email-input"
-                            label="Email"
-                            type="email"
-                            name="email"
-                            autoComplete="email"
-                            margin="normal"
-                            //variant="outlined"
-                            onChange={this.handleEmailChange}
-                            value={this.state.email}
-                        />
-                    </div>
-                    <div className="register">
-                        <div>
+                        </h3>
+                        <div className="cartButton">
+                            <Button onClick={this.handleCard}>go to cart</Button></div>
+
+                        <p className="register-Name"> Create your Fundoo Account</p>
+
+                        <div className="register">
+                            <div className="field-align">
+                                <TextField
+                                    id="outlined-name"
+                                    label="First name"
+                                    margin="normal"
+                                    // variant="outlined"
+                                    onChange={this.handlefirstnameChange}
+                                    value={this.state.firstname}
+                                />
+                            </div>
+                            <div className="field-align">
+                                <TextField
+                                    id="outlined-name"
+                                    label="Last name"
+                                    margin="normal"
+                                    //variant="outlined"
+                                    onChange={this.handlelastnameChange}
+                                    value={this.state.lastname}
+                                />
+                            </div>
+
+                        </div>
+                        <div className="email-text">
                             <TextField
-                                id="outlined-password-input"
-                                label="Password"
-                                type="password"
-                                autoComplete="current-password"
+                                id="outlined-email-input"
+                                label="Email"
+                                type="email"
+                                name="email"
+                                autoComplete="email"
                                 margin="normal"
                                 //variant="outlined"
-                                onChange={this.handlepasswordChange}
-                                value={this.state.password}
-                            /></div>
-                        <div>
-                            <TextField
-                                id="outlined-password-input"
-                                label="Confirm"
-                                type="password"
-                                autoComplete="current-password"
-                                margin="normal"
-                                // variant="outlined"
-                                onChange={this.handlepasswordChange}
-                                value={this.state.password}
+                                onChange={this.handleEmailChange}
+                                value={this.state.email}
+                                fullWidth
                             />
                         </div>
-                    </div>
-                    <div className="register-carts">
-                        <ServiceComponent Cards={true}
-                            productId={productId}
-                            status={status}
-                            color={color}>
-                        </ServiceComponent>
-                    </div>
-                    <div >
-                        <Button size="small" color="primary" onClick={() => this.handleSigninInstead(status, color, productId)}>
-                            Signin instead
-                         </Button>
-                        <Button className="Rbutton" variant="outlined" color="primary" onClick={this.handlesignup}>
-                            SignUp
-                          </Button>
-                    </div>
-                </Card>
-                <Snackbar
-                    anchorOrigin={{
-                        vertical: 'bottom',
-                        horizontal: 'right',
-                    }}
-                    open={this.state.openSnackBar}
-                    autoHideDuration={6000}
-                    onClose={this.handleSnackClose}
-                    variant="error"
-                    ContentProps={{
-                        'aria-describedby': 'message-id',
-                    }}
-                    message={<span id="message-id"> {this.state.snackBarMessage} </span>}
-                    action={[
-                        <IconButton
-                            key="close"
-                            aria-label="Close"
-                            color="inherit"
-                            onClick={this.handleSnackClose}>
-                            <CloseIcon />
-                        </IconButton>
-                    ]}
-                />
+                        <div className="register">
+                            <div className="field-align">
+                                <TextField
+                                    id="outlined-password-input"
+                                    label="Password"
+                                    type="password"
+                                    autoComplete="current-password"
+                                    margin="normal"
+                                    //variant="outlined"
+                                    onChange={this.handlepasswordChange}
+                                    value={this.state.password}
+                                /></div>
+                            <div className="field-align">
+                                <TextField
+                                    id="outlined-password-input"
+                                    label="Confirm"
+                                    type="password"
+                                    autoComplete="current-password"
+                                    margin="normal"
+                                    // variant="outlined"
+                                    onChange={this.handlepasswordChange}
+                                    value={this.state.password}
+                                />
+                            </div>
+                        </div>
+                        <div className="register-carts">
+                            <ServiceComponent Cards={true}
+
+                                productId={productId}
+                                status={status}
+                                color={color}>
+                            </ServiceComponent>
+                        </div>
+                        <div className="Rbutton">
+                            <div><Button size="small" color="primary"
+                                onClick={() => this.handleSigninInstead(status, color, productId)}>
+                                Signin instead
+                         </Button></div>
+                            <div> <Button variant="outlined" color="primary" onClick={this.handlesignup}>
+                                SignUp
+                          </Button></div>
+                        </div>
+                    </Card>
+                    <Snackbar
+                        anchorOrigin={{
+                            vertical: 'bottom',
+                            horizontal: 'right',
+                        }}
+                        open={this.state.openSnackBar}
+                        autoHideDuration={6000}
+                        onClose={this.handleSnackClose}
+                        variant="error"
+                        ContentProps={{
+                            'aria-describedby': 'message-id',
+                        }}
+                        message={<span id="message-id"> {this.state.snackBarMessage} </span>}
+                        action={[
+                            <IconButton
+                                key="close"
+                                aria-label="Close"
+                                color="inherit"
+                                onClick={this.handleSnackClose}>
+                                <CloseIcon />
+                            </IconButton>
+                        ]}
+                    />
+                </MuiThemeProvider>
             </div>
         )
     }
