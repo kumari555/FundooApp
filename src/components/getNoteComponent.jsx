@@ -238,15 +238,15 @@ class GetNoteComponent extends React.Component {
                 this.getNotes()
             })
     }
-    handleQuestionPage = () => {
-        this.props.history.push('/draftEditorPage')
-    }
-    handleQuestionAsked = async (title, description, noteId, question, createdDate, parentId) => {
+    // handleQuestionPage = () => {
+    //     this.props.history.push('/draftEditorPage')
+    // }
+    handleQuestionAsked = async (title, description, noteId, question, parentId) => {
         await this.setState({
-            arr: [title, description, noteId, question, createdDate, parentId]
+            arr: [title, description, noteId, question, true, parentId]
         })
         console.log("props in morecomponent", this.state.arr);
-        this.props.history.push('/questionPage', this.state.arr)
+        this.props.history.push(`/draftEditorPage/${parentId}`, this.state.arr)
     }
     render() {
         console.log("dataaaaaaaaaaaaaaa", this.state.color);
@@ -254,8 +254,7 @@ class GetNoteComponent extends React.Component {
         var getNoteDetails = this.state.getNoteData.reverse().filter(searchFunction(this.props.SearchingNotesProps)).map((key, index) => {
             //console.log("data in key-->", key)
             //console.log("data in indexfffffff-->", key.questionAndAnswerNotes.message)
-
-            // console.log("keyyyyyyyyyyyyyyy--->", key.questionAndAnswerNotes[key.questionAndAnswerNotes.length - 1 - [key.questionAndAnswerNotes.length - 1]]);
+            console.log("keyyyyyyyyyyyyyyy--->", key.questionAndAnswerNotes);
             return (
                 (((key.isArchived === false)
                     && key.isDeleted === false)
@@ -357,28 +356,13 @@ class GetNoteComponent extends React.Component {
                                         ></MoreComponent>
                                     </MuiThemeProvider>
                                 </div>
-
                                 {key.questionAndAnswerNotes.length > 0 &&
-
                                     // console.log("ujhhhhhhhh--------->", key.questionAndAnswerNotes[0].createdDate)
-                                    <div onClick={() => this.handleQuestionAsked(key.title, key.description, key.id, key.questionAndAnswerNotes[0].message, key.questionAndAnswerNotes[0].createdDate, key.questionAndAnswerNotes[key.questionAndAnswerNotes.length - 1].id)}>
-
+                                    <div onClick={() => this.handleQuestionAsked(key.title, key.description, key.id, key.questionAndAnswerNotes[0].message, key.questionAndAnswerNotes[key.questionAndAnswerNotes.length - 1].id)}>
                                         <h3>Question Asked</h3>
-
                                         {key.questionAndAnswerNotes[key.questionAndAnswerNotes.length - 1 - [key.questionAndAnswerNotes.length - 1]].message}
                                     </div>
                                 }
-                                {key.questionAndAnswerNotes.map(questionKey => {
-                                    console.log("key in question=====>", questionKey);
-                                    // return (
-                                    //     <Chip
-                                    //         className="reminder-chip"
-                                    //         label={reminderKey.split(" ").splice(0, 5)}
-                                    //         onDelete={() => this.handeChipReminder(key.id)}
-                                    //     />
-                                    // )
-                                })}
-
                             </Card>
                         </div>
                         {(this.state.noteId === key.id &&

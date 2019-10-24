@@ -22,7 +22,7 @@ class MoreComponent extends React.Component {
             Title: "",
             Description: "",
             arr: [],
-
+        
         }
     }
 
@@ -74,9 +74,9 @@ class MoreComponent extends React.Component {
     }
     handleShowQuestion = async (id) => {
         var data = [
-            this.props.noteID,
             this.props.noteTitle,
             this.props.noteDescription,
+            this.props.noteID,
             this.props.questionAndAnswerProps,
             true
         ]
@@ -86,9 +86,9 @@ class MoreComponent extends React.Component {
     handleAskQuestion = async () => {
         //   console.log("props in morecomponent ======>", this.props.questionAndAnswerProps);
         var data = [
-            this.props.noteID,
             this.props.noteTitle,
             this.props.noteDescription,
+            this.props.noteID,
         ]
         console.log("props in morecomponent", data);
         this.props.history.push("/draftEditorPage", data)
@@ -111,14 +111,16 @@ class MoreComponent extends React.Component {
                         <div>Delete note</div></MenuItem>
                         <LabelComponent labelToNote={this.props.noteID} labelDataProps={this.handleLabelData}
                         />
-                        {
+                        {this.props.questionAndAnswerProps !== 'undefined' ?
                             this.props.questionAndAnswerProps.length > 0 ?
-                                <div onClick={() => this.handleShowQuestion(this.props.noteID)}>show question</div>
-                                : <div onClick={() => this.handleAskQuestion()}>Ask a question</div>
+                              <MenuItem>
+                                    <div onClick={() => this.handleShowQuestion(this.props.noteID)}>show question</div></MenuItem>
+                                    :<MenuItem> <div onClick={() => this.handleAskQuestion()}>Ask a question</div></MenuItem>
+                            : null
                         }
                     </Paper>
                 </Popper>
-            </div >
+            </div>
         )
     }
 }

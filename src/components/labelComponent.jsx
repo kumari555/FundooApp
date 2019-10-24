@@ -125,10 +125,9 @@ export default class LabelComponent extends React.Component {
         const id = open ? 'simple-popper' : undefined;
         return (
             <div>
-
                 <MenuItem onClick={(event) => this.handleLabel(event)} >
-                    <p className="addLabel-css" >
-                        Add label</p>
+                    <div className="addLabel-css" >
+                        Add label</div>
                 </MenuItem>
                 <Popper id={id} open={open} anchorEl={anchorEl} >
                     <Paper>

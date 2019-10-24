@@ -205,3 +205,10 @@ export function questioRating(parentId, data) {
             }
         })
 }
+// export function questionReply(parentId) {
+//     return axios.get(baseURL + `/questionAndAnswerNotes/reply/${parentId}`, {
+//         headers: {
+//             Authorization: localStorage.getItem('token')
+//         }
+//     })
+// }

@@ -49,6 +49,66 @@ https://www.syncfusion.com/react-ui-components/react-wysiwyg-rich-text-editor
 https://www.quackit.com/html/codes/html_marquee_code.cfm
 
 
+ :
+                        <div className="afterQuestion">
+                            <div><h2>Question Asked</h2></div>
+                            {this.props.location.state[3]}
+                            <Divider className="divider-css" />
+                            <div className="localstorageData">
+                                <div>{localStorage.getItem("Firstname")}{localStorage.getItem("Lastname")}</div><div>{this.props.location.state[4]}</div>
+                            </div>
+                            <div className="draft-icons">
+                                <div style={{ padding: "7px 1px 1px 20px" }}>{this.props.location.state[3]}</div>
+                                <div className="like-css">
+                                    <div><ReplyIcon style={{ padding: " 6px" }} /></div>
+                                    <div>{!this.state.giveLike ?
+                                        <div><ThumbUpIcon style={{ padding: "5px 6px 0px 11px" }} onClick={() => this.handleLike(this.props.location.state[5])} /> 0 Likes</div>
+                                        : <div><ThumbUpIcon style={{ padding: "5px 6px 0px 11px" }}
+                                            onClick={() => this.handleLike(this.props.location.state[5])} /> 1 Likes</div>
+                                    }</div>
+                                    <div><Rating name="half-rating" value={4} precision={0.5}
+                                        onChange={(e) => this.handlerating(this.props.location.state[5], e)}
+                                    /></div>
+                                    <div style={{ padding: "13px 1px 1px 8px" }}>{this.state.givenRate}</div>
+                                </div>
+                            </div>
+                        </div>
+
+
+var curday = function(sp){
+today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //As January is 0.
+var yyyy = today.getFullYear();
+
+if(dd<10) dd='0'+dd;
+if(mm<10) mm='0'+mm;
+return (mm+sp+dd+sp+yyyy);
+};
+console.log(curday('/'));
+console.log(curday('-'));
 
 
 
+
+
+var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear();
+
+today = mm + '/' + dd + '/' + yyyy;
+document.write(today);
+
+
+
+
+  // var today = new Date();
+        // var dd = String(today.getDate()).padStart(2, '0');
+        // var mm = String(today.getMonth() + 1).padStart(2, '0');
+        // var yyyy = today.getFullYear();
+        // today = mm + '-' + dd + '-' + yyyy;
+        // var today = new Date();
+        // var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+        // var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        // var dateTime = date + ' ' + time;

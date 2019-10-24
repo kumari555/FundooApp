@@ -22,17 +22,17 @@ const theme = createMuiTheme({
                 }
             }
         },
-        MuiButton: {
-            root: {
-                fontSize: "0.8125rem",
-                '@media (width: 768px)': {
-                    fontSize: " 1.8125rem"
-                },
-                '@media (width: 1024px)': {
-                    fontSize: "1.8125rem"
-                }
-            }
-        }
+        // MuiButton: {
+        //     root: {
+        //         fontSize: "0.8125rem",
+        //         '@media (width: 768px)': {
+        //             fontSize: " 1.8125rem"
+        //         },
+        //         '@media (width: 1024px)': {
+        //             fontSize: "1.8125rem"
+        //         }
+        //     }
+        // }
     }
 })
 

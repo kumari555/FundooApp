@@ -17,14 +17,14 @@
 
 .outerCard {
     width: 43%;
-    height: 94%;
+    height: 96%;
 }
 
 .innerCard {
     width: 100%;
     margin-top: -18%;
     margin-left: -17%;
-    height: 90%;
+    height: 92%;
     padding: 0px 0px 0px 4px;
 }
 
@@ -618,9 +618,7 @@
     padding: 1px 1px 16px 126px;
     margin-top: 2%;
 }
-
 /*--------------------------draft dashboardComponent--------------*/
-
 .draftDashboard-div1 {
     display: flex;
     width: 16%;
@@ -890,9 +888,10 @@
     }
     .innerCard {
         width: 40vw;
-        margin-top: -22%;
+        margin-top: -23%;
         margin-left: -3%;
-        height: 35vh;
+        height: 28vh;
+        font-size: 12px;
     }
     .serviceCss {
         display: flex;
@@ -1522,7 +1521,7 @@
         margin-top: -23%;
         margin-left: -3%;
         height: 28vh;
-        font-size: 14px;
+        font-size: 12px;
     }
     .outerCard {
         width: 44vw;
