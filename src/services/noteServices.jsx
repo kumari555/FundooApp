@@ -205,10 +205,10 @@ export function questioRating(parentId, data) {
             }
         })
 }
-// export function questionReply(parentId) {
-//     return axios.get(baseURL + `/questionAndAnswerNotes/reply/${parentId}`, {
-//         headers: {
-//             Authorization: localStorage.getItem('token')
-//         }
-//     })
-// }
+export function myCartDetails() {
+    return axios.get(baseURL + '/productcarts/myCart', {
+        headers: {
+            Authorization: localStorage.getItem('token')
+        }
+    })
+}

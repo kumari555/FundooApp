@@ -359,7 +359,8 @@ class GetNoteComponent extends React.Component {
                                 {key.questionAndAnswerNotes.length > 0 &&
                                     // console.log("ujhhhhhhhh--------->", key.questionAndAnswerNotes[0].createdDate)
                                     <div onClick={() => this.handleQuestionAsked(key.title, key.description, key.id, key.questionAndAnswerNotes[0].message, key.questionAndAnswerNotes[key.questionAndAnswerNotes.length - 1].id)}>
-                                        <h3>Question Asked</h3>
+                                <Divider />       
+                                <h3>Question Asked</h3>
                                         {key.questionAndAnswerNotes[key.questionAndAnswerNotes.length - 1 - [key.questionAndAnswerNotes.length - 1]].message}
                                     </div>
                                 }

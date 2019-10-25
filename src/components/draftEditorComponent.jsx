@@ -1,6 +1,6 @@
 import React from 'react';
 import { Editor } from 'react-draft-wysiwyg';
-import { EditorState, RichUtils} from 'draft-js';
+import { EditorState } from 'draft-js';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { withRouter } from 'react-router-dom';
 import Divider from '@material-ui/core/Divider';
@@ -17,7 +17,6 @@ const theme = createMuiTheme({
     overrides: {
         MuiDivider: {
             root: {
-
                 backgroundColor: "rgba(0, 0, 0, 0.51)"
             }
         }
@@ -130,9 +129,9 @@ class DraftEditorComponent extends React.Component {
             reply: !this.state.reply
         })
     }
-    onBoldClick() {
-        this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, 'BOLD'));
-    }
+    // onBoldClick() {
+    //     this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, 'BOLD'));
+    // }
     render() {
         var d = new Date();
         var n = d.toLocaleString([], { hour12: true });
@@ -165,7 +164,7 @@ class DraftEditorComponent extends React.Component {
                             <div className="editor-css">
                                 <Divider />
                                 <div className="question-css">
-                                    <button onClick={this._onBoldClick.bind(this)}>Bold</button>
+
                                     <Editor
                                         defaultEditorState={this.state.editorState}
                                         toolbarClassName="toolbarClassName"

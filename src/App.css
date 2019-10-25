@@ -587,12 +587,6 @@
     width: 83%;
 }
 
-.Avatar-draft {
-    display: flex;
-    width: 78%;
-    justify-content: flex-end;
-}
-
 .draftButton {
     text-align: end;
     padding: 1px 128px 1px 1px;
@@ -618,13 +612,33 @@
     padding: 1px 1px 16px 126px;
     margin-top: 2%;
 }
+
 /*--------------------------draft dashboardComponent--------------*/
+
 .draftDashboard-div1 {
     display: flex;
     width: 16%;
     justify-content: space-between;
 }
 
+.draftDashboard-div2 {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.Avatar-draft {
+    display: flex;
+    width: 48%;
+    justify-content: inherit;
+}
+
+/*--------------------------shoppingComponent-----------------*/
+
+.fundoo-button {
+    margin-top: 12%;
+    margin-left: 17%; 
+}
 /*--------------------------- @media Query---------------------*/
 
 @media screen and (max-width: 1000px) {

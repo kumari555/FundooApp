@@ -12,7 +12,7 @@ import TrashPage from './pages/trashPage';
 import RemainderPage from './pages/reminderPage';
 import EditLabelPage from './pages/editLabelPage';
 import DraftEditorPage from './pages/draftEditorPage';
-
+import ShoppingPage from './pages/shoppingPage';
 class App extends Component {
   render() {
     return (
@@ -29,7 +29,7 @@ class App extends Component {
           <Route path='/reminderPage' component={RemainderPage}></Route>
           <Route path='/editLabelPage' component={EditLabelPage}></Route>
           <Route path='/draftEditorPage' component={DraftEditorPage}></Route>
-         
+          <Route path='/shoppingPage' component={ShoppingPage}></Route>
         </div>
       </Router>
     );
