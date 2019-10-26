@@ -1,6 +1,6 @@
 import React from 'react'
 import ShoppingComponent from '../components/shoppingComponent';
-import DraftDashboardComponent from '../components/draftDashboardcomponent';
+import DashboardComponent from '../components/dashboardComponent';
 import { withRouter } from 'react-router-dom';
 class DraftEditorPage extends React.Component {
     constructor(props) {
@@ -12,8 +12,12 @@ class DraftEditorPage extends React.Component {
         console.log("response in question Page--->", this.props)
         return (
             <div>
-                <div><DraftDashboardComponent /></div>
-                <ShoppingComponent />
+                <DashboardComponent
+                    transitionProps={this.handleTransition}
+                    SearchNotes={this.handleSearch}
+                    listViewProps={this.handleListView}
+                />
+                <div>  <ShoppingComponent /> </div>
             </div>
         )
     }

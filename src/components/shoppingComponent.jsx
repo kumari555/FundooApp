@@ -7,7 +7,7 @@ import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Typography from '@material-ui/core/Typography';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import Card from '@material-ui/core/Card';
 import { myCartDetails } from '../services/noteServices'
 const theme = createMuiTheme({
     overrides: {
@@ -20,6 +20,23 @@ const theme = createMuiTheme({
     MuiButton: {
         root: {
             color: "#f44336"
+        }
+    },
+    MuiButtonBase: {
+        root: {
+            backgroundColor: "#6eb8d4"
+        }
+    },
+    MuiPaper: {
+        rounded: {
+            borderRadius: "14px"
+        }
+    },
+    MuiPaper: {
+
+        root: {
+            color: "rgba(0, 0, 0, 0.73)",
+            backgroundColor: "rgba(0, 0, 0, 0.35)"
         }
     }
 })
@@ -42,7 +59,10 @@ class ShoppingComponent extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            activeStep: 0
+            activeStep: 0,
+            cartPrice: "",
+            cartName: "",
+            cartDescription: ""
         }
     }
     componentWillMount() {
@@ -51,7 +71,14 @@ class ShoppingComponent extends React.Component {
     myCartDetails = () => {
         myCartDetails()
             .then(response => {
-                console.log("response of seleted card details", response);
+                console.log("response of seleted card details:", response.data.data[0].product);
+
+                this.setState({
+                    cartPrice: response.data.data[0].product.price,
+                    cartName: response.data.data[0].product.name,
+                    cartDescription: response.data.data[0].product.description
+                })
+                console.log(" seleted card details after setState:", this.state.cartPrice, this.state.cartName, this.state.cartDescription);
             })
     }
     handleNext = () => {
@@ -70,30 +97,22 @@ class ShoppingComponent extends React.Component {
             activeStep: 0,
         });
     };
-
-
     render() {
         const steps = getSteps();
         const { activeStep } = this.state;
         return (
-            <div>
+            <div className="main-shopping-div">
                 <MuiThemeProvider theme={theme}>
-                    <div className="fundoo-button">
-                        <Button variant="outlined" color="primary">
-                            FundooNotes
-                     </Button>
-                    </div>
-                    <div>
-                        <ShoppingCartIcon />
-                        <Stepper activeStep={activeStep} alternativeLabel>
-
-                            {steps.map(label => (
-                                <Step key={label}>
-                                    <StepLabel>{label}</StepLabel>
-                                </Step>
-                            ))}
-                        </Stepper>
-                        <div>
+                    <div className="shopping-inner-div-1">
+                        <div style={{ width: "88%" }}>
+                            <Stepper activeStep={activeStep} alternativeLabel>
+                                {steps.map(label => (
+                                    <Step key={label}>
+                                        <StepLabel>{label}</StepLabel>
+                                    </Step>
+                                ))}
+                            </Stepper></div>
+                        <div className="shopping-button">
                             {this.state.activeStep === steps.length ? (
                                 <div>
                                     <Typography >All steps completed</Typography>
@@ -102,23 +121,34 @@ class ShoppingComponent extends React.Component {
                             )
                                 :
                                 (
-                                    <div>
+                                    <div className="shopping-button">
                                         <Button
                                             disabled={activeStep === 0}
                                             onClick={this.handleBack}>
                                             Back
-                                                </Button>
-                                        <Button variant="contained" color="primary" onClick={this.handleNext}>
+                                            </Button>
+                                        <Button onClick={this.handleNext}>
                                             {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
                                         </Button>
                                     </div>
-
                                 )}
                         </div>
-                        <div>Shoping Card</div>
-                        <Divider />
-
                     </div>
+                    <div style={{ marginTop: "-4%" }} className="divider-div"><h3>Shoping Card</h3>
+                        <Divider /></div>
+                    <div className="shopping-inner-div-2">
+                        <Card className="shoppingCard">${this.state.cartPrice}per month {this.state.cartName}</Card>
+                        <div className="description-align">{this.state.cartName}pack Details
+                        <li>{this.state.cartDescription}</li></div>
+                        <div className="prise-tag"> <h4>price</h4>
+                            ${this.state.cartPrice}</div>
+                        <div>validity per month</div>
+                        <div className="shoppingButton"><div>SubTotal(1 item):${this.state.cartPrice}</div>
+                            <Button>Proceed to checkout</Button></div>
+                    </div>
+                    <div className="divider-div">
+                        <Divider />
+                        <div>SubTotal(1 item):${this.state.cartPrice}</div></div>
                 </MuiThemeProvider>
             </div>
         )

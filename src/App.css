@@ -636,9 +636,60 @@
 /*--------------------------shoppingComponent-----------------*/
 
 .fundoo-button {
-    margin-top: 12%;
-    margin-left: 17%; 
+    margin-top: 5%;
+    margin-left: -17%;
 }
+
+.shoppingProcess {
+    display: flex;
+    justify-content: center;
+}
+
+.main-shopping-div {
+    margin: 6rem 3rem;
+}
+
+.shopping-inner-div-1 {
+    padding: 1rem 13rem;
+}
+
+.shopping-inner-div-2 {
+    padding: 1rem 9rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.divider-div {
+    padding: 1rem 9rem;
+}
+
+.shopping-button {
+    display: flex;
+    justify-content: flex-end;
+    width: 86%;
+}
+
+.shoppingCard {
+    width: 12%;
+    height: fit-content;
+    padding: 6px;
+}
+
+.description-align {
+    width: 46%;
+    padding: 1px 1px 1px 29px;
+}
+
+.prise-tag {
+    width: 10%;
+    margin-top: -2%;
+}
+
+.shoppingButton {
+    border: double;
+    color: darkgray;
+}
+
 /*--------------------------- @media Query---------------------*/
 
 @media screen and (max-width: 1000px) {

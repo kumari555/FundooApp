@@ -5,7 +5,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
-
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core';
 import keep from '../assets/keep-512.png';
 import Popper from '@material-ui/core/Popper';
@@ -195,7 +195,8 @@ class DashboardComponent extends React.Component {
                                         />
                                     </div>
                                     <div className="appbar-div2">
-                                        <div className="refreashIcon"style={{ padding: "10px 1px 1px 1px", width: " 16%" }}> <Tooltip title="refreash">
+                                        <div style={{ padding: "11px 24px 1px 1px" }}> <ShoppingCartIcon /></div>
+                                        <div className="refreashIcon" style={{ padding: "10px 1px 1px 1px", width: " 16%" }}> <Tooltip title="refreash">
                                             <RefreshOutlinedIcon className="refreshIcon"
                                                 onClick={this.handleRefreash} /></Tooltip></div>
                                         <div className="listview-css"> {!this.state.listOpen ?
