@@ -68,20 +68,26 @@ class SigninComponent extends React.Component {
             }
             signin(data)
                 .then(response => {
-                    console.log("response in loginpage for details-->", response.data)
+                    // console.log("response in loginpage for details-->", response.data.userId)
                     localStorage.setItem("token", response.data.id)
                     localStorage.setItem("Firstname", response.data.firstName)
                     localStorage.setItem("Lastname", response.data.lastName)
                     localStorage.setItem("Email", response.data.email)
                     localStorage.setItem("userId", response.data.userId)
                     localStorage.setItem("imageURL", imagepath + response.data.imageUrl)
+                 //  console.log("response in loginpage for details-->", response.data.userId)
 
                 })
-
+                       // console.log("response in loginpage Component--->", this.props.location.state.productId)
             // console.log("data in local storage", response.data.userId);
 
-            this.props.history.push('/dashboard')
-
+            if (this.props.location.state !== undefined) {
+                return this.props.history.push('/shoppingPage')
+            } else {
+                return (
+                    this.props.history.push('/dashboard')
+                )
+            }
         }
     }
     handleSnackClose = () => {
@@ -94,6 +100,7 @@ class SigninComponent extends React.Component {
         }
     }
     render() {
+        console.log("response in loginpage Component--->", this.props)
         //console.log("service state in signin", this.props.location.state.productId, this.props.location.state.status, this.props.location.state.color)
 
         //     var productId = "", status = "", color = "";
@@ -206,5 +213,4 @@ class SigninComponent extends React.Component {
     }
 }
 export default withRouter(SigninComponent);
-
 

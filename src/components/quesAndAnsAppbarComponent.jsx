@@ -42,7 +42,7 @@ const theme = createMuiTheme({
         // }
     }
 })
-class DraftDashboardComponent extends React.Component {
+class QuesAndAnsAppbarComponent extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -63,7 +63,7 @@ class DraftDashboardComponent extends React.Component {
         this.setState({
             isOpen: !this.state.isOpen
         })
-        this.props.transitionProps(true)
+        // this.props.transitionProps(true)
         console.log("props for list item", this.state.isOpen);
     }
     // handleProfileImage = (event) => {
@@ -151,7 +151,7 @@ class DraftDashboardComponent extends React.Component {
             }
         })
     }
-    handleshoppingCard = () => {
+    handleshoppingCart = () => {
         this.props.history.push('/shoppingPage')
     }
     render() {
@@ -178,7 +178,7 @@ class DraftDashboardComponent extends React.Component {
                                         </div>
                                         <div className="draftDashboard-div1">
                                             <div style={{ padding: " 21px 0px 1px 1px" }}
-                                                onClick={this.handleshoppingCard}>
+                                                onClick={this.handleshoppingCart}>
                                                 <ShoppingCartIcon /></div>
                                             <div style={{ padding: " 21px 0px 1px 1px" }} className="Avatar-draft">
                                                 <div>
@@ -258,4 +258,4 @@ class DraftDashboardComponent extends React.Component {
         )
     }
 }
-export default withRouter(DraftDashboardComponent);
+export default withRouter(QuesAndAnsAppbarComponent);

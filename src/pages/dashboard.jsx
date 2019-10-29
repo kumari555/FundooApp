@@ -57,7 +57,6 @@ class Dashboard extends React.Component {
                         gridViewProps={this.state.listView}
                         wrappedComponentRef={this.createNoteRef} />
                 </div>
-
             </div>
         )
     }

@@ -70,7 +70,7 @@ class DashboardComponent extends React.Component {
         await this.setState({
             isOpen: !this.state.isOpen
         })
-        this.props.transitionProps(true)
+        // this.props.transitionProps(true)
         console.log("props for list item", this.state.isOpen);
     }
     // handleProfileImage = (event) => {
@@ -159,6 +159,9 @@ class DashboardComponent extends React.Component {
             }
         })
     }
+    handleShoppingCart = () => {
+        this.props.history.push('/shoppingPage')
+    }
     render() {
         const { anchorEl } = this.state;
         const open = Boolean(anchorEl);
@@ -195,7 +198,8 @@ class DashboardComponent extends React.Component {
                                         />
                                     </div>
                                     <div className="appbar-div2">
-                                        <div style={{ padding: "11px 24px 1px 1px" }}> <ShoppingCartIcon /></div>
+                                        <div style={{ padding: "11px 24px 1px 1px" }}
+                                            onClick={this.handleShoppingCart}> <ShoppingCartIcon /></div>
                                         <div className="refreashIcon" style={{ padding: "10px 1px 1px 1px", width: " 16%" }}> <Tooltip title="refreash">
                                             <RefreshOutlinedIcon className="refreshIcon"
                                                 onClick={this.handleRefreash} /></Tooltip></div>

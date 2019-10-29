@@ -10,9 +10,11 @@ import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import { questionLikes } from '../services/noteServices';
 import { questioRating } from '../services/noteServices';
 import ReplyIcon from '@material-ui/icons/Reply';
-
 import Rating from 'material-ui-rating';
 import { getNotes } from '../services/noteServices';
+import { convertToRaw } from 'draft-js';
+import draftToHtml from 'draftjs-to-html';
+
 const theme = createMuiTheme({
     overrides: {
         MuiDivider: {
@@ -27,6 +29,7 @@ const theme = createMuiTheme({
         }
     }
 })
+
 class DraftEditorComponent extends React.Component {
     constructor(props) {
         super(props)
@@ -46,8 +49,25 @@ class DraftEditorComponent extends React.Component {
             description: "",
             title: "",
             reply: false,
+            getNoteData: [],
+            rawContentState: ""
         }
     }
+    componentWillMount() {
+        this.getNotes()
+    }
+    getNotes = () => {
+        getNotes()
+            .then(response => {
+                console.log("response in get note---->", response.data.data.data)
+                //console.log("response in get note id ---->", response.data.data.data.id)
+                this.setState({
+                    getNoteData: response.data.data.data,
+                    // id: response.data.data.data.id
+                })
+            })
+    }
+
     componentDidMount() {
         getNotes()
         console.log("ggggggg", this.props.location.state);
@@ -69,11 +89,14 @@ class DraftEditorComponent extends React.Component {
 
         }
     }
-
     onChange = (editorState) => {
         console.log("data in e", editorState);
-        this.setState({ editorState });
-        console.log("after set state question", this.state.editorState.blocks[0].text)
+        //console.log("after set state question", convertToRaw(editorState))
+        this.setState({
+            editorState,
+        });
+        //console.log("after set state question", convertToRaw(this.state.editorState.blocks[0].text))
+        //console.log("after set state question", draftToHtml(this.state.editorState.blocks[0].text))
     }
     handleQuestion = (noteId) => {
         console.log("msg", noteId);
@@ -129,22 +152,21 @@ class DraftEditorComponent extends React.Component {
             reply: !this.state.reply
         })
     }
-    // onBoldClick() {
-    //     this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, 'BOLD'));
-    // }
+
+
+
     render() {
+
         var d = new Date();
         var n = d.toLocaleString([], { hour12: true });
-        console.log("response in question Page date--->", n)
-        console.log("response in question Page message--->", this.props.location.state[3])
-        // var questiondetails = this.props.location.state[3].map((key, index) => {
-        //     console.log("details", key);
-        //     return (
-        //         <div>
-        //             {key.message}
-        //         </div>
-        //     )
-        // })
+        // console.log("response in question Page date--->", n)
+        // console.log("response in question Page message--->", this.props.location.state[3])
+        var getNoteDetails = this.state.getNoteData.map((key, index) => {
+            // console.log("key in draft get note--->", key.questionAndAnswerNotes[0]);
+            return (
+                <div>{key.questionAndAnswerNotes[0]}</div>
+            )
+        })
         return (
             <div>
                 <MuiThemeProvider theme={theme}>
@@ -160,7 +182,6 @@ class DraftEditorComponent extends React.Component {
                     {!this.state.Open ?
                         <div>
                             <div style={{ padding: "1px 1px 1px 97px" }}><h2>Ask a Question</h2></div>
-
                             <div className="editor-css">
                                 <Divider />
                                 <div className="question-css">
@@ -170,8 +191,8 @@ class DraftEditorComponent extends React.Component {
                                         toolbarClassName="toolbarClassName"
                                         wrapperClassName="wrapperClassName"
                                         editorClassName="editorClassName"
-                                        placeholder="Ask a Question....."
                                         onChange={this.onChange.bind(this)}
+                                        onClick={this.exportHTML}
                                     />
                                 </div>
                                 <Divider />
@@ -197,8 +218,11 @@ class DraftEditorComponent extends React.Component {
                                     <div>{!this.state.giveLike ?
                                         <div><ThumbUpIcon style={{ padding: "5px 6px 0px 11px" }}
                                             onClick={() => this.handleLike(this.props.location.state[5])} /> 0 Likes</div>
-                                        : <div><ThumbUpIcon style={{ padding: "5px 6px 0px 11px" }}
-                                            onClick={() => this.handleLike(this.props.location.state[5])} /> 1 Likes</div>
+                                        : <div>
+                                            <ThumbUpIcon style={{ padding: "5px 6px 0px 11px" }}
+                                                onClick={() => this.handleLike(this.props.location.state[5])} />
+
+                                            1 Likes</div>
                                     }</div>
                                     <div><Rating name="half-rating" value={4} precision={0.5}
                                         onChange={(e) => this.handlerating(e, this.props.location.state[5])}
@@ -219,6 +243,7 @@ class DraftEditorComponent extends React.Component {
                                         />
                                     </div>
                                     <Button >Reply</Button>
+
                                 </div>
                                 : null
                             }
@@ -227,6 +252,9 @@ class DraftEditorComponent extends React.Component {
                 </MuiThemeProvider>
             </div>
         )
+
+
     }
 }
 export default withRouter(DraftEditorComponent);
+

@@ -87,6 +87,7 @@ class GetNoteComponent extends React.Component {
         }
         // this.handleUpdateCard = this.handleUpdateCard.bind(this)
     }
+
     componentWillMount() {
         this.getNotes()
     }
@@ -357,10 +358,12 @@ class GetNoteComponent extends React.Component {
                                     </MuiThemeProvider>
                                 </div>
                                 {key.questionAndAnswerNotes.length > 0 &&
-                                    // console.log("ujhhhhhhhh--------->", key.questionAndAnswerNotes[0].createdDate)
-                                    <div onClick={() => this.handleQuestionAsked(key.title, key.description, key.id, key.questionAndAnswerNotes[0].message, key.questionAndAnswerNotes[key.questionAndAnswerNotes.length - 1].id)}>
-                                <Divider />       
+                                    ///console.log("ujhhhhhhhh--------->", key.questionAndAnswerNotes[0].message)
+                                    <div onClick={() => this.handleQuestionAsked(key.title, key.description, key.id, key.questionAndAnswerNotes[0].message, key.questionAndAnswerNotes[key.questionAndAnswerNotes.length - 1].id)}
+                                        getlikeProps={key.questionAndAnswerNotes}>
+                                        <Divider />
                                 <h3>Question Asked</h3>
+                                
                                         {key.questionAndAnswerNotes[key.questionAndAnswerNotes.length - 1 - [key.questionAndAnswerNotes.length - 1]].message}
                                     </div>
                                 }
@@ -432,3 +435,5 @@ class GetNoteComponent extends React.Component {
     }
 }
 export default withRouter(GetNoteComponent)
+      // <div dangerouslySetInnerHTML={{ __html: "<h1>Hi there!</h1>" }} />
+     //         <div dangerouslySetInnerHTML={{ __html: key.questionAndAnswerNotes[0].message }}></div>

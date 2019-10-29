@@ -324,12 +324,12 @@
     margin-top: 5%;
     height: 100%;
     box-shadow: 1px 1px 1px 1px;
+    padding: 6px;
 }
 
 .getNotes-align {
     display: flex;
     justify-content: right;
-    padding: 1px 1px 1px 9px;
 }
 
 .email-css {
@@ -688,6 +688,16 @@
 .shoppingButton {
     border: double;
     color: darkgray;
+}
+
+.addressCard {
+    width: 27%;
+    height: 23vh;
+    margin-top: 2%;
+}
+
+.cardandpaymentcss {
+    display: flex;
 }
 
 /*--------------------------- @media Query---------------------*/

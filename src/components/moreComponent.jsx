@@ -22,7 +22,7 @@ class MoreComponent extends React.Component {
             Title: "",
             Description: "",
             arr: [],
-        
+
         }
     }
 
@@ -113,9 +113,9 @@ class MoreComponent extends React.Component {
                         />
                         {this.props.questionAndAnswerProps !== 'undefined' ?
                             this.props.questionAndAnswerProps.length > 0 ?
-                              <MenuItem>
+                                <MenuItem>
                                     <div onClick={() => this.handleShowQuestion(this.props.noteID)}>show question</div></MenuItem>
-                                    :<MenuItem> <div onClick={() => this.handleAskQuestion()}>Ask a question</div></MenuItem>
+                                : <MenuItem> <div onClick={() => this.handleAskQuestion()}>Ask a question</div></MenuItem>
                             : null
                         }
                     </Paper>

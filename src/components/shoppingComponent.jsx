@@ -43,18 +43,7 @@ const theme = createMuiTheme({
 function getSteps() {
     return ['signin', 'Review', 'Complete'];
 }
-// function getStepContent(stepIndex) {
-//     switch (stepIndex) {
-//         case 0:
-//             return 'signin';
-//         case 1:
-//             return 'Review';
-//         case 2:
-//             return 'Review';
-//         default:
-//             return 'Unknown stepIndex';
-//     }
-// }
+
 class ShoppingComponent extends React.Component {
     constructor(props) {
         super(props)
@@ -72,7 +61,6 @@ class ShoppingComponent extends React.Component {
         myCartDetails()
             .then(response => {
                 console.log("response of seleted card details:", response.data.data[0].product);
-
                 this.setState({
                     cartPrice: response.data.data[0].product.price,
                     cartName: response.data.data[0].product.name,
@@ -91,7 +79,6 @@ class ShoppingComponent extends React.Component {
             activeStep: state.activeStep - 1,
         }));
     };
-
     handleReset = () => {
         this.setState({
             activeStep: 0,
@@ -144,11 +131,15 @@ class ShoppingComponent extends React.Component {
                             ${this.state.cartPrice}</div>
                         <div>validity per month</div>
                         <div className="shoppingButton"><div>SubTotal(1 item):${this.state.cartPrice}</div>
-                            <Button>Proceed to checkout</Button></div>
+                        </div>
                     </div>
                     <div className="divider-div">
                         <Divider />
-                        <div>SubTotal(1 item):${this.state.cartPrice}</div></div>
+                        <div>SubTotal(1 item):${this.state.cartPrice}</div>
+                        <div className="cardandpaymentcss"><Card className="addressCard" ></Card>
+                            <div style={{    padding: "3px 148px"}}><h4>payment Method</h4>
+                                Cash on Delivary</div></div>
+                    </div>
                 </MuiThemeProvider>
             </div>
         )
