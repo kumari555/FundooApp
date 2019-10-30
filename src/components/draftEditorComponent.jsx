@@ -12,8 +12,8 @@ import { questioRating } from '../services/noteServices';
 import ReplyIcon from '@material-ui/icons/Reply';
 import Rating from 'material-ui-rating';
 import { getNotes } from '../services/noteServices';
-import { convertToRaw } from 'draft-js';
-import draftToHtml from 'draftjs-to-html';
+// import { convertToRaw } from 'draft-js';
+// import draftToHtml from 'draftjs-to-html';
 
 const theme = createMuiTheme({
     overrides: {
@@ -161,12 +161,12 @@ class DraftEditorComponent extends React.Component {
         var n = d.toLocaleString([], { hour12: true });
         // console.log("response in question Page date--->", n)
         // console.log("response in question Page message--->", this.props.location.state[3])
-        var getNoteDetails = this.state.getNoteData.map((key, index) => {
+       // var getNoteDetails = this.state.getNoteData.map((key, index) => {
             // console.log("key in draft get note--->", key.questionAndAnswerNotes[0]);
-            return (
-                <div>{key.questionAndAnswerNotes[0]}</div>
-            )
-        })
+            // return (
+            //     <div>{key.questionAndAnswerNotes[0]}</div>
+            // )
+        //})
         return (
             <div>
                 <MuiThemeProvider theme={theme}>
@@ -192,7 +192,7 @@ class DraftEditorComponent extends React.Component {
                                         wrapperClassName="wrapperClassName"
                                         editorClassName="editorClassName"
                                         onChange={this.onChange.bind(this)}
-                                        onClick={this.exportHTML}
+                                    //onClick={this.exportHTML}
                                     />
                                 </div>
                                 <Divider />
@@ -243,7 +243,6 @@ class DraftEditorComponent extends React.Component {
                                         />
                                     </div>
                                     <Button >Reply</Button>
-
                                 </div>
                                 : null
                             }

@@ -25,16 +25,13 @@ import ViewAgendaOutlinedIcon from '@material-ui/icons/ViewAgendaOutlined';
 import RefreshOutlinedIcon from '@material-ui/icons/RefreshOutlined';
 import Tooltip from '@material-ui/core/Tooltip';
 import GridOnIcon from '@material-ui/icons/GridOn';
+import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
+import Card from '@material-ui/core/Card';
 //import SigninComponent from '../components/signinComponent';
 const Url = 'http://fundoonotes.incubation.bridgelabz.com/'
 const theme = createMuiTheme({
     overrides: {
         MuiAppBar: {
-            root: {
-                // display: "flex",
-                // zIndex: 9999,
-                //flexDirection: "column"
-            },
             colorPrimary: {
                 color: "rgba(0, 0, 0, 0.87)",
                 backgroundColor: "white"
@@ -63,7 +60,8 @@ class DashboardComponent extends React.Component {
             appTitle: "FundoNotes",
             imageSet: false,
             setPath: "",
-            imagepath: ""
+            imagepath: "",
+            searchCard: false
         }
     }
     handlemenulist = async () => {
@@ -162,6 +160,11 @@ class DashboardComponent extends React.Component {
     handleShoppingCart = () => {
         this.props.history.push('/shoppingPage')
     }
+    handleSearchIcon = () => {
+        this.setState({
+            searchCard: !this.state.searchCard
+        })
+    }
     render() {
         const { anchorEl } = this.state;
         const open = Boolean(anchorEl);
@@ -173,19 +176,32 @@ class DashboardComponent extends React.Component {
                         <AppBar className="dashboard-appbar">
                             <MuiThemeProvider theme={theme}>
                                 <Toolbar>
-                                    <div className="dashboard-div1">
-                                        <div className="menuicon">
-                                            <IconButton onClick={this.handlemenulist} >
-                                                <MenuIcon />
-                                            </IconButton>
+                                    {!this.state.searchCard ?
+                                        <div className="dashboard-div1">
+                                            <div className="menuicon">
+                                                <IconButton onClick={this.handlemenulist} >
+                                                    <MenuIcon />
+                                                </IconButton>
+                                            </div>
+                                            <div className="fundo-image-div">
+                                                <img className="fundo-image" src={keep} alt="profile" />
+                                            </div>
+                                            <div className="fundo-text">
+                                                {this.props.location.state ? this.props.location.state : this.state.appTitle}
+                                            </div>
                                         </div>
-                                        <div className="fundo-image-div">
-                                            <img className="fundo-image" src={keep} alt="profile" />
-                                        </div>
-                                        <div className="fundo-text">
-                                            {this.props.location.state ? this.props.location.state : this.state.appTitle}
-                                        </div>
-                                    </div>
+                                        : <Card className="responsive-searchbar">
+                                            <div onClick={this.handleSearchIcon}>
+                                                <KeyboardBackspaceIcon />
+                                            </div>
+                                            <InputBase
+                                                style={{ width: " 100%" }}
+                                                placeholder="Search…"
+                                                // value={this.state.search}
+                                                onChange={this.handleSearch}
+                                            />
+                                        </Card>
+                                    }
                                     <div className="searchbar">
                                         <div>
                                             <SearchIcon />
@@ -197,8 +213,9 @@ class DashboardComponent extends React.Component {
                                             onChange={this.handleSearch}
                                         />
                                     </div>
+                                    <div className="searchIcon" onClick={this.handleSearchIcon}><SearchIcon /></div>
                                     <div className="appbar-div2">
-                                        <div style={{ padding: "11px 24px 1px 1px" }}
+                                        <div className="refreashIcon"
                                             onClick={this.handleShoppingCart}> <ShoppingCartIcon /></div>
                                         <div className="refreashIcon" style={{ padding: "10px 1px 1px 1px", width: " 16%" }}> <Tooltip title="refreash">
                                             <RefreshOutlinedIcon className="refreshIcon"

@@ -212,3 +212,10 @@ export function myCartDetails() {
         }
     })
 }
+export function placeOrder(data) {
+    return axios.post(baseURL + '/productcarts/placeOrder', data, {
+        headers: {
+            Authorization: localStorage.getItem('token')
+        }
+    })
+}

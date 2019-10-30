@@ -135,7 +135,6 @@ class GetNoteComponent extends React.Component {
             title: oldTitle,
             description: oldDescription,
             color: color,
-
         })
         console.log("data for updation", this.state.noteId, this.state.title, this.state.description, this.state.color);
         var data = {

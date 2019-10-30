@@ -76,7 +76,6 @@ class SigninComponent extends React.Component {
                     localStorage.setItem("userId", response.data.userId)
                     localStorage.setItem("imageURL", imagepath + response.data.imageUrl)
                  //  console.log("response in loginpage for details-->", response.data.userId)
-
                 })
                        // console.log("response in loginpage Component--->", this.props.location.state.productId)
             // console.log("data in local storage", response.data.userId);
