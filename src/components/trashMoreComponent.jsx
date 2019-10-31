@@ -6,7 +6,7 @@ import { Paper } from '@material-ui/core';
 import { deleteForeverNotes } from '../services/noteServices';
 import { getNotes } from '../services/noteServices';
 import Tooltip from '@material-ui/core/Tooltip';
-
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import MenuItem from '@material-ui/core/MenuItem';
 import { deleteNotes } from '../services/noteServices';
 export default class TrashMoreComponent extends React.Component {
@@ -25,8 +25,12 @@ export default class TrashMoreComponent extends React.Component {
         this.setState({
             anchorEl: (this.state.anchorEl ? null : currentTarget)
         })
-
     }
+    handleClickAway = async () => {
+        await this.setState({
+            anchorEl: null,
+        });
+    };
     getNotesf = () => {
         getNotes()
             .then(response => {
@@ -53,7 +57,7 @@ export default class TrashMoreComponent extends React.Component {
                 this.setState({
                     afterDelete: response
                 })
-               
+
                 console.log("remaining data in bin component", this.state.afterDelete);
             }).catch(err => {
                 console.log("err while updating", err);
@@ -89,16 +93,18 @@ export default class TrashMoreComponent extends React.Component {
         const open = Boolean(anchorEl);
         const id = open ? 'simple-popper' : undefined;
         return (
-            <div>
-                <Tooltip title="more" onClick={this.handlemore}><MoreVertOutlinedIcon /></Tooltip>
-                <Popper id={id} open={open} anchorEl={anchorEl}>
-                    <Paper><MenuItem onClick={this.handleDeleteNote}>
-                        <div>Delete Forever</div></MenuItem>
-                        <MenuItem onClick={this.handleRestore}><div>Restore</div></MenuItem>
-                    </Paper>
-                </Popper>
+            <ClickAwayListener onClickAway={this.handleClickAway}>
+                <div>
+                    <Tooltip title="more" onClick={this.handlemore}><MoreVertOutlinedIcon /></Tooltip>
+                    <Popper id={id} open={open} anchorEl={anchorEl}>
+                        <Paper><MenuItem onClick={this.handleDeleteNote}>
+                            <div>Delete Forever</div></MenuItem>
+                            <MenuItem onClick={this.handleRestore}><div>Restore</div></MenuItem>
+                        </Paper>
+                    </Popper>
 
-            </div>
+                </div>
+            </ClickAwayListener>
         )
     }
 }

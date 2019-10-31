@@ -12,8 +12,8 @@ import { questioRating } from '../services/noteServices';
 import ReplyIcon from '@material-ui/icons/Reply';
 import Rating from 'material-ui-rating';
 import { getNotes } from '../services/noteServices';
-// import { convertToRaw } from 'draft-js';
-// import draftToHtml from 'draftjs-to-html';
+import { convertToRaw } from 'draft-js';
+import draftToHtml from 'draftjs-to-html';
 
 const theme = createMuiTheme({
     overrides: {
@@ -67,7 +67,6 @@ class DraftEditorComponent extends React.Component {
                 })
             })
     }
-
     componentDidMount() {
         getNotes()
         console.log("ggggggg", this.props.location.state);
@@ -78,7 +77,6 @@ class DraftEditorComponent extends React.Component {
                 title: this.props.location.state.title
             })
             console.log("dataaaaaaaaaaaaaaaaaaaaaaaaa---->", this.state);
-
         } else if (this.props.location.state[4] === true) {
             this.setState({
                 noteId: this.props.location.state.noteID,
@@ -95,7 +93,7 @@ class DraftEditorComponent extends React.Component {
         this.setState({
             editorState,
         });
-        //console.log("after set state question", convertToRaw(this.state.editorState.blocks[0].text))
+      //  console.log("after set state question", convertToRaw(this.state.editorState.blocks[0].text))
         //console.log("after set state question", draftToHtml(this.state.editorState.blocks[0].text))
     }
     handleQuestion = (noteId) => {
@@ -161,11 +159,11 @@ class DraftEditorComponent extends React.Component {
         var n = d.toLocaleString([], { hour12: true });
         // console.log("response in question Page date--->", n)
         // console.log("response in question Page message--->", this.props.location.state[3])
-       // var getNoteDetails = this.state.getNoteData.map((key, index) => {
-            // console.log("key in draft get note--->", key.questionAndAnswerNotes[0]);
-            // return (
-            //     <div>{key.questionAndAnswerNotes[0]}</div>
-            // )
+        // var getNoteDetails = this.state.getNoteData.map((key, index) => {
+        // console.log("key in draft get note--->", key.questionAndAnswerNotes[0]);
+        // return (
+        //     <div>{key.questionAndAnswerNotes[0]}</div>
+        // )
         //})
         return (
             <div>

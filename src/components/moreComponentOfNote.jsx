@@ -1,17 +1,10 @@
 import React from 'react'
 import Popper from '@material-ui/core/Popper';
 import { Paper } from '@material-ui/core';
-
 import { getNotes } from '../services/noteServices';
-
 import LabelComponent from './labelComponent';
-
-
 import MoreVertOutlinedIcon from '@material-ui/icons/MoreVertOutlined';
-
-
-
-
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Tooltip from '@material-ui/core/Tooltip';
 import MenuItem from '@material-ui/core/MenuItem';
 
@@ -31,8 +24,12 @@ export default class MoreComponentOfNote extends React.Component {
         this.setState({
             anchorEl: (this.state.anchorEl ? null : currentTarget)
         })
-
     }
+    handleClickAway = () => {
+        this.setState({
+            anchorEl: null,
+        });
+    };
     getNotesf = () => {
         getNotes()
             .then(response => {
@@ -68,7 +65,9 @@ export default class MoreComponentOfNote extends React.Component {
         const open = Boolean(anchorEl);
         const id = open ? 'simple-popper' : undefined;
         return (
+            <ClickAwayListener onClickAway={this.handleClickAway}>
             <div>
+                
                 <Tooltip title="more" onClick={this.handlemore}><MoreVertOutlinedIcon /></Tooltip>
 
                 <Popper id={id} open={open} anchorEl={anchorEl}>
@@ -82,7 +81,8 @@ export default class MoreComponentOfNote extends React.Component {
                     </Paper>
 
                 </Popper>
-            </div>
+                </div>
+            </ClickAwayListener>
         )
     }
 }

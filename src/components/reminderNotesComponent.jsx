@@ -12,7 +12,7 @@ import AddAlertOutlinedIcon from '@material-ui/icons/AddAlertOutlined';
 import MenuItem from '@material-ui/core/MenuItem';
 import Tooltip from '@material-ui/core/Tooltip';
 import { getNotes } from '../services/noteServices';
-
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 class ReminderNoteComponent extends React.Component {
     constructor() {
         super()
@@ -40,14 +40,17 @@ class ReminderNoteComponent extends React.Component {
             anchorEl: (this.state.anchorEl ? null : currentTarget)
         })
     }
+    handleClickAway = () => {
+        this.setState({
+            anchorEl: null,
+        });
+    };
     handleSelectDate = async (event) => {
         await this.setState({
             selectedDate: event.target.value
         })
         console.log("dataaaaaaaaa", this.state.selectedDate);
-        // if()
-        this.props.reminderPropsToCreateNote(this.state.selectedDate)
-
+        //this.props.reminderPropsToCreateNote(this.state.selectedDate)
         var data = {
             noteIdList: [this.props.noteID],
             reminder: this.state.selectedDate
@@ -61,7 +64,7 @@ class ReminderNoteComponent extends React.Component {
             .catch(err => {
                 console.log("err while updating", err);
             })
-        // { this.props.getReminderProps(true) }
+        //         { this.props.getReminderProps(true) }
     }
     handleDate = async () => {
         console.log("noteid in remainder", this.props);
@@ -89,28 +92,30 @@ class ReminderNoteComponent extends React.Component {
         return (
             <div>
                 <Tooltip title="reminde me" onClick={this.handlemore}><AddAlertOutlinedIcon /></Tooltip>
-
                 <Popper id={id} open={open} anchorEl={anchorEl}>
-
-                    <Paper>
-                        <MenuItem>  <h3>remainder: </h3>  </MenuItem>
-                        <MenuItem onClick={this.handleTomarrow}>  <div>Tomarrow</div>  </MenuItem>
-                        <MenuItem>  <div>Select Date and Time :</div>  </MenuItem>
-                        <MenuItem>
-                            <TextField
-                                id="datetime-local"
-                                type="datetime-local"
-                                defaultValue="2019-05-24T10:30"
-                                onChange={this.handleSelectDate}
-                            //value={this.state.selectedDate}
-                            />
-                        </MenuItem>
-                        {/**  <MenuItem
+                    <ClickAwayListener onClickAway={this.handleClickAway}>
+                        <Paper>
+                            <MenuItem>  <h3>remainder: </h3>  </MenuItem>
+                            <MenuItem onClick={this.handleTomarrow}>  <div>Tomarrow</div>  </MenuItem>
+                            <MenuItem>  <div>Select Date and Time :</div>  </MenuItem>
+                            <MenuItem>
+                                <TextField
+                                    id="datetime-local"
+                                    type="datetime-local"
+                                    defaultValue="2019-05-24T10:30"
+                                    onChange={this.handleSelectDate}
+                                //value={this.state.selectedDate}
+                                />
+                            </MenuItem>
+                            {/**  <MenuItem
                             onClick={this.handleDate}>
                             <div className="saveDate">Save</div></MenuItem> */ }
-                    </Paper>
+                        </Paper>
+                    </ClickAwayListener>
                 </Popper>
             </div>
+
+
         )
     }
 }

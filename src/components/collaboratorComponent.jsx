@@ -4,9 +4,8 @@ import Divider from '@material-ui/core/Divider';
 import InputBase from '@material-ui/core/InputBase';
 import { userEmail } from '../services/userServices';
 import { searchUserList } from '../services/userServices';
-
 import PersonAddOutlinedIcon from '@material-ui/icons/PersonAddOutlined';
-
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import MenuItem from '@material-ui/core/MenuItem';
 import Dialog from '@material-ui/core/Dialog';
 
@@ -14,7 +13,6 @@ import Button from '@material-ui/core/Button';
 import Avatar from '@material-ui/core/Avatar';
 import { AddcollaboratorsNotes } from '../services/noteServices';
 import { removeCollaboratorsNotes } from '../services/noteServices';
-
 function mailSearch(searchValue) {
     return function (x) {
         return x.email.includes(searchValue)
@@ -39,8 +37,13 @@ export default class CollaboratorComponent extends React.Component {
 
         })
     }
-    handleClose = () => {
-        this.setState({
+    handleClickAway = async() => {
+        await this.setState({
+            open: false
+        });
+    };
+    handleClose = async () => {
+        await this.setState({
             open: false
         })
     }
@@ -120,42 +123,45 @@ export default class CollaboratorComponent extends React.Component {
             )
         })
         return (
-            <div>
-                <div><PersonAddOutlinedIcon onClick={this.handleOpen} /></div>
+          
                 <div>
-                    <Dialog
-                        style={{ height: " 67%" }}
-                        open={this.state.open}
-                        onClose={this.handleClose}>
-                        <h3 style={{ padding: "1px 1px 1px 10px" }}>Collaborators</h3>
-                        <Divider />
-                        <div className="email-css">
-                            <div><Avatar>R</Avatar></div>
-                            <div><h3 style={{ padding: "1px 1px 0px 16px" }}>{localStorage.getItem("Email")}</h3></div>
-                        </div>
-                      
-                            <div>{mailerDetails}</div>
-                        
-                        <div style={{ display: "flex" }}>
-                            <div> <AccountCircleIcon /></div>
-                            <div style={{ padding: "1px 1px 1px 10px" }}><InputBase
-                                placeholder="search a mail...."
-                                // defaultValue={mailerDetails}
-                                value={this.state.searchEmail}
-                                onChange={this.handleSearch}
-                            />
+                    <div><PersonAddOutlinedIcon onClick={this.handleOpen} /></div>
+                    <div>
+                        <Dialog
+                            style={{ height: " 67%", marginTop: " 15%" }}
+                            open={this.state.open}
+                            onClose={this.handleClose}>
+                            <h3 style={{ padding: "1px 1px 1px 10px" }}>Collaborators</h3>
+                            <Divider />
+                            <div className="email-css">
+                                <div><Avatar>R</Avatar></div>
+                                <div><h3 style={{ padding: "1px 1px 0px 16px" }}>{localStorage.getItem("Email")}</h3></div>
                             </div>
-                            <div onClick={this.handleSave}
-                                style={{ padding: "1px 1px 1px 138px" }}>
-                                <Button> Save</Button>
-                            </div></div>
-                        <div> {emailDetails}</div>
-                        <Button color="primary" >
-                            Cancel
-                           </Button>
-                    </Dialog>
+
+                            <div>{mailerDetails}</div>
+
+                            <div style={{ display: "flex" }}>
+                                <div> <AccountCircleIcon /></div>
+                                <div style={{ padding: "1px 1px 1px 10px" }}><InputBase
+                                    placeholder="search a mail...."
+                                    // defaultValue={mailerDetails}
+                                    value={this.state.searchEmail}
+                                    onChange={this.handleSearch}
+                                />
+                                </div>
+                                <div onClick={this.handleSave}
+                                    style={{ padding: "1px 1px 1px 138px" }}>
+                                    <Button> Save</Button>
+                                    <Button color="primary" onClick={this.handleClose}>
+                                        Cancel
+                                </Button>
+                                </div></div>
+                            <div> {emailDetails}</div>
+
+                        </Dialog>
+                    </div>
                 </div>
-            </div>
+           
         )
     }
 }

@@ -176,7 +176,7 @@ class ShoppingComponent extends React.Component {
                     </div>
                     <div className="divider-div">
                         <Divider className="divider-align" />
-                        <div>SubTotal(1 item):${this.state.cartPrice}</div>
+                        <div style={{ marginTop:" 2%"}}>SubTotal(1 item):${this.state.cartPrice}</div>
                         {this.state.address ?
                             <div className="cardandpaymentcss">
                                 <Card className="addressCard" >

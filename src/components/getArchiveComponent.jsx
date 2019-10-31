@@ -162,6 +162,11 @@ class GetArchiveComponent extends React.Component {
             this.getArchiveNote()
         }
     }
+    labelData = (updateNote) => {
+        if (updateNote) {
+            this.getArchiveNote()
+        }
+    }
     handeChipLabel = (noteId, lableId) => {
         var data = {
             noteId: noteId,
@@ -170,18 +175,10 @@ class GetArchiveComponent extends React.Component {
         removeLabelToNotes(data, noteId, lableId)
             .then(response => {
                 console.log("label in  note --->", response);
+                this.getArchiveNote()
             })
     }
-    handeChipReminder = (noteID) => {
-        var data = {
-            noteIdList: [noteID]
-        }
-        removeReminderNotes(data)
-            .then(response => {
-                console.log("response in removeing remainder Notes", response);
 
-            })
-    }
     reminderData = (updateNote) => {
         if (updateNote) {
             this.getArchiveNote()
@@ -194,6 +191,7 @@ class GetArchiveComponent extends React.Component {
         removeReminderNotes(data)
             .then(response => {
                 console.log("response in removeing remainder Notes", response);
+                this.getArchiveNote()
             })
     }
     collaboratorData = (updateNote) => {
@@ -307,8 +305,8 @@ class GetArchiveComponent extends React.Component {
                                         <UnArchiveComponent archiveData={this.storeData}
                                             noteID={key.id}></UnArchiveComponent>
                                         <MoreComponent
+                                            propsValue={this.labelData}
                                             deletingData={this.presentData}
-                                            labelNoteProps={this.labelData}
                                             noteID={key.id}
                                         ></MoreComponent>
                                     </MuiThemeProvider>

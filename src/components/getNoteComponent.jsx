@@ -102,7 +102,6 @@ class GetNoteComponent extends React.Component {
                 })
             })
     }
-
     handleGetColor = (value, noteID) => {
         // console.log("response in getNotes for color and id--->", value)
         var data = {
@@ -204,6 +203,7 @@ class GetNoteComponent extends React.Component {
         removeLabelToNotes(data, noteId, lableId)
             .then(response => {
                 console.log("label in  note --->", response);
+                this.getNotes()
             })
     }
     handeChipReminder = (noteID) => {
@@ -213,7 +213,7 @@ class GetNoteComponent extends React.Component {
         removeReminderNotes(data)
             .then(response => {
                 console.log("response in removeing remainder Notes", response);
-
+                this.getNotes()
             })
     }
     handleOpen = (email) => {
@@ -348,7 +348,7 @@ class GetNoteComponent extends React.Component {
                                             noteID={key.id}></ArchiveComponent>
                                         <MoreComponent
                                             deletingData={this.presentData}
-                                            labelNoteProps={this.labelData}
+                                        propsValue={this.labelData}
                                             noteID={key.id}
                                             noteTitle={key.title}
                                             noteDescription={key.description}
@@ -357,12 +357,11 @@ class GetNoteComponent extends React.Component {
                                     </MuiThemeProvider>
                                 </div>
                                 {key.questionAndAnswerNotes.length > 0 &&
-                                    ///console.log("ujhhhhhhhh--------->", key.questionAndAnswerNotes[0].message)
+                                    //console.log("ujhhhhhhhh--------->", key.questionAndAnswerNotes[0].message)
                                     <div onClick={() => this.handleQuestionAsked(key.title, key.description, key.id, key.questionAndAnswerNotes[0].message, key.questionAndAnswerNotes[key.questionAndAnswerNotes.length - 1].id)}
                                         getlikeProps={key.questionAndAnswerNotes}>
                                         <Divider />
-                                <h3>Question Asked</h3>
-                                
+                                <h3>Question Asked</h3>                               
                                         {key.questionAndAnswerNotes[key.questionAndAnswerNotes.length - 1 - [key.questionAndAnswerNotes.length - 1]].message}
                                     </div>
                                 }

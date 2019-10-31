@@ -9,7 +9,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import { withRouter } from 'react-router-dom';
 import LabelComponent from './labelComponent';
 import MenuItem from '@material-ui/core/MenuItem';
-
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 class MoreComponent extends React.Component {
     constructor() {
         super()
@@ -22,18 +22,21 @@ class MoreComponent extends React.Component {
             Title: "",
             Description: "",
             arr: [],
+            propsValue: ''
 
         }
     }
-
-
     handlemore = (event) => {
         const { currentTarget } = event
         this.setState({
             anchorEl: (this.state.anchorEl ? null : currentTarget)
         })
-
     }
+    handleClickAway = () => {
+        this.setState({
+            anchorEl: null,
+        });
+    };
     getNotesf = () => {
         getNotes()
             .then(response => {
@@ -93,10 +96,11 @@ class MoreComponent extends React.Component {
         console.log("props in morecomponent", data);
         this.props.history.push("/draftEditorPage", data)
     }
-    handleLabelData = (updateNote) => {
-        if (updateNote) {
-
-        }
+    handleLabelData = async (value) => {
+        await this.props.propsValue(value)
+        // this.setState({
+        //     anchorEl: null
+        // })
     }
     render() {
         // console.log("props in morecomponent", this.props.noteTitle, this.props.noteDescription);
@@ -105,23 +109,28 @@ class MoreComponent extends React.Component {
         const id = open ? 'simple-popper' : undefined;
         return (
             <div>
-                <Tooltip title="more" onClick={this.handlemore}><MoreVertOutlinedIcon /></Tooltip>
-                <Popper id={id} open={open} anchorEl={anchorEl}>
-                    <Paper><MenuItem onClick={this.handleDeleteNote}>
-                        <div>Delete note</div></MenuItem>
-                        <LabelComponent labelToNote={this.props.noteID} labelDataProps={this.handleLabelData}
-                        />
-                        {this.props.questionAndAnswerProps !== 'undefined' ?
-                            this.props.questionAndAnswerProps.length > 0 ?
-                                <MenuItem>
-                                    <div onClick={() => this.handleShowQuestion(this.props.noteID)}>show question</div></MenuItem>
-                                : <MenuItem> <div onClick={() => this.handleAskQuestion()}>Ask a question</div></MenuItem>
-                            : null
-                        }
-                    </Paper>
-                </Popper>
+                <div>
+                    <Tooltip title="more" onClick={this.handlemore}><MoreVertOutlinedIcon /></Tooltip>
+                    <Popper id={id} open={open} anchorEl={anchorEl}>
+                        <Paper><MenuItem onClick={this.handleDeleteNote}>
+                            <div>Delete note</div></MenuItem>
+                            <LabelComponent labelToNote={this.props.noteID} getLabelProps={this.handleLabelData}
+                            />
+                                 <MenuItem> <div onClick={() => this.handleAskQuestion()}>Ask a question</div></MenuItem>
+                            </Paper>
+                                
+                    </Popper>
+                </div>
             </div>
         )
     }
 }
 export default withRouter(MoreComponent)
+// {
+//     this.props.questionAndAnswerProps !== 'undefined' ?
+//     this.props.questionAndAnswerProps.length > 0 ?
+//         <MenuItem>
+//             <div onClick={() => this.handleShowQuestion(this.props.noteID)}>show question</div></MenuItem>
+//         : <MenuItem> <div onClick={() => this.handleAskQuestion()}>Ask a question</div></MenuItem>
+//     : null
+// }

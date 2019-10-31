@@ -71,13 +71,13 @@ class EditLabelComponent extends React.Component {
         this.getNotesListByLabel()
     }
     getNotesListByLabel = () => {
-        console.log("data in edit label------------->", this.props.labelAtNote);
+        //console.log("data in edit label------------->", this.props.labelAtNote);
         var data = {
             labelName: this.props.labelAtNote
         }
         getNotesListByLabel(data, this.props.labelAtNote)
             .then(response => {
-                console.log("data in checklist editlabels--->", response.data.data.data);
+                //console.log("data in checklist editlabels--->", response.data.data.data);
                 this.getNotesListByLabel()
                 this.setState({
                     editLabel: response.data.data.data
@@ -159,6 +159,11 @@ class EditLabelComponent extends React.Component {
             this.getNotesListByLabel()
         }
     }
+    labelData = (updateNote) => {
+        if (updateNote) {
+            this.getNotesListByLabel()
+        }
+    }
     reminderData = (updateNote) => {
         if (updateNote) {
             this.getNotesListByLabel()
@@ -172,6 +177,7 @@ class EditLabelComponent extends React.Component {
         removeLabelToNotes(data, noteId, lableId)
             .then(response => {
                 console.log("label in  note --->", response);
+                this.getNotesListByLabel()
             })
     }
     handeChipReminder = (noteID) => {
@@ -181,13 +187,13 @@ class EditLabelComponent extends React.Component {
         removeReminderNotes(data)
             .then(response => {
                 console.log("response in removeing remainder Notes", response);
-
+                this.getNotesListByLabel()
             })
     }
     render() {
         var list = this.props.gridViewProps ? "noteList" : null
         var editLabelNotesData = this.state.editLabel.map((key) => {
-            //console.log("key data in getarchivenote--->", key);
+           //a console.log("key data offf labels--->", key);
             return (
                 <MuiThemeProvider theme={theme}>
                     <div className="card-note" id={list}>
@@ -208,16 +214,24 @@ class EditLabelComponent extends React.Component {
                                     />
                                 </div>
                                 {key.noteLabels.map(LabelKey => {
-
                                     return (
                                         <Chip
 
                                             label={LabelKey.label}
-                                            onDelete={() => this.handeChipLabel(LabelKey.id, LabelKey.id)}
+                                            onDelete={() => this.handeChipLabel(key.id, LabelKey.id)}
                                         />
                                     )
                                 })}
-
+                                {key.reminder.map(reminderKey => {
+                                    console.log("key in remainder", reminderKey);
+                                    return (
+                                        <Chip
+                                            label={reminderKey.split(" ").splice(0, 5)}
+                                            onDelete={() => this.handeChipReminder(key.id)}
+                                        // label={reminderKey.split(" ").splice(0, 5)}
+                                        />
+                                    )
+                                })}
                                 <div className="align-icons">
                                     <MuiThemeProvider theme={theme}>
 
@@ -233,7 +247,9 @@ class EditLabelComponent extends React.Component {
                                         </Tooltip>
                                         <ArchiveComponent archiveData={this.storeData}
                                             noteID={key.id}></ArchiveComponent>
-                                        <MoreComponent deletingData={this.presentData}
+                                        <MoreComponent
+                                            propsValue={this.labelData}
+                                            deletingData={this.presentData}
                                             noteID={key.id}></MoreComponent>
                                     </MuiThemeProvider>
                                 </div>
@@ -290,7 +306,6 @@ class EditLabelComponent extends React.Component {
             <div className="labelnotes" >
                 {editLabelNotesData}
             </div>
-
         )
     }
 }

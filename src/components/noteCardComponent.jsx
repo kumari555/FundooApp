@@ -17,7 +17,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import MoreComponentOfNote from '../components/moreComponentOfNote';
 import CollaboratorComponent from '../components/collaboratorComponent';
 import ColorComponent from '../components/colorComponent';
-
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Divider from '@material-ui/core/Divider';
 import Chip from '@material-ui/core/Chip';
 
@@ -49,7 +49,7 @@ class NotecardComponent extends React.Component {
             checkItem: false,
             checkLabel: false,
             arr1: [1],
-            date:false,
+            date: false,
 
         }
     }
@@ -58,15 +58,20 @@ class NotecardComponent extends React.Component {
             Open: !this.state.Open
         })
     }
+    handleClickAway = () => {
+        this.setState({
+            Open: false,
+        });
+    };
     handleTitle = (event) => {
         var Tittle = event.target.value
         this.setState({
             Tittle: Tittle
         })
     }
-    handleDescription = async(event) => {
+    handleDescription = async (event) => {
         var Description = event.target.value
-       await this.setState({
+        await this.setState({
             Description: Description
         })
     }
@@ -74,7 +79,7 @@ class NotecardComponent extends React.Component {
         console.log("value of seleted reminder", value);
         await this.setState({
             selectedDate: value,
-            date:true
+            date: true
         })
         console.log("data after set state", this.state.selectedDate);
     }
@@ -88,7 +93,7 @@ class NotecardComponent extends React.Component {
     }
     // getReminder = (updateNote) => {
     //     if (updateNote) {
-          
+
     //     }
     // }
     handleCreateNote = () => {
@@ -110,7 +115,7 @@ class NotecardComponent extends React.Component {
                     Tittle: "",
                     Description: "",
                     selectedDate: "",
-                    selectedColor:""
+                    selectedColor: ""
                 })
                 // console.log("notedata", this.state.noteData);
                 this.props.noteCard(this.state.noteData)
@@ -126,14 +131,12 @@ class NotecardComponent extends React.Component {
         this.setState({
             checkItem: !this.state.checkItem
         })
-
     }
     handleUpadateList = () => {
         this.setState({
             checkLabel: !this.state.checkLabel
         })
         console.log("update check label data---->", this.state.checkLabel);
-
     }
     // handleUpadateCheckList = () => {
     //     this.setState({
@@ -173,77 +176,78 @@ class NotecardComponent extends React.Component {
                         </div>
                     </Card>
                 </div>
-                : <div className="inside-card-div">
-                    <Card className="inner-card" style={{ backgroundColor: this.state.selectedColor }}>
-                        <div className="inner-note">
-                            <InputBase
-                                placeholder="Title" onChange={this.handleTitle}
-                                value={this.state.Tittle}
-                            />
-                            <div>
-                                {this.state.checkItem ?
-                                    this.state.arr1.map((key) => {
-                                        return (<div>
-
+                :
+                <div className="inside-card-div">
+                    <ClickAwayListener onClickAway={this.handleClickAway}>
+                        <Card className="inner-card" style={{ backgroundColor: this.state.selectedColor }}>
+                            <div className="inner-note">
+                                <InputBase
+                                    placeholder="Title" onChange={this.handleTitle}
+                                    value={this.state.Tittle}
+                                />
+                                <div>
+                                    {this.state.checkItem ?
+                                        this.state.arr1.map((key) => {
+                                            return (<div>
+                                                <InputBase
+                                                    placeholder=" ListItem..."
+                                                    onChange={this.handleUpadateList}
+                                                    onKeyPress={(event) => this.handlekey(event)}
+                                                //value={this.state.checkLabel}
+                                                />
+                                                <Divider />
+                                            </div>)
+                                        })
+                                        :
+                                        (<div>
                                             <InputBase
-                                                placeholder=" ListItem..."
-                                                onChange={this.handleUpadateList}
-                                                onKeyPress={(event) => this.handlekey(event)}
-                                            //value={this.state.checkLabel}
+                                                placeholder="takea note.."
+                                                onChange={this.handleDescription}
+                                                value={this.state.Description}
                                             />
-                                            <Divider />
                                         </div>)
-                                    })
-                                    :
-                                    (<div>
-                                        <InputBase
-                                            placeholder="takea note.."
-                                            onChange={this.handleDescription}
-                                            value={this.state.Description}
+                                    }
+                                    {this.state.date ?
+                                        <div>
+                                            <Chip
+                                                label={this.state.selectedDate}
+                                            />
+                                        </div>
+                                        : (null)
+                                    }
+                                </div>
+                                <div className="inner-icons">
+                                    <MuiThemeProvider theme={theme}>
+                                      
+                                        <ReminderNoteComponent reminderPropsToCreateNote={this.reminderData}
+                                            getReminderProps={this.getReminder} />
+                                        <Tooltip title="Collabarator">
+                                            <CollaboratorComponent /></Tooltip>
+                                        <ColorComponent colorComponentProps={this.handleGetColor}
                                         />
-                                    </div>)
-                                }
-                                {this.state.date ?
-                                    <div>
-                                        <Chip
-                                            label={this.state.selectedDate}
-                                        />
-                                    </div>
-                                    :(null)
-                                }
+                                        <Tooltip title="Add image">
+                                            <ImageOutlinedIcon /></Tooltip>
+
+                                        <Tooltip title="Archive">
+                                            <ArchiveOutlinedIcon onClick={this.handlearchiveNote} /></Tooltip>
+                                        <Tooltip title="more">
+                                            <MoreComponentOfNote ckeckListProps={this.handleCheckItem}>
+                                            </MoreComponentOfNote>
+                                        </Tooltip>
+
+                                        <Tooltip title="undo">
+                                            <UndoOutlinedIcon /></Tooltip>
+
+                                        <Tooltip title="redo">
+                                            <RedoOutlinedIcon /></Tooltip>
+                                        <div>
+                                            <Button className="button" onClick={this.handleCreateNote}>Close</Button>
+                                        </div>
+                                    </MuiThemeProvider>
+                                </div>
                             </div>
-                            <div className="inner-icons">
-                                <MuiThemeProvider theme={theme}>
-                                    <ReminderNoteComponent reminderPropsToCreateNote={this.reminderData}
-                                        getReminderProps={this.getReminder}/>
-                                    <Tooltip title="Collabarator">
-                                        <CollaboratorComponent /></Tooltip>
-                                    <ColorComponent colorComponentProps={this.handleGetColor}
-                                    />
-                                    <Tooltip title="Add image">
-                                        <ImageOutlinedIcon /></Tooltip>
-
-                                    <Tooltip title="Archive">
-                                        <ArchiveOutlinedIcon onClick={this.handlearchiveNote} /></Tooltip>
-                                    <Tooltip title="more">
-                                        <MoreComponentOfNote ckeckListProps={this.handleCheckItem}>
-                                        </MoreComponentOfNote>
-                                    </Tooltip>
-
-                                    <Tooltip title="undo">
-                                        <UndoOutlinedIcon /></Tooltip>
-
-                                    <Tooltip title="redo">
-                                        <RedoOutlinedIcon /></Tooltip>
-                                    <div>
-                                        <Button className="button" onClick={this.handleCreateNote}>Close</Button>
-                                    </div>
-                                </MuiThemeProvider>
-
-                            </div>
-                        </div>
-
-                    </Card>
+                        </Card>
+                    </ClickAwayListener>
                 </div>
         )
     }

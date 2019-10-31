@@ -176,6 +176,11 @@ class GetReminderComponent extends React.Component {
             this.getReminderNote()
         }
     }
+    labelData = (updateNote) => {
+        if (updateNote) {
+            this.getReminderNote()
+        }
+    }
     handeChipLabel = (noteId, lableId) => {
         var data = {
             noteId: noteId,
@@ -184,6 +189,7 @@ class GetReminderComponent extends React.Component {
         removeLabelToNotes(data, noteId, lableId)
             .then(response => {
                 console.log("label in  note --->", response);
+                this.getReminderNote()
             })
     }
     handeChipReminder = (noteID) => {
@@ -193,7 +199,7 @@ class GetReminderComponent extends React.Component {
         removeReminderNotes(data)
             .then(response => {
                 console.log("response in removeing remainder Notes", response);
-
+                this.getReminderNote()
             })
     }
     reminderData = (updateNote) => {
@@ -316,9 +322,10 @@ class GetReminderComponent extends React.Component {
                                         </Tooltip>
                                         <ArchiveComponent archiveData={this.storeData}
                                             noteID={key.id}></ArchiveComponent>
-                                        <MoreComponent
+                                    <MoreComponent
+                                         propsValue={this.labelData}
                                             deletingData={this.presentData}
-                                            labelNoteProps={this.labelData}
+                                           
                                             noteID={key.id}
                                         ></MoreComponent>
                                     </MuiThemeProvider>

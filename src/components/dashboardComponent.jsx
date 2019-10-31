@@ -27,7 +27,15 @@ import Tooltip from '@material-ui/core/Tooltip';
 import GridOnIcon from '@material-ui/icons/GridOn';
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 import Card from '@material-ui/core/Card';
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 //import SigninComponent from '../components/signinComponent';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+
+
 const Url = 'http://fundoonotes.incubation.bridgelabz.com/'
 const theme = createMuiTheme({
     overrides: {
@@ -42,8 +50,17 @@ const theme = createMuiTheme({
                 color: "rgba(0, 0, 0, 0.54)"
             }
         },
-
-
+        MuiDialog: {
+            paperWidthSm: {
+                padding: "22px"
+            }
+        }
+        // MuiPaper: {
+        //     root: {
+       
+        //         padding: "20px"
+        //     }
+        // }
     }
 })
 class DashboardComponent extends React.Component {
@@ -61,7 +78,8 @@ class DashboardComponent extends React.Component {
             imageSet: false,
             setPath: "",
             imagepath: "",
-            searchCard: false
+            searchCard: false,
+            open: false,
         }
     }
     handlemenulist = async () => {
@@ -81,7 +99,21 @@ class DashboardComponent extends React.Component {
             anchorEl: (this.state.anchorEl ? null : event.currentTarget)
         })
     }
+    handleClickAway = () => {
+        this.setState({
+            anchorEl: null,
+        });
+    };
     handlelogout = () => {
+        this.setState({
+            open: true
+        });
+
+    }
+    handleClose = () => {
+        this.setState({ open: false });
+    };
+    handlesignout = () => {
         this.props.history.push('/signin')
     }
     handleaccount = () => {
@@ -228,67 +260,88 @@ class DashboardComponent extends React.Component {
                                             : <Tooltip title="Grid view"><GridOnIcon style={{ padding: "10px 1px 1px 1px" }}
                                                 onClick={this.handleGridIcon} /></Tooltip>
                                         }</div>
-                                        <div>
-                                            <Avatar className="icon-button" onClick={this.handleAccount}>
-                                                {this.state.imageSet ?
-                                                    <img src={this.state.selectedFile} alt="profile">
-                                                    </img>
-                                                    :
-                                                    <img src={localStorage.getItem("imageURL")} alt="profile"
-                                                        style={{
-                                                            width: "75px",
-                                                            height: "75px"
-                                                        }}
-                                                    />}
-                                            </Avatar>
-                                            <Popper id={id} open={open} anchorEl={anchorEl}>
-                                                <Paper className="profilePaper">
-                                                    <div >
-                                                        <div className="profileContent">
-                                                            <label style={{ padding: "10px 10px 10px 10px" }} htmlFor='file'>
-                                                                <Avatar
-                                                                    style={{
-                                                                        width: "75px",
-                                                                        height: "75px"
-                                                                    }}
-                                                                >
-                                                                    {this.state.imageSet ?
-                                                                        <img src={this.state.selectedFile} alt="profile">
-                                                                        </img>
-                                                                        :
-                                                                        <img src={localStorage.getItem("imageURL")} alt="profile"
-                                                                            style={{
-                                                                                width: "75px",
-                                                                                height: "75px"
-                                                                            }} />}
-                                                                </Avatar>
-                                                            </label>
-                                                            <div >
+                                        <ClickAwayListener onClickAway={this.handleClickAway}>
+                                            <div>
+                                                <Avatar className="icon-button" onClick={this.handleAccount}>
+                                                    {this.state.imageSet ?
+                                                        <img src={this.state.selectedFile} alt="profile">
+                                                        </img>
+                                                        :
+                                                        <img src={localStorage.getItem("imageURL")} alt="profile"
+                                                            style={{
+                                                                width: "75px",
+                                                                height: "75px"
+                                                            }}
+                                                        />}
+                                                </Avatar>
+                                                <Popper id={id} open={open} anchorEl={anchorEl}>
+                                                    <Paper className="profilePaper">
+                                                        <div >
+                                                            <div className="profileContent">
+                                                                <label style={{ padding: "10px 10px 10px 10px" }} htmlFor='file'>
+                                                                    <Avatar
+                                                                        style={{
+                                                                            width: "75px",
+                                                                            height: "75px"
+                                                                        }}
+                                                                    >
+                                                                        {this.state.imageSet ?
+                                                                            <img src={this.state.selectedFile} alt="profile">
+                                                                            </img>
+                                                                            :
+                                                                            <img src={localStorage.getItem("imageURL")} alt="profile"
+                                                                                style={{
+                                                                                    width: "75px",
+                                                                                    height: "75px"
+                                                                                }} />}
+                                                                    </Avatar>
+                                                                </label>
+                                                                <div >
+                                                                </div>
+                                                                <div>
+                                                                    <h3>{localStorage.getItem("Firstname")}{localStorage.getItem("Lastname")}</h3>
+                                                                    <p>{localStorage.getItem("Email")}</p></div>
+                                                            </div>
+                                                            <input type="file" id='file' onChange={this.handleProfileImage} style={{ display: 'none' }} />
+
+                                                        </div>
+                                                        <Divider />
+                                                        <div className="account-btn">
+                                                            <div>
+                                                                <Button size="small" color="primary" onClick={this.handleaccount}>
+                                                                    add account
+                                                             </Button>
                                                             </div>
                                                             <div>
-                                                                <h3>{localStorage.getItem("Firstname")}{localStorage.getItem("Lastname")}</h3>
-                                                                <p>{localStorage.getItem("Email")}</p></div>
+                                                                <Button size="small" color="primary" onClick={this.handlelogout} >
+                                                                    Logout
+                                                            </Button>
+                                                            </div>
+                                                        </div>
+                                                    </Paper>
+                                                </Popper>
+                                            </div>
+                                        </ClickAwayListener>
+                                        {this.state.open ?
 
-                                                        </div>
-                                                        <input type="file" id='file' onChange={this.handleProfileImage} style={{ display: 'none' }} />
+                                            <Dialog
+                                                style={{ padding: "20px" }}
+                                                open={this.state.open}
+                                                onClose={this.handleClose}>
+                                                <DialogContentText>
+                                                    Are u sure want to Logout
+                                                                 </DialogContentText>
+                                                <DialogActions>
+                                                    <Button onClick={this.handleClose} color="primary">
+                                                        Cancel
+                                                                       </Button>
+                                                    <Button onClick={this.handlesignout} color="primary">
+                                                        Logout
+                                                                  </Button>
+                                                </DialogActions>
+                                            </Dialog>
 
-                                                    </div>
-                                                    <Divider />
-                                                    <div className="account-btn">
-                                                        <div>
-                                                            <Button size="small" color="primary" onClick={this.handleaccount}>
-                                                                add account
-                                            </Button>
-                                                        </div>
-                                                        <div>
-                                                            <Button size="small" color="primary" onClick={this.handlelogout} >
-                                                                Logout
-                                            </Button>
-                                                        </div>
-                                                    </div>
-                                                </Paper>
-                                            </Popper>
-                                        </div>
+                                            : null}
                                     </div>
                                 </Toolbar>
                             </MuiThemeProvider>

@@ -229,12 +229,6 @@
     width: 16%;
 }
 
-/* @-moz - keyframes spin {
-    50 % {
-        -transform: rotateY(90deg);
-    }
-} */
-
 .profileContent {
     display: flex;
     justify-content: space-between;
@@ -250,6 +244,12 @@
     width: 50%;
 }
 
+.logout-dialogbox {
+    width: 17%;
+    height: 23%;
+    padding: 30px;
+}
+
 /*--------------------------------noteCardComponent-------------*/
 
 .noteComponent {
@@ -261,6 +261,7 @@
     display: flex;
     width: 37%;
     justify-content: space-between;
+    padding: 1px 7px 1px 7px;
 }
 
 /* .createText-align{
@@ -281,7 +282,7 @@
 .inner-card {
     display: flex;
     width: 37%;
-    padding: 1px 1px 7px 1px;
+    padding: 5px 1px 7px 7px;
 }
 
 .inner-note {
@@ -840,7 +841,7 @@
         display: flex;
         justify-content: space-between;
         margin-top: 3%;
-        width: 14rem;
+        width: 17rem;
         color: rgba(0, 0, 0, 0.54);
         font-size: 20px;
     }
@@ -1696,6 +1697,7 @@
     } */
     .listview-css {
         width: 19%;
+        display: none;
     }
     .refreashIcon {
         padding: 10px 1px 1px 1px;
@@ -1763,6 +1765,7 @@
     } */
     .listview-css {
         width: 19%;
+        display: none;
     }
     .refreashIcon {
         padding: 10px 1px 1px 1px;
@@ -1830,6 +1833,7 @@
     } */
     .listview-css {
         width: 19%;
+        display: none;
     }
     .refreashIcon {
         padding: 10px 1px 1px 1px;
@@ -1897,6 +1901,7 @@
     } */
     .listview-css {
         width: 19%;
+        display: none;
     }
     .refreashIcon {
         padding: 10px 1px 1px 1px;
@@ -1964,6 +1969,7 @@
     } */
     .listview-css {
         width: 19%;
+        display: none;
     }
     .refreashIcon {
         padding: 10px 1px 1px 1px;
@@ -2031,6 +2037,7 @@
     } */
     .listview-css {
         width: 19%;
+        display: none;
     }
     .refreashIcon {
         padding: 10px 1px 1px 1px;
@@ -2098,6 +2105,7 @@
     } */
     .listview-css {
         width: 19%;
+        display: none;
     }
     .refreashIcon {
         padding: 10px 1px 1px 1px;

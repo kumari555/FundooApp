@@ -4,6 +4,7 @@ import PaletteOutlinedIcon from '@material-ui/icons/PaletteOutlined';
 import { Paper } from '@material-ui/core';
 import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 const colors = [
     { name: "blue", hexCode: " #BC8F8F" },
     { name: "orange", hexcode: "#FFDAB9" },
@@ -36,6 +37,11 @@ export default class ColorComponent extends React.Component {
         })
 
     }
+    handleClickAway = () => {
+        this.setState({
+            anchorEl: null,
+        });
+    };
     handleColor = (event) => {
         this.props.colorComponentProps(event.target.value, this.props.noteID)
     }
@@ -52,7 +58,9 @@ export default class ColorComponent extends React.Component {
         const open = Boolean(anchorEl);
         const id = open ? 'simple-popper' : undefined;
         return (
-            <div>
+           
+                <ClickAwayListener onClickAway={this.handleClickAway}>
+                    <div>
                 <Tooltip title="color pallet" onClick={(event) => this.handlecolorOpen(event)}><PaletteOutlinedIcon /></Tooltip>
                 <Popper id={id} open={open} anchorEl={anchorEl}>
                     <Paper className="color-poper">
@@ -60,8 +68,10 @@ export default class ColorComponent extends React.Component {
                             {colorList}
                         </div>
                     </Paper>
-                </Popper>
-            </div>
+                    </Popper>
+                    </div>
+                </ClickAwayListener>
+           
         )
     }
 }

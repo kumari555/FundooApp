@@ -148,7 +148,6 @@ class RegisterComponent extends React.Component {
             productId = this.props.location.state.productId
             color = "orange"
         }
-
         return (
             <div className="service-main-div">
                 <MuiThemeProvider theme={theme}>

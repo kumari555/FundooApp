@@ -52,7 +52,6 @@ export default class LabelComponent extends React.Component {
             .catch(err => {
                 console.log("err while updating", err);
             })
-
     }
     handleLabel(event) {
         const { currentTarget } = event
@@ -87,8 +86,6 @@ export default class LabelComponent extends React.Component {
                 console.log("err while updating", err);
             })
     }
-
-
     handlechecklist = (lableId) => {
         var data = {
             noteId: this.props.labelToNote,
@@ -97,9 +94,9 @@ export default class LabelComponent extends React.Component {
         addLabelToNotes(data, this.props.labelToNote, lableId)
             .then(response => {
                 console.log("data in checklist labels--->", response);
-                this.props.labelDataProps(true)
-                this.getNotesf()
-                
+                // this.props.labelDataProps(true)
+                // this.getNotesf()
+               this.props.getLabelProps(true)
             })
 
 
@@ -129,6 +126,7 @@ export default class LabelComponent extends React.Component {
                     <div className="addLabel-css" >
                         Add label</div>
                 </MenuItem>
+                
                 <Popper id={id} open={open} anchorEl={anchorEl} >
                     <Paper>
                         <div>Label Note</div>
@@ -151,9 +149,7 @@ export default class LabelComponent extends React.Component {
                         </div>
                     </Paper>
                 </Popper>
-
             </div>
-
         )
     }
 }
