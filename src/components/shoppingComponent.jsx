@@ -151,11 +151,10 @@ class ShoppingComponent extends React.Component {
                                             onClick={this.handleBack}>
                                             Back
                                             </Button>
-
                                         <Button onClick={this.handleNext}>
                                             {activeStep === 1 ?
-                                                'order' : (activeStep === 2
-                                                    ? 'finish' : 'process')
+                                                'place the order' : (activeStep === 2
+                                                    ? 'finish' : 'proceed to checkout')
                                             }
                                         </Button>
                                     </div>
@@ -176,15 +175,15 @@ class ShoppingComponent extends React.Component {
                     </div>
                     <div className="divider-div">
                         <Divider className="divider-align" />
-                        <div style={{ marginTop:" 2%"}}>SubTotal(1 item):${this.state.cartPrice}</div>
+                        <div style={{ marginTop: " 2%" }}>SubTotal(1 item):${this.state.cartPrice}</div>
                         {this.state.address ?
                             <div className="cardandpaymentcss">
                                 <Card className="addressCard" >
-                                <InputBase
-                                    placeholder="address....."
-                                    onChange={this.handleaddress}
-                                />
-                            </Card>
+                                    <InputBase
+                                        placeholder="address....."
+                                        onChange={this.handleaddress}
+                                    />
+                                </Card>
                                 <div style={{ padding: "3px 1px 1px 87px" }}><h4>payment Method</h4>
                                     Cash on Delivary</div></div>
                             :

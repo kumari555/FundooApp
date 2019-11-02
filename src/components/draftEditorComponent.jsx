@@ -12,8 +12,8 @@ import { questioRating } from '../services/noteServices';
 import ReplyIcon from '@material-ui/icons/Reply';
 import Rating from 'material-ui-rating';
 import { getNotes } from '../services/noteServices';
-import { convertToRaw } from 'draft-js';
-import draftToHtml from 'draftjs-to-html';
+// import { convertToRaw } from 'draft-js';
+// import draftToHtml from 'draftjs-to-html';
 
 const theme = createMuiTheme({
     overrides: {
@@ -50,7 +50,8 @@ class DraftEditorComponent extends React.Component {
             title: "",
             reply: false,
             getNoteData: [],
-            rawContentState: ""
+            rawContentState: "",
+            questionReply: false
         }
     }
     componentWillMount() {
@@ -92,8 +93,9 @@ class DraftEditorComponent extends React.Component {
         //console.log("after set state question", convertToRaw(editorState))
         this.setState({
             editorState,
+
         });
-      //  console.log("after set state question", convertToRaw(this.state.editorState.blocks[0].text))
+        //  console.log("after set state question", convertToRaw(this.state.editorState.blocks[0].text))
         //console.log("after set state question", draftToHtml(this.state.editorState.blocks[0].text))
     }
     handleQuestion = (noteId) => {
@@ -127,7 +129,7 @@ class DraftEditorComponent extends React.Component {
                 console.log("after like response", response);
             })
         this.setState({
-            giveLike: true
+            giveLike: !this.state.giveLike
         })
         console.log("after setstate like response", this.state.giveLike);
     }
@@ -149,12 +151,10 @@ class DraftEditorComponent extends React.Component {
         this.setState({
             reply: !this.state.reply
         })
+        console.log("reply question in setSate", this.state.reply);
     }
 
-
-
     render() {
-
         var d = new Date();
         var n = d.toLocaleString([], { hour12: true });
         // console.log("response in question Page date--->", n)
@@ -183,14 +183,14 @@ class DraftEditorComponent extends React.Component {
                             <div className="editor-css">
                                 <Divider />
                                 <div className="question-css">
-
                                     <Editor
                                         defaultEditorState={this.state.editorState}
                                         toolbarClassName="toolbarClassName"
                                         wrapperClassName="wrapperClassName"
                                         editorClassName="editorClassName"
+                                        placeholder="Ask a Question....."
                                         onChange={this.onChange.bind(this)}
-                                    //onClick={this.exportHTML}
+
                                     />
                                 </div>
                                 <Divider />
@@ -215,12 +215,12 @@ class DraftEditorComponent extends React.Component {
                                     <div onClick={this.handleReply}><ReplyIcon style={{ padding: " 6px" }} /></div>
                                     <div>{!this.state.giveLike ?
                                         <div><ThumbUpIcon style={{ padding: "5px 6px 0px 11px" }}
-                                            onClick={() => this.handleLike(this.props.location.state[5])} /> 0 Likes</div>
+                                            onClick={() => this.handleLike(this.props.location.state[5])} /> unlike</div>
                                         : <div>
                                             <ThumbUpIcon style={{ padding: "5px 6px 0px 11px" }}
                                                 onClick={() => this.handleLike(this.props.location.state[5])} />
 
-                                            1 Likes</div>
+                                            Like</div>
                                     }</div>
                                     <div><Rating name="half-rating" value={4} precision={0.5}
                                         onChange={(e) => this.handlerating(e, this.props.location.state[5])}
@@ -232,8 +232,7 @@ class DraftEditorComponent extends React.Component {
                                 <div style={{ marginTop: " 3%" }}>
                                     <div className="question-css">
                                         <Editor
-                                            defaultEditorState={this.state.editorState}
-                                            toolbarClassName="toolbarClassName"
+                                            EditorState={this.state.editorState}
                                             wrapperClassName="wrapperClassName"
                                             editorClassName="editorClassName"
                                             placeholder="Ask a Question....."
@@ -249,8 +248,6 @@ class DraftEditorComponent extends React.Component {
                 </MuiThemeProvider>
             </div>
         )
-
-
     }
 }
 export default withRouter(DraftEditorComponent);
