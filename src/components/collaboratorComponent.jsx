@@ -123,7 +123,6 @@ export default class CollaboratorComponent extends React.Component {
             )
         })
         return (
-          
                 <div>
                     <div><PersonAddOutlinedIcon onClick={this.handleOpen} /></div>
                     <div>
@@ -157,7 +156,6 @@ export default class CollaboratorComponent extends React.Component {
                                 </Button>
                                 </div></div>
                             <div> {emailDetails}</div>
-
                         </Dialog>
                     </div>
                 </div>

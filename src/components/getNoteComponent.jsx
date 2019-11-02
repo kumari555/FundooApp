@@ -279,57 +279,63 @@ class GetNoteComponent extends React.Component {
                                         onClick={() => this.handleUpdateCard(key.id, key.title, key.description, key.color)}
                                     />
                                 </div>
-                                {key.noteLabels.map(LabelKey => {
-                                    return (
-                                        <Chip
-                                            label={LabelKey.label}
-                                            onDelete={() => this.handeChipLabel(key.id, LabelKey.id)}
-                                        />
-                                    )
-                                })
-                                }
-                                {key.reminder.map(reminderKey => {
-                                    //console.log("key in remainder", reminderKey);
-                                    return (
-                                        <Chip
-                                            className="reminder-chip"
-                                            label={reminderKey.split(" ").splice(0, 5)}
-                                            onDelete={() => this.handeChipReminder(key.id)}
-                                        />
-                                    )
-                                })}
-                                {key.collaborators.map(collaboratorkey => {
-                                    // console.log("key in collaborator", collaboratorkey);
-                                    return (
-                                        <div>
-                                            <div onClick={() => this.handleOpen(collaboratorkey.email)}
-                                            >
-                                                <AccountCircleIcon />
-                                            </div>
+                                <div style={{ margin: "7px" }}>
+                                    {key.noteLabels.map(LabelKey => {
+                                        return (
+                                            <Chip
+                                                label={LabelKey.label}
+                                                onDelete={() => this.handeChipLabel(key.id, LabelKey.id)}
+                                            />
+                                        )
+                                    })
+                                    }
+                                </div>
+                                <div style={{ margin: "7px" }}>
+                                    {key.reminder.map(reminderKey => {
+                                        //console.log("key in remainder", reminderKey);
+                                        return (
+                                            <Chip
+                                                className="reminder-chip"
+                                                label={reminderKey.split(" ").splice(0, 5)}
+                                                onDelete={() => this.handeChipReminder(key.id)}
+                                            />
+                                        )
+                                    })}
+                                </div>
+                                <div style={{ margin: "7px", display: "flex" }}>
+                                    {key.collaborators.map(collaboratorkey => {
+                                        // console.log("key in collaborator", collaboratorkey);
+                                        return (
                                             <div>
-                                                <Dialog
-                                                    open={this.state.dialogOpen}
-                                                    onClose={this.handleClose}>
-                                                    <h3 style={{ padding: "1px 1px 1px 10px" }}>Collaborators</h3>
-                                                    <Divider />
-                                                    <div className="email-css">
-                                                        <div><Avatar>R</Avatar></div>
-                                                        <div><h3 style={{ padding: "1px 1px 0px 16px" }}>{localStorage.getItem("Email")}</h3></div>
-                                                    </div>
-                                                    <MenuItem><div style={{ display: " flex" }}>
-                                                        <div> <AccountCircleIcon /></div>
-                                                        <div>{this.state.mail}</div>
-                                                        <div onClick={() => this.handleCancel(key.id, collaboratorkey.userId)}
-                                                            style={{ padding: "1px 1px 1px 143px" }}> <ClearIcon /></div>
-                                                    </div></MenuItem>
-                                                    <div onClick={this.handleClose}>
-                                                        <Button>Close</Button>
-                                                    </div>
-                                                </Dialog>
+                                                <div onClick={() => this.handleOpen(collaboratorkey.email)}
+                                                >
+                                                    <AccountCircleIcon />
+                                                </div>
+                                                <div>
+                                                    <Dialog
+                                                        open={this.state.dialogOpen}
+                                                        onClose={this.handleClose}>
+                                                        <h3 style={{ padding: "1px 1px 1px 10px" }}>Collaborators</h3>
+                                                        <Divider />
+                                                        <div className="email-css">
+                                                            <div><Avatar>R</Avatar></div>
+                                                            <div><h3 style={{ padding: "1px 1px 0px 16px" }}>{localStorage.getItem("Email")}</h3></div>
+                                                        </div>
+                                                        <MenuItem><div style={{ display: " flex" }}>
+                                                            <div> <AccountCircleIcon /></div>
+                                                            <div>{this.state.mail}</div>
+                                                            <div onClick={() => this.handleCancel(key.id, collaboratorkey.userId)}
+                                                                style={{ padding: "1px 1px 1px 143px" }}> <ClearIcon /></div>
+                                                        </div></MenuItem>
+                                                        <div onClick={this.handleClose}>
+                                                            <Button>Close</Button>
+                                                        </div>
+                                                    </Dialog>
+                                                </div>
                                             </div>
-                                        </div>
-                                    )
-                                })}
+                                        )
+                                    })}
+                                </div>
                                 <div className="align-icons">
                                     <MuiThemeProvider theme={theme}>
                                         <ReminderNoteComponent reminderProps={this.reminderData}
@@ -348,7 +354,7 @@ class GetNoteComponent extends React.Component {
                                             noteID={key.id}></ArchiveComponent>
                                         <MoreComponent
                                             deletingData={this.presentData}
-                                        propsValue={this.labelData}
+                                            propsValue={this.labelData}
                                             noteID={key.id}
                                             noteTitle={key.title}
                                             noteDescription={key.description}
@@ -361,19 +367,19 @@ class GetNoteComponent extends React.Component {
                                     <div onClick={() => this.handleQuestionAsked(key.title, key.description, key.id, key.questionAndAnswerNotes[0].message, key.questionAndAnswerNotes[key.questionAndAnswerNotes.length - 1].id)}
                                         getlikeProps={key.questionAndAnswerNotes}>
                                         <Divider />
-                                <h3>Question Asked</h3>                               
+                                        <h3>Question Asked</h3>
                                         {key.questionAndAnswerNotes[key.questionAndAnswerNotes.length - 1 - [key.questionAndAnswerNotes.length - 1]].message}
                                     </div>
                                 }
                             </Card>
                         </div>
-                        {(this.state.noteId === key.id &&
-                            <div style={{ backgroundColor: key.color }}>
+                        {(this.state.noteId === key.id) &&
+                            <div>
                                 <Dialog
                                     open={this.state.open}
                                     onClose={this.handleClose}
                                 >
-                                    <DialogContent >
+                                    <DialogContent style={{ backgroundColor: key.color }} >
                                         <DialogContentText id="alert-dialog-description">
                                             <div>
                                                 <InputBase
@@ -391,7 +397,7 @@ class GetNoteComponent extends React.Component {
                                             </div>
                                         </DialogContentText>
                                     </DialogContent>
-                                    <div className="update-icons">
+                                    <div className="update-icons" style={{ backgroundColor: key.color }}>
                                         <MuiThemeProvider theme={theme}>
                                             <ReminderNoteComponent reminderProps={this.reminderData}
                                                 noteID={key.id} />
@@ -415,12 +421,13 @@ class GetNoteComponent extends React.Component {
                                             ></MoreComponent>
                                         </MuiThemeProvider>
                                     </div>
-                                    <Button onClick={this.handleUpdateCard} color="primary">
-                                        Close
-                           </Button>
+                                    <div className="dialog-Button"style={{ backgroundColor: key.color }} >
+                                        <Button onClick={this.handleUpdateCard} color="primary">
+                                            Close
+                           </Button></div>
                                 </Dialog>
                             </div>
-                        )}
+                        }
                     </MuiThemeProvider>
                 )
             )

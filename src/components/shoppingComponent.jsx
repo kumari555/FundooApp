@@ -184,12 +184,11 @@ class ShoppingComponent extends React.Component {
                                         onChange={this.handleaddress}
                                     />
                                 </Card>
-                                <div style={{ padding: "3px 1px 1px 87px" }}><h4>payment Method</h4>
+                                <div className="payment-css"><h4>payment Method</h4>
                                     Cash on Delivary</div></div>
                             :
                             null
                         }
-
                     </div>
                     <Snackbar
                         anchorOrigin={{

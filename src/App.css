@@ -383,6 +383,15 @@
     margin-left: 8%;
 }
 
+.transitionRight {
+    margin-right: 8%;
+}
+
+.dialog-Button {
+    display: flex;
+    justify-content: flex-end;
+}
+
 /* .dialog-css {
     width: 60%;
 } */
@@ -530,7 +539,7 @@
     margin-top: 9%;
     display: flex;
     justify-content: space-between;
-    width: 54%;
+    width: 61%;
     flex-wrap: wrap;
 }
 
@@ -545,8 +554,8 @@
     margin-top: 9%;
     display: flex;
     justify-content: space-between;
-    width: 54%;
     flex-wrap: wrap;
+    width: 61%;
 }
 
 .trashNotesAlign {
@@ -568,17 +577,17 @@
 
 /*-----------------------draft Component------------*/
 
+.draftMain-css {
+    margin: 5rem
+}
+
 .editor-css {
-    width: 83%;
-    /* display: flex; */
-    padding: 184px 9px 9px 99px;
-    margin-top: -14%
+    padding: 1rem 4rem;
 }
 
 .titleData {
     margin-top: 10%;
-    padding: 1px 1px 1px 99px;
-    width: 83%;
+    padding: 1rem 4rem
 }
 
 .close-css {
@@ -592,8 +601,7 @@
 
 .afterQuestion {
     /* margin-top: 6%; */
-    padding: 1px 1px 1px 99px;
-    width: 83%;
+    padding: 1rem 4rem;
 }
 
 .draftButton {
@@ -603,7 +611,7 @@
 
 .draft-icons {
     display: flex;
-    width: 70%;
+    width: 75%;
     justify-content: space-around;
 }
 
@@ -612,13 +620,13 @@
 }
 
 .like-css {
-    padding: 0px 234px 1px 0px;
+    /* padding: 0px 234px 1px 0px; */
     display: flex;
 }
 
 .localstorageData {
     display: flex;
-    padding: 1px 1px 16px 126px;
+    padding: 1rem 8rem;
     margin-top: 2%;
 }
 
@@ -714,6 +722,10 @@
 .divider-align {
     height: 3px;
     color: rgba(0, 0, 0, 0.26);
+}
+
+.payment-css {
+    padding: 1px 1px 1px 100px;
 }
 
 /*--------------------------- @media Query---------------------*/
@@ -2192,5 +2204,265 @@
     .divider-align {
         height: 3px;
         color: rgba(0, 0, 0, 0.26);
+    }
+    .payment-css {
+        padding: 13px 5px 4px 34px;
+    }
+}
+
+@media screen and (width: 411px) {
+    .fundoo-button {
+        margin-top: 5%;
+        margin-left: -17%;
+    }
+    .shoppingProcess {
+        display: flex;
+        justify-content: center;
+    }
+    .main-shopping-div {
+        margin: 3rem 0rem 0rem 0rem;
+    }
+    .shopping-inner-div-1 {
+        width: 100%;
+        padding: 0rem 0rem;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .shopping-inner-div-2 {
+        padding: 1rem 1rem 1rem 1rem;
+        display: flex;
+        flex-direction: column;
+    }
+    .divider-div {
+        padding: 0rem 1rem 1rem 1rem;
+    }
+    .shopping-button {
+        display: flex;
+        justify-content: flex-end;
+        width: 98%;
+        margin-top: -2%;
+    }
+    .shoppingCard {
+        width: 27%;
+        height: fit-content;
+        padding: 6px;
+    }
+    .description-align {
+        width: 59%;
+        /* padding: 1px 1px 1px 29px; */
+    }
+    .prise-tag {
+        width: 33%;
+        margin-top: 3%;
+    }
+    .shoppingButton {
+        border: double;
+        color: darkgray;
+        width: 58%;
+        height: 59px;
+        margin-top: 9%;
+    }
+    .addressCard {
+        width: 48%;
+        height: 15vh;
+        margin-top: 6%;
+    }
+    .cardandpaymentcss {
+        display: flex;
+    }
+    .divider-align {
+        height: 3px;
+        color: rgba(0, 0, 0, 0.26);
+    }
+    .payment-css {
+        padding: 24px 5px 4px 58px;
+    }
+}
+
+@media screen and (width: 320px) {
+    .fundoo-button {
+        margin-top: 5%;
+        margin-left: -17%;
+    }
+    .shoppingProcess {
+        display: flex;
+        justify-content: center;
+    }
+    .main-shopping-div {
+        margin: 3rem 0rem 0rem 0rem;
+    }
+    .shopping-inner-div-1 {
+        width: 100%;
+        padding: 0rem 0rem;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .shopping-inner-div-2 {
+        padding: 0rem 1rem 1rem 1rem;
+        display: flex;
+        flex-direction: column;
+    }
+    .divider-div {
+        padding: 0rem 1rem 1rem 1rem;
+    }
+    .shopping-button {
+        display: flex;
+        justify-content: flex-end;
+        width: 98%;
+        margin-top: -2%;
+    }
+    .shoppingCard {
+        width: 27%;
+        height: fit-content;
+        padding: 6px;
+    }
+    .description-align {
+        width: 59%;
+        /* padding: 1px 1px 1px 29px; */
+    }
+    .prise-tag {
+        width: 33%;
+        margin-top: 3%;
+    }
+    .shoppingButton {
+        border: double;
+        color: darkgray;
+        width: 58%;
+        height: 59px;
+        margin-top: 9%;
+    }
+    .addressCard {
+        width: 48%;
+        height: 15vh;
+        margin-top: 6%;
+    }
+    .cardandpaymentcss {
+        display: flex;
+    }
+    .divider-align {
+        height: 3px;
+        color: rgba(0, 0, 0, 0.26);
+    }
+    .payment-css {
+        padding: 5px 5px 4px 17px;
+    }
+}
+
+@media screen and (width: 375px) {
+    .fundoo-button {
+        margin-top: 5%;
+        margin-left: -17%;
+    }
+    .shoppingProcess {
+        display: flex;
+        justify-content: center;
+    }
+    .main-shopping-div {
+        margin: 3rem 0rem 0rem 0rem;
+    }
+    .shopping-inner-div-1 {
+        width: 100%;
+        padding: 0rem 0rem;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .shopping-inner-div-2 {
+        padding: 0rem 1rem 1rem 1rem;
+        display: flex;
+        flex-direction: column;
+    }
+    .divider-div {
+        padding: 0rem 1rem 1rem 1rem;
+    }
+    .shopping-button {
+        display: flex;
+        justify-content: flex-end;
+        width: 98%;
+        margin-top: -2%;
+    }
+    .shoppingCard {
+        width: 27%;
+        height: fit-content;
+        padding: 6px;
+    }
+    .description-align {
+        width: 59%;
+        /* padding: 1px 1px 1px 29px; */
+    }
+    .prise-tag {
+        width: 33%;
+        margin-top: 3%;
+    }
+    .shoppingButton {
+        border: double;
+        color: darkgray;
+        width: 58%;
+        height: 59px;
+        margin-top: 9%;
+    }
+    .addressCard {
+        width: 48%;
+        height: 15vh;
+        margin-top: 6%;
+    }
+    .cardandpaymentcss {
+        display: flex;
+    }
+    .divider-align {
+        height: 3px;
+        color: rgba(0, 0, 0, 0.26);
+    }
+    .payment-css {
+        padding: 5px 5px 4px 17px;
+    }
+}
+
+/*----------------------draft page media query----------*/
+
+@media screen and (width: 360px) {
+    .draftMain-css {
+        margin: 0rem
+    }
+    .editor-css {
+        padding: 1rem 1rem;
+    }
+    .titleData {
+        margin-top: 20%;
+        padding: 1rem 1rem;
+    }
+    .close-css {
+        display: flex;
+        justify-content: space-between;
+    }
+    .question-css {
+        border: double darkslategray;
+    }
+    .afterQuestion {
+        padding: 1rem 1rem;
+        margin-top: -8%;
+    }
+    .draftButton {
+        text-align: end;
+        padding: 1px 128px 1px 1px;
+    }
+    .draft-icons {
+        /* display: flex; */
+        width: 100%;
+        justify-content: space-around;
+    }
+    .divider-css {
+        box-shadow: 1px 3px 5px 0px grey;
+    }
+    .like-css {
+        /* padding: 0px 234px 1px 0px; */
+        display: flex;
+    }
+    .localstorageData {
+        display: flex;
+        margin-top: 1%;
+        padding: 1rem;
     }
 }

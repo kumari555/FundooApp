@@ -40,7 +40,7 @@ class Dashboard extends React.Component {
     }
     render() {
         console.log("response in dashboard--->", this.props)
-        var transitionState = this.state.transitionvalue ? "transitionLeft" : null
+        var transitionState = this.state.transitionvalue ? "transitionLeft" : "transitionRight"
         return (
             <div>
                 <DashboardComponent

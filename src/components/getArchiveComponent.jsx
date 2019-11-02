@@ -54,8 +54,12 @@ const theme = createMuiTheme({
                 boxShadow: "3px 1px 4px 2px rgb(206, 206, 206)",
                 width: "36%"
             }
+        },
+        MuiPaper: {
+            rounded: {
+                borderRadius: " 9px"
+            }
         }
-
     }
 })
 function searchFunction(searchValue) {
@@ -224,7 +228,7 @@ class GetArchiveComponent extends React.Component {
                 <MuiThemeProvider theme={theme}>
                     <div className="card-note" id={list}>
                         <MuiThemeProvider theme={theme}>
-                            <Card className="card" style={{ backgroundColor: key.color }} id={list}>
+                            <Card className="card" style={{ backgroundColor: key.color, padding: " 4px" }} id={list}>
                                 <div className="center-align" onClick={this.handleClickOpen}>
                                     <InputBase
                                         placeholder="title"

@@ -42,8 +42,13 @@ const theme = createMuiTheme({
                 boxShadow: "3px 1px 4px 2px rgb(206, 206, 206)",
                 width: "36%"
             }
-        }
+        },
+        MuiPaper: {
+            rounded: {
+                borderRadius: " 10px"
+            }
 
+        }
     }
 })
 function searchFunction(searchValue) {
@@ -162,7 +167,7 @@ class GetTrashNotesComponent extends React.Component {
             return (
                 <MuiThemeProvider theme={theme}>
                     <div className="card-note" id={list}>
-                        <Card className="card" style={{ backgroundColor: key.color }} id={list} >
+                        <Card className="card" style={{ backgroundColor: key.color, padding: " 4px" }} id={list} >
                             <div className="center-align" >
                                 <InputBase
                                     placeholder="title"

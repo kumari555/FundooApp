@@ -50,7 +50,8 @@ class ReminderNoteComponent extends React.Component {
             selectedDate: event.target.value
         })
         console.log("dataaaaaaaaa", this.state.selectedDate);
-        //this.props.reminderPropsToCreateNote(this.state.selectedDate)
+        //     if (this.props.remainderChipProps)
+        //  {this.props.reminderPropsToCreateNote(this.state.selectedDate)}
         var data = {
             noteIdList: [this.props.noteID],
             reminder: this.state.selectedDate
@@ -64,7 +65,6 @@ class ReminderNoteComponent extends React.Component {
             .catch(err => {
                 console.log("err while updating", err);
             })
-        //         { this.props.getReminderProps(true) }
     }
     handleDate = async () => {
         console.log("noteid in remainder", this.props);
@@ -93,25 +93,25 @@ class ReminderNoteComponent extends React.Component {
             <div>
                 <Tooltip title="reminde me" onClick={this.handlemore}><AddAlertOutlinedIcon /></Tooltip>
                 <Popper id={id} open={open} anchorEl={anchorEl}>
-                    <ClickAwayListener onClickAway={this.handleClickAway}>
-                        <Paper>
-                            <MenuItem>  <h3>remainder: </h3>  </MenuItem>
-                            <MenuItem onClick={this.handleTomarrow}>  <div>Tomarrow</div>  </MenuItem>
-                            <MenuItem>  <div>Select Date and Time :</div>  </MenuItem>
-                            <MenuItem>
-                                <TextField
-                                    id="datetime-local"
-                                    type="datetime-local"
-                                    defaultValue="2019-05-24T10:30"
-                                    onChange={this.handleSelectDate}
-                                //value={this.state.selectedDate}
-                                />
-                            </MenuItem>
-                            {/**  <MenuItem
+
+                    <Paper>
+                        <MenuItem>  <h3>remainder: </h3>  </MenuItem>
+                        <MenuItem onClick={this.handleTomarrow}>  <div>Tomarrow</div>  </MenuItem>
+                        <MenuItem>  <div>Select Date and Time :</div>  </MenuItem>
+                        <MenuItem>
+                            <TextField
+                                id="datetime-local"
+                                type="datetime-local"
+                                defaultValue="2019-05-24T10:30"
+                                onChange={this.handleSelectDate}
+                            //value={this.state.selectedDate}
+                            />
+                        </MenuItem>
+                        {/**  <MenuItem
                             onClick={this.handleDate}>
                             <div className="saveDate">Save</div></MenuItem> */ }
-                        </Paper>
-                    </ClickAwayListener>
+                    </Paper>
+
                 </Popper>
             </div>
 

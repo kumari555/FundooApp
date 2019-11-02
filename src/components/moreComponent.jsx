@@ -116,9 +116,18 @@ class MoreComponent extends React.Component {
                             <div>Delete note</div></MenuItem>
                             <LabelComponent labelToNote={this.props.noteID} getLabelProps={this.handleLabelData}
                             />
-                                 <MenuItem> <div onClick={() => this.handleAskQuestion()}>Ask a question</div></MenuItem>
-                            </Paper>
-                                
+                            {console.log('555555----', this.props.questionAndAnswerProps)}
+                            {
+                                this.props.questionAndAnswerProps !==undefined ?
+                                 
+                            this.props.questionAndAnswerProps.length > 0 ?
+                            <MenuItem>
+                                <div onClick={() => this.handleShowQuestion(this.props.noteID)}>show question</div></MenuItem>
+                                        : <MenuItem> <div onClick={() => this.handleAskQuestion()}>Ask a question</div></MenuItem>
+                            : null
+                            }
+                        </Paper>
+
                     </Popper>
                 </div>
             </div>
@@ -126,11 +135,4 @@ class MoreComponent extends React.Component {
     }
 }
 export default withRouter(MoreComponent)
-// {
-//     this.props.questionAndAnswerProps !== 'undefined' ?
-//     this.props.questionAndAnswerProps.length > 0 ?
-//         <MenuItem>
-//             <div onClick={() => this.handleShowQuestion(this.props.noteID)}>show question</div></MenuItem>
-//         : <MenuItem> <div onClick={() => this.handleAskQuestion()}>Ask a question</div></MenuItem>
-//     : null
-// }
+

@@ -113,7 +113,9 @@ class DraftEditorComponent extends React.Component {
                     Open: true,
                     createdDate: response.data.data.details.createdDate,
                     id: response.data.data.details.id
+
                 })
+              
                 console.log("hgjgkhd", this.state.id);
             })
     }
@@ -166,7 +168,7 @@ class DraftEditorComponent extends React.Component {
         // )
         //})
         return (
-            <div>
+            <div className="draftMain-css">
                 <MuiThemeProvider theme={theme}>
                     <div className="titleData">
                         <div className="close-css">
@@ -178,9 +180,9 @@ class DraftEditorComponent extends React.Component {
                         <Divider style={{ boxShadow: "1px 3px 5px 0px grey" }} />
                     </div>
                     {!this.state.Open ?
-                        <div>
-                            <div style={{ padding: "1px 1px 1px 97px" }}><h2>Ask a Question</h2></div>
-                            <div className="editor-css">
+                        <div className="editor-css">
+                            <div ><h2>Ask a Question</h2></div>
+                            <div>
                                 <Divider />
                                 <div className="question-css">
                                     <Editor
@@ -206,30 +208,30 @@ class DraftEditorComponent extends React.Component {
                             <Divider className="divider-css" />
                             <div className="localstorageData">
                                 <div>{localStorage.getItem("Firstname")}{localStorage.getItem("Lastname")}</div>
-                                <div style={{ padding: "1px 4px 1px 15px" }}>{n}
+                                <div >{n}
                                 </div>
                             </div>
                             <div className="draft-icons">
-                                <div style={{ padding: "7px 1px 1px 20px" }}>{this.props.location.state[3]}{this.state.askQuestion}</div>
+                                <div >{this.props.location.state[3]}{this.state.askQuestion}</div>
                                 <div className="like-css">
                                     <div onClick={this.handleReply}><ReplyIcon style={{ padding: " 6px" }} /></div>
                                     <div>{!this.state.giveLike ?
-                                        <div><ThumbUpIcon style={{ padding: "5px 6px 0px 11px" }}
+                                        <div><ThumbUpIcon 
                                             onClick={() => this.handleLike(this.props.location.state[5])} /> unlike</div>
                                         : <div>
-                                            <ThumbUpIcon style={{ padding: "5px 6px 0px 11px" }}
+                                            <ThumbUpIcon 
                                                 onClick={() => this.handleLike(this.props.location.state[5])} />
 
                                             Like</div>
                                     }</div>
-                                    <div><Rating name="half-rating" value={4} precision={0.5}
+                                    <div><Rating name="half-rating" value={5} precision={0.5}
                                         onChange={(e) => this.handlerating(e, this.props.location.state[5])}
                                     /></div>
-                                    <div style={{ padding: "13px 1px 1px 8px" }}>{this.state.givenRate}</div>
+                                    <div>{this.state.givenRate}</div>
                                 </div>
                             </div>
                             {this.state.reply ?
-                                <div style={{ marginTop: " 3%" }}>
+                                <div>
                                     <div className="question-css">
                                         <Editor
                                             EditorState={this.state.editorState}

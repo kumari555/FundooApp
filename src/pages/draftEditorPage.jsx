@@ -17,11 +17,11 @@ class DraftEditorPage extends React.Component {
     }
     render() {
         console.log("response in question Page--->", this.props)
-        
+
         return (
             <div>
                 <div><QuesAndAnsAppbarComponent
-               /></div>
+                /></div>
                 <DraftEditorComponent
                 />
             </div>

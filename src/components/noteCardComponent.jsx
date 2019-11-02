@@ -50,7 +50,7 @@ class NotecardComponent extends React.Component {
             checkLabel: false,
             arr1: [1],
             date: false,
-
+            reminderChip: false
         }
     }
     handleCardopen = () => {
@@ -87,15 +87,11 @@ class NotecardComponent extends React.Component {
     handleGetColor = (value) => {
         console.log("response in getNotes for color and id  create--->", value)
         this.setState({
-            selectedColor: value
+            selectedColor: value,
         })
         console.log("response in getNotes for color and id--->", this.state.selectedColor)
     }
-    // getReminder = (updateNote) => {
-    //     if (updateNote) {
 
-    //     }
-    // }
     handleCreateNote = () => {
         // console.log("data after set state---", this.state.selectedDate);
         var data = {
@@ -218,9 +214,9 @@ class NotecardComponent extends React.Component {
                                 </div>
                                 <div className="inner-icons">
                                     <MuiThemeProvider theme={theme}>
-                                      
+
                                         <ReminderNoteComponent reminderPropsToCreateNote={this.reminderData}
-                                            getReminderProps={this.getReminder} />
+                                            remainderChipProps={true} />
                                         <Tooltip title="Collabarator">
                                             <CollaboratorComponent /></Tooltip>
                                         <ColorComponent colorComponentProps={this.handleGetColor}
