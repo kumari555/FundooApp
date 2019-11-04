@@ -228,7 +228,7 @@ class GetArchiveComponent extends React.Component {
                 <MuiThemeProvider theme={theme}>
                     <div className="card-note" id={list}>
                         <MuiThemeProvider theme={theme}>
-                            <Card className="card" style={{ backgroundColor: key.color, padding: " 4px" }} id={list}>
+                            <Card className="card" style={{ backgroundColor: key.color, padding: " 8px" }} id={list}>
                                 <div className="center-align" onClick={this.handleClickOpen}>
                                     <InputBase
                                         placeholder="title"

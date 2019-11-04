@@ -392,36 +392,6 @@
     justify-content: flex-end;
 }
 
-/* .dialog-css {
-    width: 60%;
-} */
-
-/* .reminder-chip {
-    max-width: max-content;
-} */
-
-/* .appBar {
-    margin-left: 48%;
-}
-
-
-/* .loginCard {
-    display: flex;
-    -ms-flex-align: center;
-    align-items: center;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    width: 62%;
-    height: 100%;
-    /* overflow: hidden; */
-
-/* overflow: hidden; */
-
-/* } */
-
-*/
 /*--------------forgotComponent----------------*/
 
 .forgot-Card {
@@ -673,7 +643,6 @@
 .shopping-inner-div-2 {
     padding: 1rem 9rem;
     display: flex;
-    /* justify-content: space-evenly; */
 }
 
 .divider-div {
@@ -728,179 +697,7 @@
     padding: 1px 1px 1px 100px;
 }
 
-/*--------------------------- @media Query---------------------*/
-
-@media screen and (max-width: 1000px) {
-    .getnote-Card {
-        width: 76%;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
-    .card-note {
-        width: 29%;
-        padding-bottom: 22px;
-        height: fit-content;
-    }
-    .card-note:hover .align-icons {
-        visibility: visible
-    }
-}
-
-@media screen and (max-width: 800px) {
-    .getnote-Card {
-        width: 93%;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
-}
-
-.get-notes {
-    /* justify-content: center; */
-    display: flex;
-    width: 100%;
-    flex-flow: row wrap;
-    justify-content: center;
-}
-
-@media screen and (max-width: 750px) {
-    /* .getnote-Card {
-        width: 98%;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-    } */
-    /* .menuicon {
-        width: 24%;
-        padding: 1px 0px 0px 0px
-    } */
-}
-
-@media all and (max-width: 700px) {
-    .getnote-Card {
-        display: flex;
-        justify-content: center;
-        width: 81%;
-        margin-top: 5%;
-        flex-wrap: wrap;
-    }
-    .note-card {
-        display: flex;
-        width: 65%;
-        justify-content: space-between;
-        margin-top: 7%;
-    }
-    .inner-card {
-        display: flex;
-        width: 78%;
-        padding: 1px 1px 7px 1px;
-        margin-top: 15%;
-    }
-    .get-notes {
-        /* justify-content: center; */
-        display: flex;
-        width: 100%;
-        flex-flow: row wrap;
-        justify-content: center;
-    }
-    .card-note {
-        width: 100%;
-        padding-bottom: 22px;
-    }
-    .Cardscss {
-        margin-top: 5%;
-        height: 100%;
-        box-shadow: 1px 1px 1px 1px;
-    }
-    /* .fundo-image {
-        width: 76%;
-    } */
-    /* .menuicon {
-        width: 26%;
-        padding: 1px 0px 1px 21px;
-    } */
-    .inner-icons {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 3%;
-        width: 18rem;
-        color: rgba(0, 0, 0, 0.54);
-        font-size: 20px;
-    }
-    .labelnotes {
-        display: flex;
-        width: 65%;
-        justify-content: space-between;
-        flex-wrap: wrap;
-    }
-}
-
-@media screen and (max-width: 450px) {
-    /* .fundo-text {
-        padding: 16px 150px 1px 11px;
-        font-size: 16px;
-        width: 13%;
-    } */
-    /* .menuicon {
-        width: 26%;
-        padding: 1px 1px 1px 42px;
-    } */
-    /* .listview-css {
-        width: 50%
-    } */
-    .inner-icons {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 3%;
-        width: 17rem;
-        color: rgba(0, 0, 0, 0.54);
-        font-size: 20px;
-    }
-    .note-card {
-        display: flex;
-        width: 78%;
-        padding: 1px 1px 7px 1px;
-        margin-top: 15%;
-    }
-    .trashNotes {
-        margin-top: 22%;
-        display: flex;
-        justify-content: space-between;
-        width: 69%;
-        flex-wrap: wrap;
-    }
-    .archivenotes {
-        margin-top: 22%;
-        display: flex;
-        justify-content: space-between;
-        width: 69%;
-        flex-wrap: wrap;
-    }
-    /* .refreashIcon {
-        padding: 10px 4px 1px;
-        width: 24%;
-    } */
-    .outerCard {
-        width: 37vw;
-        height: 94%;
-    }
-    .innerCard {
-        width: 39vw;
-        margin-top: -22%;
-        margin-left: -17%;
-        height: 91%;
-    }
-    .serviceCss {
-        display: flex;
-        width: 100%;
-        -ms-flex-pack: center;
-        justify-content: center;
-        /* height: 1%; */
-        /* height: 30%; */
-        margin-top: 18%;
-    }
-}
+/*---------------------------------MEDIA QUERY-CSS----------------------------*/
 
 /*--------------------------------service Card media query----------*/
 
@@ -1225,6 +1022,14 @@
     .field-align {
         width: 45%;
     }
+    .serviceCards {
+        display: flex;
+        /* width: 128%; */
+        -ms-flex-pack: center;
+        justify-content: center;
+        width: 100%;
+        margin-top: -20%;
+    }
 }
 
 @media screen and (width: 320px) {
@@ -1370,6 +1175,14 @@
     .field-align {
         width: 45%;
     }
+    .serviceCards {
+        display: flex;
+        /* width: 128%; */
+        -ms-flex-pack: center;
+        justify-content: center;
+        width: 100%;
+        margin-top: -20%;
+    }
 }
 
 @media screen and (width: 375px) {
@@ -1461,15 +1274,15 @@
         margin-top: 9%;
     }
     .email-text {
-        width: 76%;
-        margin-right: 19%;
+        width: 73%;
+        margin-right: 13%;
     }
     .register-Name {
         margin-top: 1%;
         font-size: 31px;
     }
     .field-align {
-        width: 46%;
+        width: 40%;
     }
     .register-text {
         font-size: inherit;
@@ -1516,15 +1329,15 @@
         margin-top: 9%;
     }
     .email-text {
-        width: 76%;
-        margin-right: 19%;
+        width: 68%;
+        margin-right: 20%;
     }
     .register-Name {
         margin-top: 1%;
         font-size: 36px;
     }
     .field-align {
-        width: 46%;
+        width: 40%;
     }
     .register-text {
         font-size: inherit;
@@ -1609,6 +1422,13 @@
         margin-top: 13%;
         font-size: 15px;
     }
+    .serviceCards {
+        display: flex;
+        /* width: 128%; */
+        justify-content: center;
+        width: 100%;
+        margin-top: -9%;
+    }
 }
 
 @media screen and (width: 320px) {
@@ -1660,6 +1480,181 @@
     }
 }
 
+@media screen and (width: 375px) {
+    .serviceCss {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        /* margin-top: 13%; */
+        font-size: 15px;
+    }
+    .innerCard {
+        width: 40vw;
+        margin-top: -20%;
+        margin-left: -3%;
+        height: 28vh;
+        font-size: 12px;
+    }
+    .outerCard {
+        width: 44vw;
+        height: 31vh;
+        margin-top: 20%;
+    }
+    .signinCard {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        width: 100vh;
+        height: 100vh
+    }
+    .main-login {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+    }
+    .button-signin {
+        margin-right: 58%;
+        margin-top: 1%;
+    }
+    .login-button {
+        margin-left: 58%;
+    }
+    .fundoo-text {
+        margin-top: 2%;
+        font-size: 20px;
+    }
+}
+
+@media screen and (width: 414px) {
+    .innerCard {
+        width: 40vw;
+        margin-top: -23%;
+        margin-left: -3%;
+        height: 28vh;
+        font-size: 14px;
+    }
+    .outerCard {
+        width: 44vw;
+        height: 31vh;
+        margin-top: 20%;
+    }
+    .serviceCss {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        margin-top: 13%;
+        font-size: 15px;
+    }
+    .serviceCards {
+        display: flex;
+        /* width: 128%; */
+        justify-content: center;
+        width: 100%;
+        margin-top: -9%;
+    }
+}
+
+@media screen and (width: 768px) {
+    .innerCard {
+        width: 40vw;
+        margin-top: -18%;
+        margin-left: -3%;
+        height: 28vh;
+        font-size: 23px;
+    }
+    .outerCard {
+        width: 44vw;
+        height: 31vh;
+        margin-top: 20%;
+    }
+    .serviceCss {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        margin-top: 13%;
+        font-size: 15px;
+    }
+    .signinCard {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        width: 100vh;
+        height: 100vh
+    }
+    .main-login {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+    }
+    .button-signin {
+        margin-right: 66%;
+        margin-top: 3%;
+    }
+    .login-button {
+        margin-left: 58%;
+        margin-top: 3%;
+    }
+    .fundoo-text {
+        margin-top: 4%;
+        font-size: 31px;
+    }
+}
+
+@media screen and (width: 1024px) {
+    .innerCard {
+        width: 40vw;
+        margin-top: -18%;
+        margin-left: -3%;
+        height: 28vh;
+        font-size: 32px;
+    }
+    .outerCard {
+        width: 44vw;
+        height: 31vh;
+        margin-top: 20%;
+    }
+    .serviceCss {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        margin-top: 13%;
+        font-size: 15px;
+    }
+    .signinCard {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        width: 100vh;
+        height: 100vh
+    }
+    .main-login {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+    }
+    .button-signin {
+        margin-right: 66%;
+        margin-top: 3%;
+    }
+    .login-button {
+        margin-left: 58%;
+        margin-top: 3%;
+    }
+    .fundoo-text {
+        margin-top: 6%;
+        font-size: 46px;
+    }
+}
+
 /*--------------------dashboard media query--------------*/
 
 @media screen and (width: 360px) {
@@ -1703,10 +1698,6 @@
     .icon-button {
         width: 100%;
     }
-    /* .refreshIcon {
-        animation: spin 4s linear infinite;
-        color: #5f6368;
-    } */
     .listview-css {
         width: 19%;
         display: none;
@@ -1727,6 +1718,92 @@
     .responsive-searchbar {
         width: 55%;
         display: flex;
+    }
+    .getnote-Card {
+        width: 80%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .card-note {
+        width: 100%;
+        padding-bottom: 22px;
+        height: fit-content;
+    }
+    /* .card-note:hover .align-icons {
+        visibility: visible
+    } */
+    .align-icons {
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 9%;
+        visibility: inherit;
+        width: 100%;
+    }
+    .get-notes {
+        display: flex;
+        width: 100%;
+        flex-flow: row wrap;
+        justify-content: center;
+    }
+    .Cardscss {
+        margin-top: 5%;
+        height: 100%;
+        box-shadow: 1px 1px 1px 1px;
+        padding: 8px;
+    }
+    .note-card {
+        display: flex;
+        width: 75%;
+        justify-content: space-between;
+        padding: 1px 6px 1px 7px;
+        margin-top: 14%;
+    }
+    .archivenotes {
+        margin-top: 23%;
+        display: flex;
+        justify-content: space-between;
+        width: 73%;
+        flex-wrap: wrap;
+    }
+    .trashNotes {
+        margin-top: 25%;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: 75%;
+    }
+    .labelnotes {
+        display: flex;
+        width: 80%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-top: 6%;
+    }
+    .addeditLabel {
+        background-color: #f1f2f3;
+        height: 360px;
+        overflow: scroll;
+        width: 94%;
+        box-shadow: 1px 4px 17px 1px;
+    }
+    .inside-card-div {
+        display: flex;
+        justify-content: center;
+        margin-top: 14%;
+    }
+    .inner-card {
+        display: flex;
+        width: 79%;
+        padding: 5px 1px 7px 7px;
+    }
+    .inner-icons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 3%;
+        width: 17rem;
+        color: rgba(0, 0, 0, 0.54);
+        font-size: 20px;
     }
 }
 
@@ -1796,6 +1873,92 @@
         width: 55%;
         display: flex;
     }
+    .getnote-Card {
+        width: 80%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .card-note {
+        width: 100%;
+        padding-bottom: 22px;
+        height: fit-content;
+    }
+    /* .card-note:hover .align-icons {
+        visibility: visible
+    } */
+    .align-icons {
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 9%;
+        visibility: inherit;
+        width: 100%;
+    }
+    .get-notes {
+        display: flex;
+        width: 100%;
+        flex-flow: row wrap;
+        justify-content: center;
+    }
+    .Cardscss {
+        margin-top: 5%;
+        height: 100%;
+        box-shadow: 1px 1px 1px 1px;
+        padding: 8px;
+    }
+    .note-card {
+        display: flex;
+        width: 75%;
+        justify-content: space-between;
+        padding: 1px 6px 1px 7px;
+        margin-top: 14%;
+    }
+    .archivenotes {
+        margin-top: 23%;
+        display: flex;
+        justify-content: space-between;
+        width: 73%;
+        flex-wrap: wrap;
+    }
+    .trashNotes {
+        margin-top: 25%;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: 75%;
+    }
+    .labelnotes {
+        display: flex;
+        width: 80%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-top: 6%;
+    }
+    .addeditLabel {
+        background-color: #f1f2f3;
+        height: 360px;
+        overflow: scroll;
+        width: 94%;
+        box-shadow: 1px 4px 17px 1px;
+    }
+    .inside-card-div {
+        display: flex;
+        justify-content: center;
+        margin-top: 14%;
+    }
+    .inner-card {
+        display: flex;
+        width: 79%;
+        padding: 5px 1px 7px 7px;
+    }
+    .inner-icons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 3%;
+        width: 17rem;
+        color: rgba(0, 0, 0, 0.54);
+        font-size: 20px;
+    }
 }
 
 @media screen and (width: 320px) {
@@ -1863,6 +2026,92 @@
     .responsive-searchbar {
         width: 55%;
         display: flex;
+    }
+    .getnote-Card {
+        width: 80%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .card-note {
+        width: 100%;
+        padding-bottom: 22px;
+        height: fit-content;
+    }
+    /* .card-note:hover .align-icons {
+        visibility: visible
+    } */
+    .align-icons {
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 9%;
+        visibility: inherit;
+        width: 100%;
+    }
+    .get-notes {
+        display: flex;
+        width: 100%;
+        flex-flow: row wrap;
+        justify-content: center;
+    }
+    .Cardscss {
+        margin-top: 5%;
+        height: 100%;
+        box-shadow: 1px 1px 1px 1px;
+        padding: 8px;
+    }
+    .note-card {
+        display: flex;
+        width: 75%;
+        justify-content: space-between;
+        padding: 1px 6px 1px 7px;
+        margin-top: 14%;
+    }
+    .archivenotes {
+        margin-top: 23%;
+        display: flex;
+        justify-content: space-between;
+        width: 73%;
+        flex-wrap: wrap;
+    }
+    .trashNotes {
+        margin-top: 25%;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: 75%;
+    }
+    .labelnotes {
+        display: flex;
+        width: 80%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-top: 6%;
+    }
+    .addeditLabel {
+        background-color: #f1f2f3;
+        height: 360px;
+        overflow: scroll;
+        width: 94%;
+        box-shadow: 1px 4px 17px 1px;
+    }
+    .inside-card-div {
+        display: flex;
+        justify-content: center;
+        margin-top: 14%;
+    }
+    .inner-card {
+        display: flex;
+        width: 79%;
+        padding: 5px 1px 7px 7px;
+    }
+    .inner-icons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 3%;
+        width: 17rem;
+        color: rgba(0, 0, 0, 0.54);
+        font-size: 20px;
     }
 }
 
@@ -1932,6 +2181,92 @@
         width: 55%;
         display: flex;
     }
+    .getnote-Card {
+        width: 65%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .card-note {
+        width: 100%;
+        padding-bottom: 22px;
+        height: fit-content;
+    }
+    /* .card-note:hover .align-icons {
+        visibility: visible
+    } */
+    .align-icons {
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 9%;
+        visibility: inherit;
+        width: 100%;
+    }
+    .get-notes {
+        display: flex;
+        width: 100%;
+        flex-flow: row wrap;
+        justify-content: center;
+    }
+    .Cardscss {
+        margin-top: 5%;
+        height: 100%;
+        box-shadow: 1px 1px 1px 1px;
+        padding: 8px;
+    }
+    .note-card {
+        display: flex;
+        width: 75%;
+        justify-content: space-between;
+        padding: 1px 6px 1px 7px;
+        margin-top: 14%;
+    }
+    .archivenotes {
+        margin-top: 23%;
+        display: flex;
+        justify-content: space-between;
+        width: 73%;
+        flex-wrap: wrap;
+    }
+    .trashNotes {
+        margin-top: 25%;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: 75%;
+    }
+    .labelnotes {
+        display: flex;
+        width: 80%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-top: 6%;
+    }
+    .addeditLabel {
+        background-color: #f1f2f3;
+        height: 360px;
+        overflow: scroll;
+        width: 94%;
+        box-shadow: 1px 4px 17px 1px;
+    }
+    .inside-card-div {
+        display: flex;
+        justify-content: center;
+        margin-top: 14%;
+    }
+    .inner-card {
+        display: flex;
+        width: 79%;
+        padding: 5px 1px 7px 7px;
+    }
+    .inner-icons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 3%;
+        width: 17rem;
+        color: rgba(0, 0, 0, 0.54);
+        font-size: 20px;
+    }
 }
 
 @media screen and (width: 414px) {
@@ -2000,6 +2335,92 @@
         width: 55%;
         display: flex;
     }
+    .getnote-Card {
+        width: 80%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .card-note {
+        width: 100%;
+        padding-bottom: 22px;
+        height: fit-content;
+    }
+    /* .card-note:hover .align-icons {
+        visibility: visible
+    } */
+    .align-icons {
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 9%;
+        visibility: inherit;
+        width: 100%;
+    }
+    .get-notes {
+        display: flex;
+        width: 100%;
+        flex-flow: row wrap;
+        justify-content: center;
+    }
+    .Cardscss {
+        margin-top: 5%;
+        height: 100%;
+        box-shadow: 1px 1px 1px 1px;
+        padding: 8px;
+    }
+    .note-card {
+        display: flex;
+        width: 75%;
+        justify-content: space-between;
+        padding: 1px 6px 1px 7px;
+        margin-top: 14%;
+    }
+    .archivenotes {
+        margin-top: 23%;
+        display: flex;
+        justify-content: space-between;
+        width: 73%;
+        flex-wrap: wrap;
+    }
+    .trashNotes {
+        margin-top: 25%;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: 75%;
+    }
+    .labelnotes {
+        display: flex;
+        width: 80%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-top: 6%;
+    }
+    .addeditLabel {
+        background-color: #f1f2f3;
+        height: 360px;
+        overflow: scroll;
+        width: 94%;
+        box-shadow: 1px 4px 17px 1px;
+    }
+    .inside-card-div {
+        display: flex;
+        justify-content: center;
+        margin-top: 14%;
+    }
+    .inner-card {
+        display: flex;
+        width: 79%;
+        padding: 5px 1px 7px 7px;
+    }
+    .inner-icons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 3%;
+        width: 17rem;
+        color: rgba(0, 0, 0, 0.54);
+        font-size: 20px;
+    }
 }
 
 @media screen and (width: 768px) {
@@ -2023,7 +2444,7 @@
         justify-content: space-evenly;
     }
     .fundo-image {
-        width: 29px;
+        width: 40px;
     }
     .fundo-text {
         padding: 16px 150px 1px 1px;
@@ -2033,7 +2454,7 @@
         width: 12%;
     }
     .fundo-image-div {
-        margin-top: 6%;
+        margin-top: 2%;
     }
     .appbar-div2 {
         display: flex;
@@ -2067,6 +2488,90 @@
     .responsive-searchbar {
         width: 55%;
         display: flex;
+    }
+    .getnote-Card {
+        width: 83%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .card-note {
+        width: 47%;
+        padding-bottom: 34px;
+        height: fit-content;
+        font-size: 16px;
+    }
+    .align-icons {
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 9%;
+        visibility: inherit;
+        width: 100%;
+    }
+    .get-notes {
+        display: flex;
+        width: 100%;
+        flex-flow: row wrap;
+        justify-content: center;
+    }
+    .Cardscss {
+        margin-top: 5%;
+        height: 100%;
+        box-shadow: 1px 1px 1px 1px;
+        padding: 8px;
+    }
+    .note-card {
+        display: flex;
+        width: 57%;
+        justify-content: space-between;
+        padding: 1px 6px 1px 7px;
+        margin-top: 5%;
+    }
+    .archivenotes {
+        margin-top: 12%;
+        display: flex;
+        justify-content: space-between;
+        width: 85%;
+        flex-wrap: wrap;
+    }
+    .trashNotes {
+        margin-top: 12%;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: 86%;
+    }
+    .labelnotes {
+        display: flex;
+        width: 80%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-top: 6%;
+    }
+    .addeditLabel {
+        background-color: #f1f2f3;
+        height: 360px;
+        overflow: scroll;
+        width: 94%;
+        box-shadow: 1px 4px 17px 1px;
+    }
+    .inside-card-div {
+        display: flex;
+        justify-content: center;
+        margin-top: 5%;
+    }
+    .inner-card {
+        display: flex;
+        width: 57%;
+        padding: 5px 1px 7px 7px;
+    }
+    .inner-icons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 3%;
+        width: 25rem;
+        color: rgba(0, 0, 0, 0.54);
+        font-size: 20px;
     }
 }
 
@@ -2087,21 +2592,21 @@
     }
     .dashboard-div1 {
         display: flex;
-        width: 49%;
+        width: 43%;
         justify-content: space-evenly;
     }
     .fundo-image {
-        width: 29px;
+        width: 38px;
     }
     .fundo-text {
-        padding: 16px 150px 1px 1px;
-        font-size: 20px;
+        padding: 15px 249px 4px 9px;
+        font-size: 28px;
     }
     .menuicon {
         width: 24%;
     }
     .fundo-image-div {
-        margin-top: 6%;
+        margin-top: 3%;
     }
     .appbar-div2 {
         display: flex;
@@ -2135,6 +2640,90 @@
     .responsive-searchbar {
         width: 55%;
         display: flex;
+    }
+    .getnote-Card {
+        width: 83%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .card-note {
+        width: 47%;
+        padding-bottom: 34px;
+        height: fit-content;
+        font-size: 16px;
+    }
+    .align-icons {
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 9%;
+        visibility: inherit;
+        width: 100%;
+    }
+    .get-notes {
+        display: flex;
+        width: 100%;
+        flex-flow: row wrap;
+        justify-content: center;
+    }
+    .Cardscss {
+        margin-top: 5%;
+        height: 100%;
+        box-shadow: 1px 1px 1px 1px;
+        padding: 8px;
+    }
+    .note-card {
+        display: flex;
+        width: 57%;
+        justify-content: space-between;
+        padding: 1px 6px 1px 7px;
+        margin-top: 5%;
+    }
+    .archivenotes {
+        margin-top: 12%;
+        display: flex;
+        justify-content: space-between;
+        width: 85%;
+        flex-wrap: wrap;
+    }
+    .trashNotes {
+        margin-top: 12%;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: 86%;
+    }
+    .labelnotes {
+        display: flex;
+        width: 80%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-top: 6%;
+    }
+    .addeditLabel {
+        background-color: #f1f2f3;
+        height: 360px;
+        overflow: scroll;
+        width: 94%;
+        box-shadow: 1px 4px 17px 1px;
+    }
+    .inside-card-div {
+        display: flex;
+        justify-content: center;
+        margin-top: 5%;
+    }
+    .inner-card {
+        display: flex;
+        width: 57%;
+        padding: 5px 1px 7px 7px;
+    }
+    .inner-icons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 3%;
+        width: 25rem;
+        color: rgba(0, 0, 0, 0.54);
+        font-size: 20px;
     }
 }
 
@@ -2224,7 +2813,7 @@
     }
     .shopping-inner-div-1 {
         width: 100%;
-        padding: 0rem 0rem;
+        padding: 2rem 0rem;
         display: flex;
         justify-content: center;
         flex-direction: column;
@@ -2241,7 +2830,7 @@
         display: flex;
         justify-content: flex-end;
         width: 98%;
-        margin-top: -2%;
+        margin-top: 1%;
     }
     .shoppingCard {
         width: 27%;
@@ -2364,13 +2953,13 @@
     }
     .shopping-inner-div-1 {
         width: 100%;
-        padding: 0rem 0rem;
+        padding: 1rem 0rem;
         display: flex;
         justify-content: center;
         flex-direction: column;
     }
     .shopping-inner-div-2 {
-        padding: 0rem 1rem 1rem 1rem;
+        padding: 1rem 1rem 1rem 1rem;
         display: flex;
         flex-direction: column;
     }
@@ -2381,7 +2970,78 @@
         display: flex;
         justify-content: flex-end;
         width: 98%;
-        margin-top: -2%;
+        margin-top: -1%;
+    }
+    .shoppingCard {
+        width: 27%;
+        height: fit-content;
+        padding: 6px;
+    }
+    .description-align {
+        width: 59%;
+        /* padding: 1px 1px 1px 29px; */
+    }
+    .prise-tag {
+        width: 33%;
+        margin-top: 3%;
+    }
+    .shoppingButton {
+        border: double;
+        color: darkgray;
+        width: 58%;
+        height: 59px;
+        margin-top: 9%;
+    }
+    .addressCard {
+        width: 48%;
+        height: 15vh;
+        margin-top: 6%;
+    }
+    .cardandpaymentcss {
+        display: flex;
+        margin-top: 2%;
+    }
+    .divider-align {
+        height: 3px;
+        color: rgba(0, 0, 0, 0.26);
+    }
+    .payment-css {
+        padding: 5px 5px 4px 17px;
+    }
+}
+
+@media screen and (width: 414px) {
+    .fundoo-button {
+        margin-top: 5%;
+        margin-left: -17%;
+    }
+    .shoppingProcess {
+        display: flex;
+        justify-content: center;
+    }
+    .main-shopping-div {
+        margin: 3rem 0rem 0rem 0rem;
+    }
+    .shopping-inner-div-1 {
+        width: 100%;
+        padding: 1rem 0rem;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .shopping-inner-div-2 {
+        padding: 1rem 1rem 1rem 1rem;
+        display: flex;
+        flex-direction: column;
+    }
+    .divider-div {
+        padding: 1rem 1rem 1rem 1rem;
+    }
+    .shopping-button {
+        display: flex;
+        justify-content: flex-end;
+        width: 98%;
+        margin-top: 1%;
     }
     .shoppingCard {
         width: 27%;
@@ -2417,6 +3077,154 @@
     }
     .payment-css {
         padding: 5px 5px 4px 17px;
+    }
+}
+
+@media screen and (width: 768px) {
+    .fundoo-button {
+        margin-top: 5%;
+        margin-left: -17%;
+    }
+    .shoppingProcess {
+        display: flex;
+        justify-content: center;
+    }
+    .main-shopping-div {
+        margin: 6rem 2rem 4rem 2rem;
+    }
+    .shopping-inner-div-1 {
+        width: 100%;
+        padding: 1rem 0rem;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .shopping-inner-div-2 {
+        padding: 2rem 1rem 1rem 1rem;
+        display: flex;
+        flex-direction: column;
+        font-size: 26px;
+    }
+    .divider-div {
+        padding: 1rem 1rem 1rem 1rem;
+        font-size: 23px;
+    }
+    .shopping-button {
+        display: flex;
+        justify-content: flex-end;
+        width: 98%;
+        margin-top: 1%;
+    }
+    .shoppingCard {
+        width: 27%;
+        height: 89px;
+        padding: 6px;
+    }
+    .description-align {
+        width: 59%;
+        /* padding: 1px 1px 1px 29px; */
+    }
+    .prise-tag {
+        width: 33%;
+        margin-top: 3%;
+    }
+    .shoppingButton {
+        border: double;
+        color: darkgray;
+        width: 58%;
+        height: 92px;
+        margin-top: 9%;
+    }
+    .addressCard {
+        width: 48%;
+        height: 15vh;
+        margin-top: 6%;
+    }
+    .cardandpaymentcss {
+        display: flex;
+        margin-top: 2%;
+    }
+    .divider-align {
+        height: 3px;
+        color: rgba(0, 0, 0, 0.26);
+    }
+    .payment-css {
+        padding: 19px 5px 4px 78px;
+        font-size: 24px;
+    }
+}
+
+@media screen and (width: 1024px) {
+    .fundoo-button {
+        margin-top: 5%;
+        margin-left: -17%;
+    }
+    .shoppingProcess {
+        display: flex;
+        justify-content: center;
+    }
+    .main-shopping-div {
+        margin: 6rem 2rem 4rem 2rem;
+    }
+    .shopping-inner-div-1 {
+        width: 100%;
+        padding: 1rem 0rem;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .shopping-inner-div-2 {
+        padding: 2rem 1rem 1rem 1rem;
+        display: flex;
+        flex-direction: column;
+        font-size: 34px;
+    }
+    .divider-div {
+        padding: 2rem 1rem 1rem 1rem;
+        font-size: 25px;
+    }
+    .shopping-button {
+        display: flex;
+        justify-content: flex-end;
+        width: 98%;
+        margin-top: 1%;
+    }
+    .shoppingCard {
+        width: 27%;
+        height: 89px;
+        padding: 6px;
+    }
+    .description-align {
+        width: 59%;
+        /* padding: 1px 1px 1px 29px; */
+    }
+    .prise-tag {
+        width: 33%;
+        margin-top: 3%;
+    }
+    .shoppingButton {
+        border: double;
+        color: darkgray;
+        width: 58%;
+        height: 92px;
+        margin-top: 9%;
+    }
+    .addressCard {
+        width: 48%;
+        height: 15vh;
+        margin-top: 6%;
+    }
+    .cardandpaymentcss {
+        display: flex;
+        margin-top: 4%;
+    }
+    .divider-align {
+        height: 3px;
+        color: rgba(0, 0, 0, 0.26);
+    }
+    .payment-css {
+        padding: 19px 5px 4px 78px;
+        font-size: 29px;
     }
 }
 
@@ -2464,5 +3272,284 @@
         display: flex;
         margin-top: 1%;
         padding: 1rem;
+    }
+}
+
+@media screen and (width: 411px) {
+    .draftMain-css {
+        margin: 0rem
+    }
+    .editor-css {
+        padding: 1rem 1rem;
+    }
+    .titleData {
+        margin-top: 20%;
+        padding: 1rem 1rem;
+    }
+    .close-css {
+        display: flex;
+        justify-content: space-between;
+    }
+    .question-css {
+        border: double darkslategray;
+    }
+    .afterQuestion {
+        padding: 1rem 1rem;
+        margin-top: -8%;
+    }
+    .draftButton {
+        text-align: end;
+        padding: 1px 128px 1px 1px;
+    }
+    .draft-icons {
+        /* display: flex; */
+        width: 100%;
+        justify-content: space-around;
+    }
+    .divider-css {
+        box-shadow: 1px 3px 5px 0px grey;
+    }
+    .like-css {
+        /* padding: 0px 234px 1px 0px; */
+        display: flex;
+    }
+    .localstorageData {
+        display: flex;
+        margin-top: 1%;
+        padding: 1rem;
+    }
+}
+
+@media screen and (width: 320px) {
+    .draftMain-css {
+        margin: 0rem
+    }
+    .editor-css {
+        padding: 0rem 1rem;
+        font-size: 11px;
+    }
+    .titleData {
+        margin-top: 20%;
+        padding: 1rem 1rem;
+    }
+    .close-css {
+        display: flex;
+        justify-content: space-between;
+    }
+    .question-css {
+        border: double darkslategray;
+    }
+    .afterQuestion {
+        padding: 1rem 1rem;
+        margin-top: -8%;
+        font-size: 12px;
+    }
+    .draftButton {
+        text-align: end;
+        padding: 1px 128px 1px 1px;
+    }
+    .draft-icons {
+        width: 100%;
+        justify-content: space-around;
+    }
+    .divider-css {
+        box-shadow: 1px 3px 5px 0px grey;
+    }
+    .like-css {
+        /* padding: 0px 234px 1px 0px; */
+        display: flex;
+    }
+    .localstorageData {
+        display: flex;
+        margin-top: 1%;
+        padding: 1rem;
+    }
+}
+
+@media screen and (width: 375px) {
+    .draftMain-css {
+        margin: 0rem
+    }
+    .editor-css {
+        padding: 1rem 1rem;
+    }
+    .titleData {
+        margin-top: 20%;
+        padding: 1rem 1rem;
+    }
+    .close-css {
+        display: flex;
+        justify-content: space-between;
+    }
+    .question-css {
+        border: double darkslategray;
+    }
+    .afterQuestion {
+        padding: 1rem 1rem;
+        margin-top: -8%;
+    }
+    .draftButton {
+        text-align: end;
+        padding: 1px 128px 1px 1px;
+    }
+    .draft-icons {
+        /* display: flex; */
+        width: 100%;
+        justify-content: space-around;
+    }
+    .divider-css {
+        box-shadow: 1px 3px 5px 0px grey;
+    }
+    .like-css {
+        /* padding: 0px 234px 1px 0px; */
+        display: flex;
+    }
+    .localstorageData {
+        display: flex;
+        margin-top: 1%;
+        padding: 1rem;
+    }
+}
+
+@media screen and (width: 414px) {
+    .draftMain-css {
+        margin: 0rem
+    }
+    .editor-css {
+        padding: 1rem 1rem;
+    }
+    .titleData {
+        margin-top: 20%;
+        padding: 1rem 1rem;
+    }
+    .close-css {
+        display: flex;
+        justify-content: space-between;
+    }
+    .question-css {
+        border: double darkslategray;
+    }
+    .afterQuestion {
+        padding: 1rem 1rem;
+        margin-top: -8%;
+    }
+    .draftButton {
+        text-align: end;
+        padding: 1px 128px 1px 1px;
+    }
+    .draft-icons {
+        /* display: flex; */
+        width: 100%;
+        justify-content: space-around;
+    }
+    .divider-css {
+        box-shadow: 1px 3px 5px 0px grey;
+    }
+    .like-css {
+        /* padding: 0px 234px 1px 0px; */
+        display: flex;
+    }
+    .localstorageData {
+        display: flex;
+        margin-top: 1%;
+        padding: 1rem;
+    }
+}
+
+@media screen and (width: 768px) {
+    .draftMain-css {
+        margin: 0rem
+    }
+    .editor-css {
+        padding: 2rem 2rem;
+        font-size: 26px;
+    }
+    .titleData {
+        margin-top: 20%;
+        padding: 2rem 2rem;
+        font-size: 27px;
+    }
+    .close-css {
+        display: flex;
+        justify-content: space-between;
+    }
+    .question-css {
+        border: double darkslategray;
+        margin-top: 3%;
+    }
+    .afterQuestion {
+        padding: 1rem 2rem;
+        font-size: 22px;
+    }
+    .draftButton {
+        text-align: end;
+        padding: 1px 128px 1px 1px;
+    }
+    .draft-icons {
+        /* display: flex; */
+        width: 100%;
+        justify-content: space-around;
+    }
+    .divider-css {
+        box-shadow: 1px 3px 5px 0px grey;
+    }
+    .like-css {
+        /* padding: 0px 234px 1px 0px; */
+        display: flex;
+    }
+    .localstorageData {
+        display: flex;
+        margin-top: 1%;
+        padding: 1rem;
+    }
+}
+
+@media screen and (width: 1024px) {
+    .draftMain-css {
+        margin: 4rem
+    }
+    .editor-css {
+        padding: 1rem 1rem;
+        font-size: 33px;
+    }
+    .titleData {
+        margin-top: 20%;
+        padding: 1rem 1rem;
+        font-size: 30px;
+    }
+    .close-css {
+        display: flex;
+        justify-content: space-between;
+    }
+    .question-css {
+        border: double darkslategray;
+        font-size: 27px;
+        margin-top: 39px;
+    }
+    .afterQuestion {
+        padding: 4rem 1rem;
+        margin-top: -8%;
+        font-size: 33px;
+    }
+    .draftButton {
+        text-align: end;
+        padding: 1px 128px 1px 1px;
+    }
+    .draft-icons {
+        /* display: flex; */
+        width: 100%;
+        justify-content: space-around;
+    }
+    .divider-css {
+        box-shadow: 1px 3px 5px 0px grey;
+    }
+    .like-css {
+        /* padding: 0px 234px 1px 0px; */
+        display: flex;
+    }
+    .localstorageData {
+        display: flex;
+        margin-top: 1%;
+        padding: 2rem;
     }
 }

@@ -42,6 +42,11 @@ const theme = createMuiTheme({
     //         backgroundColor: "rgba(0, 0, 0, 0.35)"
     //     }
     // }
+    // MuiButton: {
+    //     root: {
+    //         fontSize: "0.975rem"
+    //     }
+    // }
 })
 function getSteps() {
     return ['signin', 'Review', 'Complete'];
@@ -164,7 +169,8 @@ class ShoppingComponent extends React.Component {
                     <div style={{ marginTop: "-5%" }} className="divider-div"><h3>Shoping Card</h3>
                         <Divider className="divider-align" /></div>
                     <div className="shopping-inner-div-2">
-                        <div style={{ display: " flex", width: "100%" }}><Card className="shoppingCard">${this.state.cartPrice}per month {this.state.cartName}</Card>
+                        <div style={{ display: " flex", width: "100%" }}>
+                            <Card className="shoppingCard">${this.state.cartPrice}per month {this.state.cartName}</Card>
                             <div className="description-align">{this.state.cartName}pack Details
                         <li>{this.state.cartDescription}</li></div></div>
                         <div style={{ display: " flex", justifyContent: "space-around", width: " 100%" }}><div className="prise-tag"> <h4>price</h4>

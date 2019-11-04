@@ -224,7 +224,7 @@ class DraftEditorComponent extends React.Component {
 
                                             Like</div>
                                     }</div>
-                                    <div><Rating name="half-rating" value={5} precision={0.5}
+                                    <div style={{display: "flex"}}><Rating name="half-rating" value={5} precision={0.5}
                                         onChange={(e) => this.handlerating(e, this.props.location.state[5])}
                                     /></div>
                                     <div>{this.state.givenRate}</div>

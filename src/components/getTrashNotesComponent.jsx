@@ -167,7 +167,7 @@ class GetTrashNotesComponent extends React.Component {
             return (
                 <MuiThemeProvider theme={theme}>
                     <div className="card-note" id={list}>
-                        <Card className="card" style={{ backgroundColor: key.color, padding: " 4px" }} id={list} >
+                        <Card className="card" style={{ backgroundColor: key.color, padding: " 8px" }} id={list} >
                             <div className="center-align" >
                                 <InputBase
                                     placeholder="title"
