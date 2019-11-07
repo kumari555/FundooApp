@@ -218,7 +218,8 @@ class DraftEditorComponent extends React.Component {
                                 </div>
                             </div>
                             <div className="draft-icons">
-                                <div >{this.props.location.state[3]}{this.state.askQuestion}</div>
+                                <div dangerouslySetInnerHTML={{ __html: this.props.location.state[3] }}></div>
+                                <div dangerouslySetInnerHTML={{ __html: this.state.askQuestion }}></div>
                                 <div className="like-css">
                                     <div onClick={this.handleReply}><ReplyIcon style={{ padding: " 6px" }} /></div>
                                     <div>{!this.state.giveLike ?

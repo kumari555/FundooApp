@@ -121,12 +121,12 @@ class RegisterComponent extends React.Component {
     handleCard = () => {
         this.props.history.push('/serviceComponent')
     }
-    handleSigninInstead(status, color, productId,Id) {
+    handleSigninInstead(status, color, productId, Id) {
         var registerdetails = {
             status: status,
             color: color,
-            productId: productId
-
+            productId: productId,
+            Id: Id
         }
         this.props.history.push('/signin', registerdetails)
     }

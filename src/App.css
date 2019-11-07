@@ -697,6 +697,13 @@
     padding: 1px 1px 1px 100px;
 }
 
+.fundoo-align {
+    width: 14%;
+    display: flex;
+    justify-content: center;
+    padding: 7px 1px 1px 1px;
+}
+
 /*---------------------------------MEDIA QUERY-CSS----------------------------*/
 
 /*--------------------------------service Card media query----------*/

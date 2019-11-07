@@ -64,7 +64,10 @@ export function NoteLabelList() {
         })
 }
 export function addLabelToNotes(data, noteId, lableId) {
-    return axios.post(baseURL + `/notes/${noteId}/addLabelToNotes/${lableId}/add`, data,
+    console.log('noteServices.addLabelToNotes', noteServices.addLabelToNotes);
+    noteServices.addLabelToNotes = `/notes/${noteId}/addLabelToNotes/${lableId}/add`;
+    // /notes/{noteId}/addLabelToNotes/{lableId}/add
+    return axios.post(baseURL + noteServices.addLabelToNotes, data,
         {
             headers: {
                 Authorization: localStorage.getItem("token")

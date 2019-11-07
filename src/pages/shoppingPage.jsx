@@ -9,7 +9,7 @@ class DraftEditorPage extends React.Component {
         }
     }
     render() {
-        console.log("response in question Page--->", this.props)
+        //console.log("response in shoping  Page=====--->", this.props)
         return (
             <div>
                 <DashboardComponent

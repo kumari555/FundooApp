@@ -105,13 +105,13 @@ class ServiceComponent extends React.Component {
             return (
                 <MuiThemeProvider theme={theme}>
                     <div className="serviceCss" key={key.id}
-                        onClick={(this.props.Cards) ? null : () => this.handleRegister(key.id)}
-                        onMouseEnter={(this.props.Cards) ? null : () => this.mouseEnter(key.id)}
-                        onMouseLeave={(this.props.Cards) ? null : () => this.mouseLeave()}>
+                        onClick={(this.props.Cards) ? null : () => this.handleRegister(key.id)}>
                         <Card className="outerCard" style={{
                             backgroundColor: (this.state.Id === key.id) ?
                                 mouseOverColor : "gray" && (key.id === this.props.productId) ? this.props.color : "gray"
-                        }}>
+                        }}
+                            onMouseEnter={(this.props.Cards) ? null : () => this.mouseEnter(key.id)}
+                            onMouseLeave={(this.props.Cards) ? null : () => this.mouseLeave()}>
                             <Card className="innerCard">
                                 <h3>price:${key.price} per month</h3>
                                 {key.name}

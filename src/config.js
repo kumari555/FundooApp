@@ -7,7 +7,7 @@ var noteServices = {
     archiveNotes: '/notes/archiveNotes',
     // noteLabels: '/noteLabels',
     // NoteLabelList: ' /noteLabels/getNoteLabelList',
-    //addLabelToNotes: `/notes/{noteId}/addLabelToNotes/{lableId}/add`,
+    addLabelToNotes: `/notes/{noteId}/addLabelToNotes/{lableId}/add`,
     //removeLabelToNotes: `/notes/${noteId}/addLabelToNotes/${lableId}/remove`,
     getArchiveNotesList: '/notes/getArchiveNotesList',
     getTrashNotesList: '/notes/getTrashNotesList',

@@ -329,7 +329,8 @@ class DashboardComponent extends React.Component {
                                                 open={this.state.open}
                                                 onClose={this.handleClose}>
                                                 <DialogContentText>
-                                                    Are u sure want to Logout
+                                                    Are you sure !
+                                                    want to Logout?
                                                                  </DialogContentText>
                                                 <DialogActions>
                                                     <Button onClick={this.handleClose} color="primary">

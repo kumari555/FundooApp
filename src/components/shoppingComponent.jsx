@@ -1,7 +1,8 @@
 import React from 'react';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { withRouter } from 'react-router-dom';
-import { MuiThemeProvider, createMuiTheme, Divider, InputBase } from '@material-ui/core';
+import { Divider, InputBase, Paper } from '@material-ui/core';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
@@ -17,36 +18,47 @@ const theme = createMuiTheme({
     overrides: {
         MuiDivider: {
             root: {
-                backgroundColor: "rgba(0, 0, 0, 0.51)"
+                height: "3px",
+                backgroundColor: "#0a66b7"
             }
-        }
-    },
-    MuiButton: {
-        root: {
-            color: "#f44336"
-        }
-    },
-    MuiButtonBase: {
-        root: {
-            backgroundColor: "#6eb8d4"
-        }
-    },
-    MuiPaper: {
-        rounded: {
-            borderRadius: "14px"
-        }
-    },
-    // MuiPaper: {
-    //     root: {
-    //         color: "rgba(0, 0, 0, 0.73)",
-    //         backgroundColor: "rgba(0, 0, 0, 0.35)"
-    //     }
-    // }
-    // MuiButton: {
-    //     root: {
-    //         fontSize: "0.975rem"
-    //     }
-    // }
+        },
+
+
+        MuiPaper: {
+            root: {
+
+                // backgroundColor: "rgba(0, 0, 0, 0.35)"
+            }
+        },
+        MuiButton: {
+            root: {
+                color: "#f44336"
+            }
+        },
+        // MuiButtonBase: {
+        //     root: {
+        //         backgroundColor: "#6eb8d4"
+        //     }
+        // },
+        MuiPaper: {
+            rounded: {
+                borderRadius: "14px"
+            }
+        },
+        MuiButton: {
+            root: {
+                borderRadius: "11px",
+                "background- color": "#B0E0E6"
+            }
+        },
+        MuiPaper:{
+rounded: {
+               " border- radius":" 14px",
+            height:" 36px"
+        } 
+     
+}
+    }
 })
 function getSteps() {
     return ['signin', 'Review', 'Complete'];
@@ -71,14 +83,14 @@ class ShoppingComponent extends React.Component {
     myCartDetails = () => {
         myCartDetails()
             .then(response => {
-                console.log("response of seleted card details:", response);
+                console.log("response of seleted card details:", response.data.data[0].id);
                 this.setState({
                     cartPrice: response.data.data[0].product.price,
                     cartName: response.data.data[0].product.name,
                     cartDescription: response.data.data[0].product.description,
                     cardId: response.data.data[0].id
                 })
-               // console.log(" seleted card details after setState:", this.state.cartPrice, this.state.cartName, this.state.cartDescription, this.state.cardId);
+                console.log(" seleted card details after setState:", this.state.cartPrice, this.state.cartName, this.state.cartDescription, this.state.cardId);
             })
     }
     handleaddress = (e) => {
@@ -132,6 +144,10 @@ class ShoppingComponent extends React.Component {
             <div className="main-shopping-div">
                 <MuiThemeProvider theme={theme}>
                     <div className="shopping-inner-div-1">
+                        <Card className="fundoo-align"
+                            style={{
+                           }}> fundonotes</Card>
+                       
                         <div style={{ width: "100%" }}>
                             <Stepper activeStep={activeStep} alternativeLabel>
                                 {steps.map(label => (
@@ -157,7 +173,7 @@ class ShoppingComponent extends React.Component {
                                             </Button>
                                         <Button onClick={this.handleNext}>
                                             {activeStep === 1 ?
-                                                'place the order' : (activeStep === 2
+                                                'place your order' : (activeStep === 2
                                                     ? 'finish' : 'proceed to checkout')
                                             }
                                         </Button>
