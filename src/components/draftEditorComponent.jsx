@@ -12,8 +12,8 @@ import { questioRating } from '../services/noteServices';
 import ReplyIcon from '@material-ui/icons/Reply';
 import Rating from 'material-ui-rating';
 import { getNotes } from '../services/noteServices';
-// import { convertToRaw } from 'draft-js';
-// import draftToHtml from 'draftjs-to-html';
+import { convertToRaw } from 'draft-js';
+import draftToHtml from 'draftjs-to-html';
 
 const theme = createMuiTheme({
     overrides: {
@@ -51,7 +51,8 @@ class DraftEditorComponent extends React.Component {
             reply: false,
             getNoteData: [],
             rawContentState: "",
-            questionReply: false
+            questionReply: false,
+            givenMsg: ""
         }
     }
     componentWillMount() {
@@ -92,16 +93,24 @@ class DraftEditorComponent extends React.Component {
         console.log("data in e", editorState);
         //console.log("after set state question", convertToRaw(editorState))
         this.setState({
-            editorState,
+            editorState: editorState
 
         });
-        //  console.log("after set state question", convertToRaw(this.state.editorState.blocks[0].text))
+        // console.log("raw data", convertToRaw(this.state.editorState.getCurrentContent()).blocks[0].text);
+        //  console.log("editor state=======>", this.state.editorState);
+        console.log("editor state--------", draftToHtml(convertToRaw(this.state.editorState.getCurrentContent())));
+        //   console.log("after set state question", convertToRaw(this.state.editorState.getCurrentContent()))
         //console.log("after set state question", draftToHtml(this.state.editorState.blocks[0].text))
+        this.setState({
+            givenMsg: draftToHtml(convertToRaw(this.state.editorState.getCurrentContent()))
+        })
+        console.log("after set state og question", this.state.givenMsg);
+       // convertToRaw(this.state.editorState.blocks[0].text.getCurrentContent())
     }
     handleQuestion = (noteId) => {
         console.log("msg", noteId);
         var data = {
-            message: this.state.editorState.blocks[0].text,
+            message: this.state.givenMsg,
             notesId: noteId
         }
         console.log("message data", data);
@@ -113,9 +122,7 @@ class DraftEditorComponent extends React.Component {
                     Open: true,
                     createdDate: response.data.data.details.createdDate,
                     id: response.data.data.details.id
-
                 })
-              
                 console.log("hgjgkhd", this.state.id);
             })
     }
@@ -155,7 +162,6 @@ class DraftEditorComponent extends React.Component {
         })
         console.log("reply question in setSate", this.state.reply);
     }
-
     render() {
         var d = new Date();
         var n = d.toLocaleString([], { hour12: true });
@@ -186,13 +192,12 @@ class DraftEditorComponent extends React.Component {
                                 <Divider />
                                 <div className="question-css">
                                     <Editor
-                                        defaultEditorState={this.state.editorState}
+                                        editorState={this.state.editorState}
                                         toolbarClassName="toolbarClassName"
                                         wrapperClassName="wrapperClassName"
                                         editorClassName="editorClassName"
                                         placeholder="Ask a Question....."
-                                        onChange={this.onChange.bind(this)}
-
+                                        onEditorStateChange={this.onChange}
                                     />
                                 </div>
                                 <Divider />
@@ -203,8 +208,9 @@ class DraftEditorComponent extends React.Component {
                         :
                         <div className="afterQuestion">
                             <div><h2>Question Asked</h2></div>
-                            {this.props.location.state[3]}
-                            {this.state.askQuestion}
+                            <div dangerouslySetInnerHTML={{ __html: this.props.location.state[3] }}></div>
+                            <div dangerouslySetInnerHTML={{ __html: this.state.askQuestion }}></div>
+                          
                             <Divider className="divider-css" />
                             <div className="localstorageData">
                                 <div>{localStorage.getItem("Firstname")}{localStorage.getItem("Lastname")}</div>
@@ -216,15 +222,14 @@ class DraftEditorComponent extends React.Component {
                                 <div className="like-css">
                                     <div onClick={this.handleReply}><ReplyIcon style={{ padding: " 6px" }} /></div>
                                     <div>{!this.state.giveLike ?
-                                        <div><ThumbUpIcon 
+                                        <div><ThumbUpIcon
                                             onClick={() => this.handleLike(this.props.location.state[5])} /> unlike</div>
                                         : <div>
-                                            <ThumbUpIcon 
+                                            <ThumbUpIcon
                                                 onClick={() => this.handleLike(this.props.location.state[5])} />
-
                                             Like</div>
                                     }</div>
-                                    <div style={{display: "flex"}}><Rating name="half-rating" value={5} precision={0.5}
+                                    <div style={{ display: "flex" }}><Rating name="half-rating" value={5} precision={0.5}
                                         onChange={(e) => this.handlerating(e, this.props.location.state[5])}
                                     /></div>
                                     <div>{this.state.givenRate}</div>

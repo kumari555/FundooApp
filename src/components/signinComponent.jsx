@@ -68,16 +68,16 @@ class SigninComponent extends React.Component {
             }
             signin(data)
                 .then(response => {
-                    // console.log("response in loginpage for details-->", response.data.userId)
+                    console.log("response in loginpage for details-->", response)
                     localStorage.setItem("token", response.data.id)
                     localStorage.setItem("Firstname", response.data.firstName)
                     localStorage.setItem("Lastname", response.data.lastName)
                     localStorage.setItem("Email", response.data.email)
                     localStorage.setItem("userId", response.data.userId)
                     localStorage.setItem("imageURL", imagepath + response.data.imageUrl)
-                 //  console.log("response in loginpage for details-->", response.data.userId)
+                    //  console.log("response in loginpage for details-->", response.data.userId)
                 })
-                       // console.log("response in loginpage Component--->", this.props.location.state.productId)
+            // console.log("response in loginpage Component--->", this.props.location.state.productId)
             // console.log("data in local storage", response.data.userId);
 
             if (this.props.location.state !== undefined) {
@@ -100,15 +100,13 @@ class SigninComponent extends React.Component {
     }
     render() {
         console.log("response in loginpage Component--->", this.props)
-        //console.log("service state in signin", this.props.location.state.productId, this.props.location.state.status, this.props.location.state.color)
-
-        //     var productId = "", status = "", color = "";
-        //     if (this.props.history.location.state !== undefined) {
-        //         status = "selected"
-        //         productId = this.props.history.location.state.productId
-        //         color = "orange"
-        //     }
-        // }
+       
+        var productId = "", status = "", color = "";
+        if (this.props.location.state !== 'undefined') {
+            status = "selected"
+            productId = this.props.location.state.productId
+            color = "orange"
+        }
         return (
             <div className="main-login">
                 <Card className="signinCard">

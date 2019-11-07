@@ -71,14 +71,14 @@ class ShoppingComponent extends React.Component {
     myCartDetails = () => {
         myCartDetails()
             .then(response => {
-                console.log("response of seleted card details:", response.data.data[0].id);
+                console.log("response of seleted card details:", response);
                 this.setState({
                     cartPrice: response.data.data[0].product.price,
                     cartName: response.data.data[0].product.name,
                     cartDescription: response.data.data[0].product.description,
                     cardId: response.data.data[0].id
                 })
-                console.log(" seleted card details after setState:", this.state.cartPrice, this.state.cartName, this.state.cartDescription, this.state.cardId);
+               // console.log(" seleted card details after setState:", this.state.cartPrice, this.state.cartName, this.state.cartDescription, this.state.cardId);
             })
     }
     handleaddress = (e) => {
@@ -99,7 +99,6 @@ class ShoppingComponent extends React.Component {
     //     }
     // }
     handleNext = () => {
-
         var data = {
             cartId: this.state.cardId,
             address: this.state.userAddress

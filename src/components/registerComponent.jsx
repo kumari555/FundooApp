@@ -108,7 +108,7 @@ class RegisterComponent extends React.Component {
             console.log("service infoooo--->", data)
             register(data)
                 .then(response => {
-                    console.log("register data--->", response)
+                    console.log("register databhjncgj--->", response)
                     this.setState({
                         registerData: response
                     })
@@ -121,11 +121,12 @@ class RegisterComponent extends React.Component {
     handleCard = () => {
         this.props.history.push('/serviceComponent')
     }
-    handleSigninInstead(status, color, productId) {
+    handleSigninInstead(status, color, productId,Id) {
         var registerdetails = {
             status: status,
             color: color,
             productId: productId
+
         }
         this.props.history.push('/signin', registerdetails)
     }
@@ -139,14 +140,13 @@ class RegisterComponent extends React.Component {
         }
     }
     render() {
-
-        console.log("service state in register", this.props.location.state)
-
-        var productId = "", status = "", color = "";
+        console.log("service state in register", this.props.location.state.Id)
+        var productId = "", status = "", color = "", Id = "";
         if (this.props.location.state !== 'undefined') {
             status = "selected"
             productId = this.props.location.state.productId
             color = "orange"
+            Id = this.props.location.state.Id
         }
         return (
             <div className="service-main-div">
@@ -238,7 +238,7 @@ class RegisterComponent extends React.Component {
                         </div>
                         <div className="Rbutton">
                             <div><Button size="small" color="primary"
-                                onClick={() => this.handleSigninInstead(status, color, productId)}>
+                                onClick={() => this.handleSigninInstead(status, color, productId, Id)}>
                                 Signin instead
                          </Button></div>
                             <div> <Button variant="outlined" color="primary" onClick={this.handlesignup}>

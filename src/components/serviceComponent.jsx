@@ -58,6 +58,9 @@ class ServiceComponent extends React.Component {
         this.props.history.push('/signin')
     }
     handleRegister(id) {
+        this.setState({
+            cartId: id
+        })
         var data = {
             productId: id,
         }
@@ -98,7 +101,7 @@ class ServiceComponent extends React.Component {
         // const { value } = this.state;
         var serviceDetails = this.state.serviceData.map((key, index) => {
             console.log("in maping--->", key)
-            console.log("in maping--->", index)
+            // console.log("in maping--->", index)
             return (
                 <MuiThemeProvider theme={theme}>
                     <div className="serviceCss" key={key.id}

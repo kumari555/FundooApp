@@ -219,3 +219,10 @@ export function placeOrder(data) {
         }
     })
 }
+export function getCartDetails(cartId) {
+    return axios.get(baseURL + `/productcarts/getCartDetails/${cartId}`, cartId, {
+        headers: {
+            Authorization: localStorage.getItem('token')
+        }
+    })
+}

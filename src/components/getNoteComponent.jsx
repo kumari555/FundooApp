@@ -368,7 +368,8 @@ class GetNoteComponent extends React.Component {
                                         getlikeProps={key.questionAndAnswerNotes}>
                                         <Divider />
                                         <h3>Question Asked</h3>
-                                        {key.questionAndAnswerNotes[key.questionAndAnswerNotes.length - 1 - [key.questionAndAnswerNotes.length - 1]].message}
+                                        <div dangerouslySetInnerHTML={{ __html: key.questionAndAnswerNotes[0].message }}></div>
+
                                     </div>
                                 }
                             </Card>
@@ -421,7 +422,7 @@ class GetNoteComponent extends React.Component {
                                             ></MoreComponent>
                                         </MuiThemeProvider>
                                     </div>
-                                    <div className="dialog-Button"style={{ backgroundColor: key.color }} >
+                                    <div className="dialog-Button" style={{ backgroundColor: key.color }} >
                                         <Button onClick={this.handleUpdateCard} color="primary">
                                             Close
                            </Button></div>
@@ -441,4 +442,4 @@ class GetNoteComponent extends React.Component {
 }
 export default withRouter(GetNoteComponent)
       // <div dangerouslySetInnerHTML={{ __html: "<h1>Hi there!</h1>" }} />
-     //         <div dangerouslySetInnerHTML={{ __html: key.questionAndAnswerNotes[0].message }}></div>
+     //         

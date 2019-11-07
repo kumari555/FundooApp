@@ -50,8 +50,8 @@ class ReminderNoteComponent extends React.Component {
             selectedDate: event.target.value
         })
         console.log("dataaaaaaaaa", this.state.selectedDate);
-        //     if (this.props.remainderChipProps)
-        //  {this.props.reminderPropsToCreateNote(this.state.selectedDate)}
+            if (this.props.remainderChipProps)
+         {this.props.reminderPropsToCreateNote(this.state.selectedDate)}
         var data = {
             noteIdList: [this.props.noteID],
             reminder: this.state.selectedDate
@@ -93,10 +93,10 @@ class ReminderNoteComponent extends React.Component {
             <div>
                 <Tooltip title="reminde me" onClick={this.handlemore}><AddAlertOutlinedIcon /></Tooltip>
                 <Popper id={id} open={open} anchorEl={anchorEl}>
-
+                    <ClickAwayListener onClickAway={this.handleClickAway}>
                     <Paper>
                         <MenuItem>  <h3>remainder: </h3>  </MenuItem>
-                        <MenuItem onClick={this.handleTomarrow}>  <div>Tomarrow</div>  </MenuItem>
+                       
                         <MenuItem>  <div>Select Date and Time :</div>  </MenuItem>
                         <MenuItem>
                             <TextField
@@ -110,13 +110,12 @@ class ReminderNoteComponent extends React.Component {
                         {/**  <MenuItem
                             onClick={this.handleDate}>
                             <div className="saveDate">Save</div></MenuItem> */ }
-                    </Paper>
-
+                        </Paper>
+                    </ClickAwayListener>
                 </Popper>
             </div>
-
-
         )
     }
 }
 export default withRouter(ReminderNoteComponent)
+ // <MenuItem onClick={this.handleTomarrow}>  <div>Tomarrow</div>  </MenuItem>
