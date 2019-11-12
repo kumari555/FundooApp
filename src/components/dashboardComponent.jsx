@@ -129,7 +129,7 @@ class DashboardComponent extends React.Component {
         await this.setState({
             selectedFile: event.target.files[0]
         })
-        console.log("imgae path -->", event.target.files[0]);
+       // console.log("imgae path -->", event.target.files[0]);
         const data = new FormData();
         data.append('file', event.target.files[0])
         //console.log("data of image--->", this.state.selectedFile);
@@ -260,7 +260,7 @@ class DashboardComponent extends React.Component {
                                             : <Tooltip title="Grid view"><GridOnIcon style={{ padding: "10px 1px 1px 1px" }}
                                                 onClick={this.handleGridIcon} /></Tooltip>
                                         }</div>
-                                        <ClickAwayListener onClickAway={this.handleClickAway}>
+                                       
                                             <div>
                                                 <Avatar className="icon-button" onClick={this.handleAccount}>
                                                     {this.state.imageSet ?
@@ -275,6 +275,7 @@ class DashboardComponent extends React.Component {
                                                         />}
                                                 </Avatar>
                                                 <Popper id={id} open={open} anchorEl={anchorEl}>
+                                                <ClickAwayListener onClickAway={this.handleClickAway}>
                                                     <Paper className="profilePaper">
                                                         <div >
                                                             <div className="profileContent">
@@ -319,9 +320,10 @@ class DashboardComponent extends React.Component {
                                                             </div>
                                                         </div>
                                                     </Paper>
+                                                     </ClickAwayListener>
                                                 </Popper>
                                             </div>
-                                        </ClickAwayListener>
+                                       
                                         {this.state.open ?
 
                                             <Dialog

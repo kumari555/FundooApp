@@ -22,48 +22,26 @@ const theme = createMuiTheme({
                 backgroundColor: "#0a66b7"
             }
         },
-
-
-        MuiPaper: {
-            root: {
-
-                // backgroundColor: "rgba(0, 0, 0, 0.35)"
-            }
-        },
-        MuiButton: {
-            root: {
-                color: "#f44336"
-            }
-        },
-        // MuiButtonBase: {
-        //     root: {
-        //         backgroundColor: "#6eb8d4"
-        //     }
-        // },
-        MuiPaper: {
-            rounded: {
-                borderRadius: "14px"
-            }
-        },
-        MuiButton: {
-            root: {
-                borderRadius: "11px",
-                "background- color": "#B0E0E6"
-            }
-        },
-        MuiPaper:{
-rounded: {
-               " border- radius":" 14px",
-            height:" 36px"
-        } 
-     
-}
     }
 })
+// const theme = createMuiTheme({
+//     overrides: {
+//         MuiDivider: {
+//             root: {
+//                 height: "3px",
+//                 backgroundColor: "#0a66b7"
+//             }
+//         },
+//         MuiAppBar: {
+//             colorPrimary: {
+//                 backgroundColor: " #6eb8d4"
+//             }
+//         }
+//     }
+// })
 function getSteps() {
     return ['signin', 'Review', 'Complete'];
 }
-
 class ShoppingComponent extends React.Component {
     constructor(props) {
         super(props)
@@ -124,7 +102,6 @@ class ShoppingComponent extends React.Component {
             activeStep: state.activeStep + 1,
             address: true,
         }));
-
     };
     handleBack = () => {
         this.setState(state => ({
@@ -144,10 +121,8 @@ class ShoppingComponent extends React.Component {
             <div className="main-shopping-div">
                 <MuiThemeProvider theme={theme}>
                     <div className="shopping-inner-div-1">
-                        <Card className="fundoo-align"
-                            style={{
-                           }}> fundonotes</Card>
-                       
+                        <div className="fundoo-div">fundooNotes</div>
+
                         <div style={{ width: "100%" }}>
                             <Stepper activeStep={activeStep} alternativeLabel>
                                 {steps.map(label => (
@@ -156,42 +131,43 @@ class ShoppingComponent extends React.Component {
                                     </Step>
                                 ))}
                             </Stepper></div>
-                        <div className="shopping-button">
-                            {this.state.activeStep === steps.length ? (
-                                <div>
-                                    <Typography >All steps completed</Typography>
-                                    <Button onClick={this.handleReset}>Reset</Button>
-                                </div>
-                            )
-                                :
-                                (
-                                    <div className="shopping-button">
-                                        <Button
-                                            disabled={activeStep === 0}
-                                            onClick={this.handleBack}>
-                                            Back
-                                            </Button>
-                                        <Button onClick={this.handleNext}>
-                                            {activeStep === 1 ?
-                                                'place your order' : (activeStep === 2
-                                                    ? 'finish' : 'proceed to checkout')
-                                            }
-                                        </Button>
-                                    </div>
-                                )}
-                        </div>
+
                     </div>
                     <div style={{ marginTop: "-5%" }} className="divider-div"><h3>Shoping Card</h3>
                         <Divider className="divider-align" /></div>
                     <div className="shopping-inner-div-2">
                         <div style={{ display: " flex", width: "100%" }}>
                             <Card className="shoppingCard">${this.state.cartPrice}per month {this.state.cartName}</Card>
-                            <div className="description-align">{this.state.cartName}pack Details
-                        <li>{this.state.cartDescription}</li></div></div>
-                        <div style={{ display: " flex", justifyContent: "space-around", width: " 100%" }}><div className="prise-tag"> <h4>price</h4>
-                            ${this.state.cartPrice}</div>
-                            <div className="prise-tag"><h4>validity</h4> per month</div>
-                            <div className="shoppingButton"><div>SubTotal(1 item):${this.state.cartPrice}</div></div>
+                            <div className="description-align">
+                                <p style={{
+                                    color: "#0a66b7",
+                                    fontSize: "14px",
+                                    marginTop: "-1%"
+                                }}>
+                                    {this.state.cartName}pack Details</p>
+                                <li>{this.state.cartDescription}</li></div></div>
+                        <div style={{ display: " flex", justifyContent: "space-around", width: " 100%" }}>
+                            <div className="prise-tag"> <h4>price</h4>
+                                <div style={{
+                                    color: "#0a66b7",
+                                    fontSize: "15px",
+                                    marginTop: "-18%"
+                                }}>${this.state.cartPrice}</div></div>
+                            <div className="prise-tag"><h4>validity</h4>
+                                <div style={{
+                                    color: "#0a66b7",
+                                    fontSize: "15px",
+                                    marginTop: "-27%"
+                                }}>per month</div></div>
+                            <div className="shoppingButton"><div>SubTotal(1 item):${this.state.cartPrice}</div>
+                                <div className="button-succes"
+                                    onClick={this.handleNext}>
+                                    {activeStep === 1 ?
+                                        'place your order' : (activeStep === 2
+                                            ? 'finish' : 'proceed to checkout')
+                                    }
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div className="divider-div">
@@ -240,3 +216,6 @@ class ShoppingComponent extends React.Component {
     }
 }
 export default withRouter(ShoppingComponent);
+// <Card className="fundoo-align"
+//     style={{
+//     }}> fundonotes</Card>
