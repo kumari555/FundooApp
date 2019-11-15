@@ -110,8 +110,10 @@ class MoreComponent extends React.Component {
         return (
             <div>
                 <div>
+                
                     <Tooltip title="more" onClick={this.handlemore}><MoreVertOutlinedIcon /></Tooltip>
                     <Popper id={id} open={open} anchorEl={anchorEl}>
+                          <ClickAwayListener onClickAway={this.handleClickAway}>
                         <Paper><MenuItem onClick={this.handleDeleteNote}>
                             <div>Delete note</div></MenuItem>
                             <LabelComponent labelToNote={this.props.noteID} getLabelProps={this.handleLabelData}
@@ -127,7 +129,7 @@ class MoreComponent extends React.Component {
                             : null
                             }
                         </Paper>
-
+                        </ClickAwayListener>
                     </Popper>
                 </div>
             </div>

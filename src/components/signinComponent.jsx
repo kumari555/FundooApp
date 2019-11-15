@@ -155,7 +155,7 @@ class SigninComponent extends React.Component {
                         />
                     </div>
                     <div className="login-button">
-                        <Button variant="outlined" color="primary" onClick={() => this.handleLogin(this.props.location.state.Id)}>
+                        <Button variant="outlined" color="primary" onClick={() => this.handleLogin()}>
                             Login
                      </Button>
                     </div>

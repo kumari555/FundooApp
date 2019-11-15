@@ -123,7 +123,7 @@ class ShoppingComponent extends React.Component {
                     <div className="shopping-inner-div-1">
                         <div className="fundoo-div">fundooNotes</div>
 
-                        <div style={{ width: "100%" }}>
+                        <div style={{ width: "100%", marginTop: " -2%" }}>
                             <Stepper activeStep={activeStep} alternativeLabel>
                                 {steps.map(label => (
                                     <Step key={label}>
@@ -131,7 +131,6 @@ class ShoppingComponent extends React.Component {
                                     </Step>
                                 ))}
                             </Stepper></div>
-
                     </div>
                     <div style={{ marginTop: "-5%" }} className="divider-div"><h3>Shoping Card</h3>
                         <Divider className="divider-align" /></div>
@@ -164,7 +163,7 @@ class ShoppingComponent extends React.Component {
                                     onClick={this.handleNext}>
                                     {activeStep === 1 ?
                                         'place your order' : (activeStep === 2
-                                            ? 'finish' : 'proceed to checkout')
+                                            ? null : 'proceed to checkout')
                                     }
                                 </div>
                             </div>
