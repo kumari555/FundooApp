@@ -124,7 +124,7 @@ class DashboardComponent extends React.Component {
 
         this.props.SearchNotes(event.target.value)
     }
-
+    
     handleProfileImage = async (event) => {
         await this.setState({
             selectedFile: event.target.files[0]
@@ -133,7 +133,6 @@ class DashboardComponent extends React.Component {
         const data = new FormData();
         data.append('file', event.target.files[0])
         //console.log("data of image--->", this.state.selectedFile);
-
         ProfileImage(data)
             .then(response => {
                 console.log("data of image--->", response.data.status.imageUrl)
@@ -143,16 +142,12 @@ class DashboardComponent extends React.Component {
                     imageSet: true
                 })
                 localStorage.setItem("imageURL", this.state.selectedFile)
-
-
                 console.log("after setting state image url", this.state.selectedFile);
-
             })
             .catch(err => {
                 console.log("err while updating", err);
             })
     }
-
     handleListIcon = async () => {
         await this.setState({
             listOpen: !this.state.listOpen

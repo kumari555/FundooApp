@@ -15,7 +15,7 @@ export function addToCart(data) {
 }
 export function ProfileImage(data) {
     return axios.post(baseURL + '/user/uploadProfileImage', data,
-        {
+        { 
             headers: {
                 // 'Content- Type': 'multipart/ form - data',
                 Authorization: localStorage.getItem("token")

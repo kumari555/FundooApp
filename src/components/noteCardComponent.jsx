@@ -109,9 +109,7 @@ class NotecardComponent extends React.Component {
             .then(response => {
                 console.log("data in addNotes--->", response.data.status.details)
                 this.setState({
-                 
                     noteData: response.data.status.details,
-                  
                     Tittle: "",
                     Description: "",
                     selectedDate: "",
@@ -120,14 +118,14 @@ class NotecardComponent extends React.Component {
                 // console.log("notedata", this.state.noteData);
                 this.props.noteCard(this.state.noteData)
             })
-    }
+    }                            
     handlearchiveNote = () => {
         this.setState({
             isArchived: true
         })
     }
     handleCheckItem = (value) => {
-        console.log("data to data ---->", value);
+        console.log("data to data ------->", value);
         this.setState({
             checkItem: !this.state.checkItem
         })
@@ -234,7 +232,6 @@ class NotecardComponent extends React.Component {
                                         <MoreComponentOfNote ckeckListProps={this.handleCheckItem}>
                                         </MoreComponentOfNote>
                                     </Tooltip>
-
                                     <Tooltip title="undo">
                                         <UndoOutlinedIcon /></Tooltip>
 

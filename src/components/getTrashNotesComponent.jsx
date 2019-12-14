@@ -191,7 +191,6 @@ class GetTrashNotesComponent extends React.Component {
                                     />
                                 )
                             })}
-
                             <div className="align-icons">
                                 <MuiThemeProvider theme={theme}>
                                     <TrashMoreComponent onClick={this.handleClickOpen}

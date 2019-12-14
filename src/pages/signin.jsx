@@ -3,7 +3,7 @@ import SigninComponent from '../components/signinComponent';
 class Signin extends Component {
    
     render() {
-     //   console.log("response in loginpage--->", this.props)
+    //    console.log("response in loginpage--->", this.props)
         return (
             <div>
                 <SigninComponent />

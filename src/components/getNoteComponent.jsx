@@ -251,7 +251,7 @@ class GetNoteComponent extends React.Component {
     render() {
         console.log("dataaaaaaaaaaaaaaa", this.state.color);
         var list = this.props.gridViewProps ? "noteList" : null
-        var getNoteDetails = this.state.getNoteData.reverse().filter(searchFunction(this.props.SearchingNotesProps)).map((key, index) => {
+        var getNoteDetails = this.state.getNoteData.map((key, index) => {
             //console.log("data in key-->", key)
             //console.log("data in indexfffffff-->", key.questionAndAnswerNotes.message)
             console.log("keyyyyyyyyyyyyyyy--->", key.questionAndAnswerNotes);
